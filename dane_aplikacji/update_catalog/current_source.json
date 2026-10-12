@@ -1,0 +1,492 @@
+{
+  "version": "1.26",
+  "build_id": "20260914-191235",
+  "token": "70858386767de873",
+  "files": [
+    {
+      "path": "app.py",
+      "sha256": "2974fc2b3d0088985a9160b368f51a9721d8740962e0551c29db30bca04bf734",
+      "size": 192224
+    },
+    {
+      "path": "Przywroc_dane.bat",
+      "sha256": "fd282e82fdf40d7e8b8a6482b35f48e19df871327b1eaa3453299b4a3917acee",
+      "size": 69
+    },
+    {
+      "path": "restore_data.py",
+      "sha256": "25659cf2b0f073bf0c7554c682e65761767414443ac543092463d29e6e6c12e7",
+      "size": 2083
+    },
+    {
+      "path": "start.vbs",
+      "sha256": "a24c8d3addc2d25d01ce8db918aa27127be49621a9225cf3d7f174e9598a7b88",
+      "size": 230
+    },
+    {
+      "path": "updater.py",
+      "sha256": "3c04a0f79c776f71dd43d0b5b876cd932df136f09faefabc81ec9ab780c2c972",
+      "size": 4327
+    },
+    {
+      "path": "Uruchom_web.bat",
+      "sha256": "71ee1d81dc3bc2a6089bd69f0a12fd655b2ebbe8bcf8dfbff42ef391b211e9d2",
+      "size": 489
+    },
+    {
+      "path": "version.json",
+      "sha256": "1119610697cd72212cd6592b4248aee5fcb302ac2cf1d74bd9d2e65d58ce09c5",
+      "size": 99
+    },
+    {
+      "path": "Zastosuj_aktualizacje.bat",
+      "sha256": "27f5fa6fbc9391bd129b4f9fc1d36321fae0425e7d2e9aec7196e2eb6591c834",
+      "size": 79
+    },
+    {
+      "path": "core/bct.py",
+      "sha256": "3a1c8596867e6d8bbc6f5d47459318632ddf3a0d7714ba4ffcdfff99142f8716",
+      "size": 1775
+    },
+    {
+      "path": "core/document_safety.py",
+      "sha256": "7aa19c17e0572169df1fbf4a4263302b42df11fdcf36f6ed461800162a950d5f",
+      "size": 1017
+    },
+    {
+      "path": "core/email_html.py",
+      "sha256": "aa8c85b0063203dcc83aaadb761f0c4de6698636cf9418927e25b7833b2e7865",
+      "size": 893
+    },
+    {
+      "path": "core/packaging.py",
+      "sha256": "2150c8c09a503f41ea11b50f4542660e7585dde2c79343577743c1d2c6971279",
+      "size": 2579
+    },
+    {
+      "path": "core/pallets.py",
+      "sha256": "848abd20c35e732ef74ad31d344798b82fb4344c0bc5c9c662c32e5a05da5974",
+      "size": 3614
+    },
+    {
+      "path": "core/pallet_optimization.py",
+      "sha256": "40de79f1ba3400f4452a9005bc344e3fcdd4c88fa0775b0e33528c49cae343d7",
+      "size": 5591
+    },
+    {
+      "path": "core/ppwr.py",
+      "sha256": "9cc3ed864f7a90db850132647430cfadace3e479d859828ad3f23127a522130c",
+      "size": 5701
+    },
+    {
+      "path": "core/qa.py",
+      "sha256": "b0618558b07cc11b5578ce8c876884f979fc1f71eade83f0e8d0245591c92f37",
+      "size": 1652
+    },
+    {
+      "path": "core/vat.py",
+      "sha256": "5684c6fc3cb08897972ed12ec1c623e6c0e15a056dd9a02a1fbb0958be1d802e",
+      "size": 531
+    },
+    {
+      "path": "core/__init__.py",
+      "sha256": "d74767b6a96013ea6fce2f36304b9bf9ba66986ddb5d654e982a101e1c0ebf1b",
+      "size": 190
+    },
+    {
+      "path": "modules/artwork_approval_screen.py",
+      "sha256": "30e014087992146bc8602ffb60e6de925b106fc5cc5994fe940ab867bca12d0c",
+      "size": 550
+    },
+    {
+      "path": "modules/backup_center_screen.py",
+      "sha256": "7fe34532a34ccd434e4b4e79a91eb4184a7b23c516a0fd345e74ab7c126393d7",
+      "size": 2235
+    },
+    {
+      "path": "modules/bobbin_calculator_screen.py",
+      "sha256": "536e73dc51701d107a86a816570b9552d452712d5d31f56e7aae20730531956b",
+      "size": 25475
+    },
+    {
+      "path": "modules/catalog_import_screen.py",
+      "sha256": "b0b27d1621ad19ff5e8160b4191dd44d4321abbdad9d12d559c1bb6fc14fdd00",
+      "size": 74692
+    },
+    {
+      "path": "modules/client_commercial_screen.py",
+      "sha256": "705ed943099a47aea69d0196a68f5fe7835a50a5279eedf29d4b7d106bdeb34a",
+      "size": 28823
+    },
+    {
+      "path": "modules/client_portal_screen.py",
+      "sha256": "31c229478bdf6c9321846ae81aefad22915142afb34939c9dbd28677eefd7d48",
+      "size": 5714
+    },
+    {
+      "path": "modules/client_product_card_screen.py",
+      "sha256": "cb0a72fb8e411a0bd2060e2b3699b2bff766e5467263c00eef5be76d257803ae",
+      "size": 10472
+    },
+    {
+      "path": "modules/email_screen.py",
+      "sha256": "cb068aa351b19e19737370671d7327be25ebc7a6c9eacccc0dce4bfeef29ef33",
+      "size": 13772
+    },
+    {
+      "path": "modules/form_widgets.py",
+      "sha256": "60bbde06bfb14ce2daabc5891b614c322cb279625cad62ddd98780d8ed946cc1",
+      "size": 2780
+    },
+    {
+      "path": "modules/generators_screen.py",
+      "sha256": "f7bb3fc81478e799ded85fbafac0a9cc3f0582ad5a740e8a09b9e5351a7521d2",
+      "size": 10954
+    },
+    {
+      "path": "modules/integrations_screen.py",
+      "sha256": "861060a2d309f7530b0bbf03dc5e7bcdb9dec8ae189b473c589507c95102b295",
+      "size": 10712
+    },
+    {
+      "path": "modules/inventory_screen.py",
+      "sha256": "7918da2c0ef58a01413651ab51067f971fa7ed4e80a036cd6c278074bd325e5a",
+      "size": 21755
+    },
+    {
+      "path": "modules/material_library_screen.py",
+      "sha256": "61c4862742f727efe7880f75162a782ce840335a2afc5c5b4e3e13496b5f1c48",
+      "size": 5470
+    },
+    {
+      "path": "modules/module6_screen.py",
+      "sha256": "499cbe7a4aea67c50b49852eeff3fea6a791a05b2f0690c661a6efc4baa7495e",
+      "size": 18942
+    },
+    {
+      "path": "modules/module7_screen.py",
+      "sha256": "47ec729dfe80ab28c0acd5ce0a7cb0526d35aaa5f747f9d6401d0187c8c913e3",
+      "size": 27142
+    },
+    {
+      "path": "modules/module8_screen.py",
+      "sha256": "2f165c610b47d8ce33c991bf31cabccbba60237e38ee306861c4a94b497a5758",
+      "size": 49411
+    },
+    {
+      "path": "modules/order_center_actions.py",
+      "sha256": "8ff37ec506c7ee21a4cb5eb970e8078f3490632748f03a977fa03cfe4c8362ad",
+      "size": 3361
+    },
+    {
+      "path": "modules/order_center_dashboard.py",
+      "sha256": "bff604f8a84d4c8beb6821033a3efb98dbde0b9551b109169391e82800ca38eb",
+      "size": 6306
+    },
+    {
+      "path": "modules/order_center_documents.py",
+      "sha256": "af93fd6e36be20486ebc8516f8cec5c5a3ab91a6e2c763418d24fe4adb27cfd2",
+      "size": 8049
+    },
+    {
+      "path": "modules/order_center_screen.py",
+      "sha256": "bc8e8e7d1e4396ce54193423956fb3aac758cdd7186fff44846fc4c81c8b4c4a",
+      "size": 29375
+    },
+    {
+      "path": "modules/order_center_statuses.py",
+      "sha256": "b7c5f7b988f310937215089d9fb31742add8bfd42c9d9e203e68ae44900b40ac",
+      "size": 1575
+    },
+    {
+      "path": "modules/palletization_screen.py",
+      "sha256": "95fce3059faa4075819edd4e494a00fcef7ceecf772597d2af68a71f74880418",
+      "size": 42509
+    },
+    {
+      "path": "modules/pallet_optimization_screen.py",
+      "sha256": "25761b87f9069bdbc825dd04ec3a905b5edfdb00086b33b7d4dd2b2851a53cb4",
+      "size": 18972
+    },
+    {
+      "path": "modules/ppwr_diagram.py",
+      "sha256": "6fa88345e65d24e0da4b9af10e273c4e99b7cfce08d114a6559fd01b9234c2a0",
+      "size": 9771
+    },
+    {
+      "path": "modules/ppwr_screen.py",
+      "sha256": "b12921b74043f69e13a36cb1dd845f258cf606db45a68028da4c3bc310c24e94",
+      "size": 69496
+    },
+    {
+      "path": "modules/preflight_dtp_screen.py",
+      "sha256": "24ebdf3ef54f53177c18d10c8c91f85c532607669cd19f98a35df4d569d2f06f",
+      "size": 3610
+    },
+    {
+      "path": "modules/preorder_screen.py",
+      "sha256": "27af46a34b576be11ebef4cf4a9fb9a7ea98b278a54871e8b9cc22d5f4b03a0a",
+      "size": 31287
+    },
+    {
+      "path": "modules/production_documents_full_screen.py",
+      "sha256": "3f28d6d8a383a06db87ee7ac069e17c6d4eb1b6a8d65a6b3be1b10a649d3a576",
+      "size": 124890
+    },
+    {
+      "path": "modules/production_documents_screen.py",
+      "sha256": "2f369b6fbc4f0ab17eb721441b20e46062e314cd56a35ac9bfdfea5a84b44083",
+      "size": 22311
+    },
+    {
+      "path": "modules/production_document_actions.py",
+      "sha256": "bfb8109735cc091fc76e83cdf64aebe004025ece7945c62c1fa0a6519f8d7721",
+      "size": 3729
+    },
+    {
+      "path": "modules/production_document_form_actions.py",
+      "sha256": "a6fe2188b1f34be0c2b4934c8fe9d68f3e80271b888917b2ea57bc5b56a9e518",
+      "size": 2570
+    },
+    {
+      "path": "modules/production_document_form_data.py",
+      "sha256": "d3a721637dea5038a1a6edce9ef307c38bd56b8bb05c73bc41bbc0de7f77c4e2",
+      "size": 7086
+    },
+    {
+      "path": "modules/production_planner.py",
+      "sha256": "aa6614814b27e70bcf073dcd8a9f7f17a88c39ea10b6604e1c27699ad9c997fd",
+      "size": 6309
+    },
+    {
+      "path": "modules/project_archive_screen.py",
+      "sha256": "d41a88b92fbdb9e3f98b400de4ba9edf8bf6d31a4b32e606313687d004b4f7e4",
+      "size": 555
+    },
+    {
+      "path": "modules/qa_screen.py",
+      "sha256": "441cd9950a25869d5653105967c0534680b803ca666f2f664efa51998077f7c7",
+      "size": 34243
+    },
+    {
+      "path": "modules/transport_screen.py",
+      "sha256": "7b9a54c5704344dc3cfa5732752c2620ca17a2c965745c20b17fca307875f3e1",
+      "size": 9319
+    },
+    {
+      "path": "modules/update_screen.py",
+      "sha256": "8e5fda61d31ee06f1c18192b70e3891732cb06352e3e1bf0281d6de039ffbd9b",
+      "size": 9604
+    },
+    {
+      "path": "modules/user_admin_screen.py",
+      "sha256": "00e93051039340a444c17553a365e83d5660236fcabcf6eea80d748d723e5a5d",
+      "size": 6522
+    },
+    {
+      "path": "modules/work_settlement_archive_screen.py",
+      "sha256": "6a7175a6d328fb06f0d3c4ddf9edc6480b725bd5acc816faa4052210e0abc5f4",
+      "size": 16207
+    },
+    {
+      "path": "modules/work_settlement_screen.py",
+      "sha256": "d5b0080a803c47921871c2b13e281fbe524d689cad7ed5e862afc00e81daf624",
+      "size": 13656
+    },
+    {
+      "path": "modules/__init__.py",
+      "sha256": "2d003fd26ccb375cad1ff81ddb416b853c169a3b5cba1cf9d51a1b8bbc06cbc0",
+      "size": 54
+    },
+    {
+      "path": "services/backup_center.py",
+      "sha256": "f977925b306e79722c5670b5b8e9522000b3d7a621d2792b6710280eefc39624",
+      "size": 3420
+    },
+    {
+      "path": "services/bct_documents.py",
+      "sha256": "46630c2a92d4c81ff042f86bd73746b0fde0f3fc688ade51d0ed3e410b6891ac",
+      "size": 2915
+    },
+    {
+      "path": "services/data_backup_manager.py",
+      "sha256": "fd3dbc6a7271df34a0ac2504105ba799f93333fbc817859410101e274f8cc3cb",
+      "size": 4267
+    },
+    {
+      "path": "services/document_bundle.py",
+      "sha256": "466aec3989a20b0d4c917ab397204e21c36e28a52ebd39d439f73ded80df9d28",
+      "size": 1623
+    },
+    {
+      "path": "services/document_generation.py",
+      "sha256": "f6ba279ac4232c2e175f44ca6d4c0ae677467134a6762a8abde6b855445a57d3",
+      "size": 816
+    },
+    {
+      "path": "services/document_storage.py",
+      "sha256": "85cb691d7b46e47e13bee6fca13c8bf9d87b326b8562a647ad6bdebdb6e4df65",
+      "size": 5705
+    },
+    {
+      "path": "services/email_attachments.py",
+      "sha256": "ed3858e29556aba88b0a1d68cb2e54061640f511e668f076aeb17dddd2211388",
+      "size": 811
+    },
+    {
+      "path": "services/email_presentation.py",
+      "sha256": "91dd39ee910865645aa2e30cf10435460e122098cd3547478b40a8d4d057bc31",
+      "size": 3184
+    },
+    {
+      "path": "services/email_service.py",
+      "sha256": "43daa76ef70784d90cd7626dcdeb31a2764d11e88d9861ac3b69f30ec6523958",
+      "size": 2246
+    },
+    {
+      "path": "services/inventory.py",
+      "sha256": "d31b15f39e9a5d88a4aaf85fe4d1fec94a361e221ac613ae93e4390b3fa0b5bd",
+      "size": 25925
+    },
+    {
+      "path": "services/mastercase_documents.py",
+      "sha256": "da542ab03ada648bdf9596664f8da187501067365bb95a7bee0987aa673a353a",
+      "size": 3875
+    },
+    {
+      "path": "services/navigation.py",
+      "sha256": "0e61cd8d11331ab74136c969faaecbe45593696026385c61e5797b9bbfb2429c",
+      "size": 1258
+    },
+    {
+      "path": "services/order_center_analysis.py",
+      "sha256": "f41a75392f5e7d909b29bbd2e4da8c0186dd176589e97754c8fd09b067fac043",
+      "size": 7302
+    },
+    {
+      "path": "services/order_context.py",
+      "sha256": "6ad4419a768b21c64d1e3b7f30f6f158f48c98438f22ba097440cac9997407c0",
+      "size": 2449
+    },
+    {
+      "path": "services/order_copy.py",
+      "sha256": "3db168837ff496159f7f8b0bc7bfd9d3b29407b9a1b04f72912116c2ddbf74b9",
+      "size": 2844
+    },
+    {
+      "path": "services/order_documents.py",
+      "sha256": "10bfeed1221249cd17a9d64154bca465223415c9360bf6bf9d1a3a1327dc39dd",
+      "size": 5307
+    },
+    {
+      "path": "services/order_registry.py",
+      "sha256": "58d8d90ea9507b61c6bcbce92fc6e713a138bb370520d4ac2dd56f4c76105733",
+      "size": 3571
+    },
+    {
+      "path": "services/order_requirements.py",
+      "sha256": "c352505ac76b1d7fc1c686381318798dbcb55a3a8ce1341253dc5ebce398c1d1",
+      "size": 1299
+    },
+    {
+      "path": "services/packing_documents.py",
+      "sha256": "6b2ac1527df13e2417571c5364203b6ec156e2de06b7d29474369f1cabd736b3",
+      "size": 6262
+    },
+    {
+      "path": "services/pallet_documents.py",
+      "sha256": "7f9442cf6855cd38d9ea600d40a6dd720f48dad39d49c63c15d48e9a49f96082",
+      "size": 2968
+    },
+    {
+      "path": "services/pallet_layout_documents.py",
+      "sha256": "a881a4fcd2cb77cac615cf39d798a3655ea8e7c9d3c4e79e030912d3a4d5e677",
+      "size": 3355
+    },
+    {
+      "path": "services/pdf_visual.py",
+      "sha256": "ef952a3ed8d48a2892f0619864983183bdc3371f77503e1c86608a66243e1a95",
+      "size": 2104
+    },
+    {
+      "path": "services/ppwr_documents.py",
+      "sha256": "639169117f9e2f389e917d464357114969bf8b91582e8309dfdf64952f0172e2",
+      "size": 28127
+    },
+    {
+      "path": "services/preflight_dtp.py",
+      "sha256": "2225b7ab7ea4702e0aa08fe71db239aa143a0e8516332a698837bb9ccc5d9f4e",
+      "size": 10559
+    },
+    {
+      "path": "services/preorder_documents.py",
+      "sha256": "e104f72c4ad063836542339e5392f2c485193ede6274e75bfff4fbc2a2febdf3",
+      "size": 12605
+    },
+    {
+      "path": "services/production_documents.py",
+      "sha256": "7b684da40c7472c5d94970d8a9739dcbefa0eb24df31830a988f0505a2497cd8",
+      "size": 36304
+    },
+    {
+      "path": "services/production_planning.py",
+      "sha256": "db83916ff66b615195fd98e4899bc797a15eca107ae20055f900b71fc5544693",
+      "size": 2849
+    },
+    {
+      "path": "services/production_schedule_pdf.py",
+      "sha256": "30afe1dc3378b72feb00986294fc172a346fdde0ff947f6d36afc87ce54587f0",
+      "size": 6753
+    },
+    {
+      "path": "services/product_catalog.py",
+      "sha256": "5f3d16c14c797ed07a47dc58573e200ca8410674f4d2d4301e50e1d3700f2b29",
+      "size": 6242
+    },
+    {
+      "path": "services/qa_files.py",
+      "sha256": "6f5497e4e909b84bb3c5a93bfc77efdda5b28c8b69818f4cdd2d9fc566a05e6c",
+      "size": 2539
+    },
+    {
+      "path": "services/smtp_message.py",
+      "sha256": "8c54d2896e975d0a26cdf03755b403267d7aa1d2a029ca6bb07f7c169d4a1b0c",
+      "size": 1817
+    },
+    {
+      "path": "services/storage.py",
+      "sha256": "364a364321b1fa89d3f15b3254ba1faa546b3a8759b6706707073c43b1960770",
+      "size": 3670
+    },
+    {
+      "path": "services/transport_documents.py",
+      "sha256": "dce4719cc398af057fa5e03d59893068fef4919f416c2a431438e9c7ec387398",
+      "size": 4796
+    },
+    {
+      "path": "services/update_manager.py",
+      "sha256": "28c3aca58ef3a230f646ae61ce915f736b6c4b996b22f1dd739df3b574f2f904",
+      "size": 11484
+    },
+    {
+      "path": "services/user_access.py",
+      "sha256": "ebb79ff89c195d2d4750b55f8049021e146e1148f8459001cd6a1ab0bcf6cf21",
+      "size": 3569
+    },
+    {
+      "path": "services/validation.py",
+      "sha256": "056d1a265f2826371f860c928d0152f518d9e97f9ca026d160d24462672c4f8d",
+      "size": 1037
+    },
+    {
+      "path": "services/work_settlement_documents.py",
+      "sha256": "55a34f3ae8990079b46958e4f2cf3e9a0ebe42976171092b41d0aa1d12e2672a",
+      "size": 7840
+    },
+    {
+      "path": "services/__init__.py",
+      "sha256": "f9fd43b71af34b9f1717fa2c7f9bba2c80783f8b890cd0e61648223ef6bfcbd5",
+      "size": 76
+    }
+  ]
+}

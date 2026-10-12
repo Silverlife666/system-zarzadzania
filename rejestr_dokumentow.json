@@ -1,0 +1,3328 @@
+{
+  "ORD-20260823-183724": {
+    "created_at": "2026-08-23T19:04:51",
+    "documents": [
+      {
+        "type": "ZAMÓWIENIE",
+        "created_at": "2026-08-23T19:04:51",
+        "status": "wygenerowany",
+        "file_name": "ZAM_WIENIE.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\ZAM_WIENIE.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "source": "PDF TDS/Zamówienie"
+        },
+        "version": 105,
+        "history": [
+          {
+            "at": "2026-08-23T19:04:51",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:04:51",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:04:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:04:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:02:48",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:02:48",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:22:06",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:22:06",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:32",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:33",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:10",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:10",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:25",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:25",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:19",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:34:50",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:34:50",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:40:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:40:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:02:55",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:02:55",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:03:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:03:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:03:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:03:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:04:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:04:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:07:32",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 37,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v37.pdf"
+          },
+          {
+            "at": "2026-08-23T21:07:32",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 38,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v38.pdf"
+          },
+          {
+            "at": "2026-08-23T21:07:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 39,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v39.pdf"
+          },
+          {
+            "at": "2026-08-23T21:07:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 40,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v40.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:20",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 41,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v41.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:20",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 42,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v42.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 43,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v43.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 44,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v44.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:49",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 45,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v45.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:49",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 46,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v46.pdf"
+          },
+          {
+            "at": "2026-08-23T21:10:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 47,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v47.pdf"
+          },
+          {
+            "at": "2026-08-23T21:10:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 48,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v48.pdf"
+          },
+          {
+            "at": "2026-08-23T21:11:13",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 49,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v49.pdf"
+          },
+          {
+            "at": "2026-08-23T21:11:13",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 50,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v50.pdf"
+          },
+          {
+            "at": "2026-08-23T21:13:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 51,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v51.pdf"
+          },
+          {
+            "at": "2026-08-23T21:13:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 52,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v52.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 53,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v53.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 54,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v54.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 55,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v55.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 56,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v56.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 57,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v57.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 58,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v58.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 59,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v59.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 60,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v60.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:14",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 61,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v61.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:14",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 62,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v62.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 63,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v63.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 64,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v64.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 65,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v65.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 66,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v66.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 67,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v67.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 68,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v68.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 69,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v69.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 70,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v70.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 71,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v71.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 72,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v72.pdf"
+          },
+          {
+            "at": "2026-08-23T21:17:02",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 73,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v73.pdf"
+          },
+          {
+            "at": "2026-08-23T21:17:02",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 74,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v74.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:58",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 75,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v75.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:58",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 76,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v76.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 77,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v77.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 78,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v78.pdf"
+          },
+          {
+            "at": "2026-08-23T21:19:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 79,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v79.pdf"
+          },
+          {
+            "at": "2026-08-23T21:19:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 80,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v80.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:37",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 81,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v81.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:37",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 82,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v82.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 83,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v83.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 84,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v84.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 85,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v85.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 86,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v86.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 87,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v87.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 88,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v88.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:30",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 89,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v89.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:30",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 90,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v90.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 91,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v91.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 92,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v92.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:22",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 93,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v93.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:22",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 94,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v94.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 95,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v95.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 96,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v96.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 97,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v97.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 98,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v98.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 99,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v99.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 100,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v100.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:52",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 101,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v101.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:52",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 102,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v102.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 103,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v103.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 104,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\ZAM_WIENIE_v104.pdf"
+          }
+        ],
+        "document_key": "ZAM_WIENIE.pdf"
+      },
+      {
+        "type": "E-Order",
+        "created_at": "2026-08-23T19:04:51",
+        "status": "wygenerowany",
+        "file_name": "e_order.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\e_order.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "order_no": "ORD-20260823-183724",
+          "recipient": "Test ",
+          "response_status": "wysłano",
+          "language": "en"
+        },
+        "version": 128,
+        "history": [
+          {
+            "at": "2026-08-23T19:04:51",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:04:51",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:00",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:00",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:02:48",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:02:48",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:22:06",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:22:06",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:33",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:33",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:54",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:54",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:10",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:10",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:25",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:25",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:19",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:19",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:34:50",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:34:50",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:40:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:40:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:02:55",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:02:55",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:03:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:03:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:03:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:03:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:04:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:04:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:07:32",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 36,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v36.pdf"
+          },
+          {
+            "at": "2026-08-23T21:07:32",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 37,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v37.pdf"
+          },
+          {
+            "at": "2026-08-23T21:07:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 38,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v38.pdf"
+          },
+          {
+            "at": "2026-08-23T21:07:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 39,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v39.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:20",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 40,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v40.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:20",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 41,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v41.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 42,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v42.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 43,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v43.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:49",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 44,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v44.pdf"
+          },
+          {
+            "at": "2026-08-23T21:08:49",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 45,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v45.pdf"
+          },
+          {
+            "at": "2026-08-23T21:10:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 46,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v46.pdf"
+          },
+          {
+            "at": "2026-08-23T21:10:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 47,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v47.pdf"
+          },
+          {
+            "at": "2026-08-23T21:11:13",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 48,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v48.pdf"
+          },
+          {
+            "at": "2026-08-23T21:11:13",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 49,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v49.pdf"
+          },
+          {
+            "at": "2026-08-23T21:13:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 50,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v50.pdf"
+          },
+          {
+            "at": "2026-08-23T21:13:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 51,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v51.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 52,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v52.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 53,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v53.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 54,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v54.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 55,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v55.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 56,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v56.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 57,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v57.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 58,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v58.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 59,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v59.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:14",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 60,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v60.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:14",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 61,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v61.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 62,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v62.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 63,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v63.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 64,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v64.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 65,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v65.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 66,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v66.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 67,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v67.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 68,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v68.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 69,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v69.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 70,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v70.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 71,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v71.pdf"
+          },
+          {
+            "at": "2026-08-23T21:17:02",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 72,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v72.pdf"
+          },
+          {
+            "at": "2026-08-23T21:17:02",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 73,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v73.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:58",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 74,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v74.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:58",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 75,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v75.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 76,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v76.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 77,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v77.pdf"
+          },
+          {
+            "at": "2026-08-23T21:19:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 78,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v78.pdf"
+          },
+          {
+            "at": "2026-08-23T21:19:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 79,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v79.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 80,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v80.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 81,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v81.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 82,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v82.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 83,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v83.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 84,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v84.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 85,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v85.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 86,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v86.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 87,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v87.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 88,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v88.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 89,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v89.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 90,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v90.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 91,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v91.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 92,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v92.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 93,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v93.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 94,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v94.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 95,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v95.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 96,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v96.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 97,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v97.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 98,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v98.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 99,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v99.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:22",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 100,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v100.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:22",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 101,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v101.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:22",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 102,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v102.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:23",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 103,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v103.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:23",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 104,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v104.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 105,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v105.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 106,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v106.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 107,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v107.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 108,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v108.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 109,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v109.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 110,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v110.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 111,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v111.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 112,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v112.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 113,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v113.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 114,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v114.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 115,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v115.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 116,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v116.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 117,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v117.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:52",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 118,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v118.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 119,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v119.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 120,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v120.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 121,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v121.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 122,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v122.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 123,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v123.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 124,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v124.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 125,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v125.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 126,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v126.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 127,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v127.pdf"
+          }
+        ],
+        "document_key": "e_order.pdf"
+      },
+      {
+        "type": "Karta Pracy",
+        "created_at": "2026-08-23T19:04:51",
+        "status": "wygenerowany",
+        "file_name": "karta_pracy.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\karta_pracy.pdf",
+        "approved_by": "admin",
+        "metadata": {},
+        "version": 68,
+        "history": [
+          {
+            "at": "2026-08-23T19:04:51",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:00",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:02:48",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:22:06",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:33",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:33",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:54",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:23:54",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:10",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:10",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:25",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:27:25",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:19",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:28:19",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:34:50",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:34:50",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:40:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T20:40:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:14:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 22,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v22.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 23,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v23.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 24,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v24.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:14",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 25,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v25.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 26,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v26.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 27,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v27.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 28,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v28.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 29,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v29.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 30,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v30.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 31,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v31.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 32,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v32.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:39",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 33,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v33.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:41",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 34,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v34.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:41",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 35,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v35.pdf"
+          },
+          {
+            "at": "2026-08-23T21:17:03",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 36,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v36.pdf"
+          },
+          {
+            "at": "2026-08-23T21:17:03",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 37,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v37.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:58",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 38,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v38.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:58",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 39,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v39.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 40,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v40.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 41,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v41.pdf"
+          },
+          {
+            "at": "2026-08-23T21:19:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 42,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v42.pdf"
+          },
+          {
+            "at": "2026-08-23T21:19:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 43,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v43.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 44,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v44.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 45,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v45.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 46,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v46.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 47,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v47.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:06",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 48,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v48.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:06",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 49,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v49.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 50,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v50.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:19",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 51,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v51.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 52,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v52.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 53,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v53.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:44",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 54,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v54.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:44",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 55,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v55.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:23",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 56,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v56.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:23",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 57,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v57.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 58,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v58.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 59,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v59.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 60,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v60.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 61,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v61.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 62,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v62.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 63,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v63.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 64,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v64.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 65,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v65.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 66,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v66.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 67,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\karta_pracy_v67.pdf"
+          }
+        ],
+        "document_key": "karta_pracy.pdf"
+      },
+      {
+        "type": "KARTA TECHNICZNA (TDS)",
+        "created_at": "2026-08-23T19:04:59",
+        "status": "wygenerowany",
+        "file_name": "KARTA_TECHNICZNA_TDS_.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\KARTA_TECHNICZNA_TDS_.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "source": "PDF TDS/Zamówienie"
+        },
+        "version": 33,
+        "history": [
+          {
+            "at": "2026-08-23T19:04:59",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:05:04",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:08:49",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 3,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v3.pdf"
+          },
+          {
+            "at": "2026-08-23T21:10:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 4,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v4.pdf"
+          },
+          {
+            "at": "2026-08-23T21:11:13",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 5,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v5.pdf"
+          },
+          {
+            "at": "2026-08-23T21:13:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 6,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v6.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 7,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v7.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 8,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v8.pdf"
+          },
+          {
+            "at": "2026-08-23T21:14:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 9,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v9.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 10,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v10.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:14",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 11,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v11.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 12,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v12.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 13,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v13.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 14,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v14.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 15,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v15.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 16,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v16.pdf"
+          },
+          {
+            "at": "2026-08-23T21:17:02",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 17,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v17.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:58",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 18,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v18.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 19,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v19.pdf"
+          },
+          {
+            "at": "2026-08-23T21:19:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 20,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v20.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:37",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 21,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v21.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 22,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v22.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:05",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 23,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v23.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 24,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v24.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:30",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 25,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v25.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 26,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v26.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:22",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 27,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v27.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:26",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 28,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v28.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 29,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v29.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 30,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v30.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:52",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 31,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v31.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 32,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\KARTA_TECHNICZNA_TDS__v32.pdf"
+          }
+        ],
+        "document_key": "KARTA_TECHNICZNA_TDS_.pdf"
+      },
+      {
+        "type": "Packing List",
+        "created_at": "2026-08-23T19:16:53",
+        "status": "wygenerowany",
+        "file_name": "packing_list.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\packing_list.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "number": "PL/2026/191653"
+        },
+        "version": 9,
+        "history": [
+          {
+            "at": "2026-08-23T19:16:53",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:17:00",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:17:16",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:17:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:17:23",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:17:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:20:11",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:20:24",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:20:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Etykiety paletowe",
+        "created_at": "2026-08-23T21:14:04",
+        "status": "wygenerowany",
+        "file_name": "etykiety_paletowe.pdf",
+        "document_key": "etykiety_paletowe.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\etykiety_paletowe.pdf",
+        "approved_by": "admin",
+        "metadata": {},
+        "version": 1,
+        "history": [
+          {
+            "at": "2026-08-23T21:14:04",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "E-Order",
+        "created_at": "2026-08-23T21:14:27",
+        "status": "wysłano",
+        "file_name": "e_order_pl_en.pdf",
+        "document_key": "e_order_pl_en.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\e_order_pl_en.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "order_no": "ORD-20260823-183724",
+          "recipient": "Test ",
+          "response_status": "wysłano",
+          "language": "PL/EN",
+          "items": 1
+        },
+        "version": 36,
+        "history": [
+          {
+            "at": "2026-08-23T21:14:27",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:14:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 1,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v1.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:12",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 2,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v2.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:14",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 3,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v3.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 4,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v4.pdf"
+          },
+          {
+            "at": "2026-08-23T21:15:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 5,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v5.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 6,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v6.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 7,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v7.pdf"
+          },
+          {
+            "at": "2026-08-23T21:16:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 8,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v8.pdf"
+          },
+          {
+            "at": "2026-08-23T21:17:02",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 9,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v9.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:58",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 10,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v10.pdf"
+          },
+          {
+            "at": "2026-08-23T21:18:59",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 11,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v11.pdf"
+          },
+          {
+            "at": "2026-08-23T21:19:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 12,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v12.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:38",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 13,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v13.pdf"
+          },
+          {
+            "at": "2026-08-23T21:20:40",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 14,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v14.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:06",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 15,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v15.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:18",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 16,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v16.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:30",
+            "action": "zaktualizowano wpis dokumentu",
+            "by": "admin",
+            "status": "wysłano"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 18,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v18.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:31",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 19,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v19.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 20,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v20.pdf"
+          },
+          {
+            "at": "2026-08-23T21:21:43",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 21,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v21.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:23",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 22,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v22.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:23",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 23,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v23.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 24,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v24.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 25,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v25.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 26,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v26.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:28",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 27,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v27.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 28,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v28.pdf"
+          },
+          {
+            "at": "2026-08-23T21:22:29",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 29,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v29.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 30,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v30.pdf"
+          },
+          {
+            "at": "2026-08-23T22:05:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 31,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v31.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 32,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v32.pdf"
+          },
+          {
+            "at": "2026-08-23T22:19:53",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 33,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v33.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 34,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v34.pdf"
+          },
+          {
+            "at": "2026-08-23T22:20:07",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wysłano",
+            "previous_version": 35,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_pl_en_v35.pdf"
+          }
+        ]
+      },
+      {
+        "type": "Raport PPWR",
+        "created_at": "2026-08-23T21:23:42",
+        "status": "wygenerowany",
+        "file_name": "raport_ppwr_pl.pdf",
+        "document_key": "raport_ppwr_pl.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\raport_ppwr_pl.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "language": "pl"
+        },
+        "version": 2,
+        "history": [
+          {
+            "at": "2026-08-23T21:23:42",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:53:41",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 1,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\raport_ppwr_pl_v1.pdf"
+          }
+        ]
+      },
+      {
+        "type": "Raport PPWR",
+        "created_at": "2026-08-23T21:23:42",
+        "status": "wygenerowany",
+        "file_name": "raport_ppwr_en.pdf",
+        "document_key": "raport_ppwr_en.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\raport_ppwr_en.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "language": "en"
+        },
+        "version": 2,
+        "history": [
+          {
+            "at": "2026-08-23T21:23:42",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T21:53:41",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 1,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\raport_ppwr_en_v1.pdf"
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-08-23T22:20:07",
+    "order_history": [
+      {
+        "at": "2026-08-23T19:22:51",
+        "action": "automatyczna zmiana statusu zlecenia",
+        "by": "system",
+        "from": "robocze",
+        "to": "w produkcji",
+        "reason": "oczekuje na komplet: zatwierdzone BCT, PPWR i QA"
+      },
+      {
+        "at": "2026-08-23T20:27:25",
+        "action": "zaktualizowano nagłówek zlecenia",
+        "by": "admin",
+        "from": {},
+        "to": {
+          "order_id": "ORD-20260823-183724",
+          "order_number": "ORD-20260823-183724",
+          "priority": "normalny",
+          "document_status": "robocze",
+          "language": "PL",
+          "document_version": "v1",
+          "change_reason": ""
+        }
+      },
+      {
+        "at": "2026-08-23T21:08:20",
+        "action": "zaktualizowano nagłówek zlecenia",
+        "by": "admin",
+        "from": {
+          "order_id": "ORD-20260823-183724",
+          "order_number": "ORD-20260823-183724",
+          "priority": "normalny",
+          "document_status": "robocze",
+          "language": "PL",
+          "document_version": "v1",
+          "change_reason": ""
+        },
+        "to": {
+          "order_id": "ORD-20260823-183724",
+          "order_number": "ORD-20260823-183724",
+          "priority": "normalny",
+          "document_status": "robocze",
+          "language": "PL",
+          "document_version": "v1",
+          "delivery_date": "2026-08-31",
+          "change_reason": ""
+        }
+      },
+      {
+        "at": "2026-08-23T21:21:18",
+        "action": "zaktualizowano wspólne dane dostawy",
+        "by": "admin"
+      }
+    ],
+    "order_status": "w produkcji",
+    "order_header": {
+      "order_id": "ORD-20260823-183724",
+      "order_number": "ORD-20260823-183724",
+      "priority": "normalny",
+      "document_status": "robocze",
+      "language": "PL",
+      "document_version": "v1",
+      "delivery_date": "2026-08-31",
+      "change_reason": "",
+      "recipient": {
+        "name": "",
+        "company": "Test",
+        "email": "szubertxxx@gmail.com"
+      },
+      "delivery_address": {
+        "street": "Nowowiejska 53",
+        "postal_code": "42-400",
+        "city": "Zawiercie",
+        "country": "Polska"
+      }
+    },
+    "delivery": {
+      "recipient": {
+        "name": "",
+        "company": "Test",
+        "email": "szubertxxx@gmail.com"
+      },
+      "address": {
+        "street": "Nowowiejska 53",
+        "postal_code": "42-400",
+        "city": "Zawiercie",
+        "country": "Polska"
+      },
+      "delivery_date": "2026-08-31"
+    }
+  },
+  "ORD-20260823-192336-481113": {
+    "created_at": "2026-08-23T19:23:36",
+    "updated_at": "2026-08-23T19:30:37",
+    "order_status": "w produkcji",
+    "documents": [
+      {
+        "type": "Instrukcja paletyzacji",
+        "created_at": "2026-08-23T19:25:09",
+        "status": "wygenerowany",
+        "file_name": "instrukcja_ukladania_Bletka_KSS_BEUZ.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-192336-481113\\instrukcja_ukladania_Bletka_KSS_BEUZ.pdf",
+        "approved_by": "admin",
+        "metadata": {},
+        "version": 2,
+        "history": [
+          {
+            "at": "2026-08-23T19:25:09",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:25:16",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Etykiety paletowe",
+        "created_at": "2026-08-23T19:26:52",
+        "status": "wygenerowany",
+        "file_name": "etykiety_paletowe.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-192336-481113\\etykiety_paletowe.pdf",
+        "approved_by": "admin",
+        "metadata": {},
+        "version": 2,
+        "history": [
+          {
+            "at": "2026-08-23T19:26:52",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:26:57",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Packing List",
+        "created_at": "2026-08-23T19:27:05",
+        "status": "wygenerowany",
+        "file_name": "packing_list.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-192336-481113\\packing_list.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "number": "PL/2026/192705"
+        },
+        "version": 5,
+        "history": [
+          {
+            "at": "2026-08-23T19:27:05",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:27:10",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:27:22",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:27:22",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:27:27",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Karta kontroli jakości",
+        "created_at": "2026-08-23T19:28:39",
+        "status": "wygenerowany",
+        "file_name": "karta_kontroli_kartonu.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-192336-481113\\karta_kontroli_kartonu.pdf",
+        "approved_by": "admin",
+        "metadata": {},
+        "version": 3,
+        "history": [
+          {
+            "at": "2026-08-23T19:28:39",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:30:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:30:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Specyfikacja producenta",
+        "created_at": "2026-08-23T19:28:39",
+        "status": "wygenerowany",
+        "file_name": "specyfikacja_producenta_kartonow.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-192336-481113\\specyfikacja_producenta_kartonow.pdf",
+        "approved_by": "admin",
+        "metadata": {},
+        "version": 3,
+        "history": [
+          {
+            "at": "2026-08-23T19:28:39",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:30:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:30:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Instrukcja paletyzacji",
+        "created_at": "2026-08-23T19:28:39",
+        "status": "wygenerowany",
+        "file_name": "instrukcja_paletyzacji_bct.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-192336-481113\\instrukcja_paletyzacji_bct.pdf",
+        "approved_by": "admin",
+        "metadata": {},
+        "version": 3,
+        "history": [
+          {
+            "at": "2026-08-23T19:28:39",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:30:01",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-23T19:30:17",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Raport PPWR",
+        "created_at": "2026-08-23T19:30:37",
+        "status": "wygenerowany",
+        "file_name": "raport_ppwr_pl.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-192336-481113\\raport_ppwr_pl.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "language": "pl"
+        },
+        "version": 1,
+        "history": [
+          {
+            "at": "2026-08-23T19:30:37",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Raport PPWR",
+        "created_at": "2026-08-23T19:30:37",
+        "status": "wygenerowany",
+        "file_name": "raport_ppwr_en.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dokumenty_zlecen\\ORD-20260823-192336-481113\\raport_ppwr_en.pdf",
+        "approved_by": "admin",
+        "metadata": {
+          "language": "en"
+        },
+        "version": 1,
+        "history": [
+          {
+            "at": "2026-08-23T19:30:37",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      }
+    ],
+    "order_history": [
+      {
+        "at": "2026-08-23T19:23:36",
+        "action": "utworzono nowe zlecenie",
+        "by": "admin",
+        "to": "robocze"
+      },
+      {
+        "at": "2026-08-23T19:25:09",
+        "action": "automatyczna zmiana statusu zlecenia",
+        "by": "system",
+        "from": "robocze",
+        "to": "w produkcji",
+        "reason": "oczekuje na komplet: zatwierdzone BCT, PPWR i QA"
+      }
+    ]
+  }
+}

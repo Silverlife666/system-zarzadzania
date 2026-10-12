@@ -1,0 +1,1195 @@
+{
+  "Bletka KSS BEUZ - EURO - 2026-08-23 17:00": {
+    "saved_at": "2026-08-23T17:00:35",
+    "result": {
+      "Produkt": "Bletka KSS BEUZ",
+      "EAN": "3665006001047",
+      "Paleta": "EURO",
+      "Orientacja": "Mieszany / zaawansowany",
+      "Kartonów/warstwę": 9,
+      "Pełnych warstw": 4,
+      "Kartonów na pełnej palecie": 36,
+      "Liczba palet": 1,
+      "Kartonów na ostatniej palecie": 1,
+      "Warstw na ostatniej palecie": 1,
+      "Masa brutto/paleta kg": 21.0,
+      "Wysokość palety mm": 1352.4,
+      "Stabilność /100": 59,
+      "Ocena stabilności": "ryzykowna",
+      "Wystawanie mm": 0.0,
+      "Miejsce dostawy": "",
+      "Ostrzeżenia": [
+        "Paleta wysoka lub niestabilna - wymagane dodatkowe zabezpieczenie."
+      ],
+      "Warianty": [
+        {
+          "Nazwa": "Oryginalna",
+          "Układ": [
+            [
+              130.0,
+              0.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              200.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              400.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              600.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              0.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              200.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              400.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              600.0,
+              470.0,
+              200.0
+            ]
+          ],
+          "Kartonów/warstwę": 8,
+          "Pełnych warstw": 4,
+          "Pojemność": 32,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 300.0
+        },
+        {
+          "Nazwa": "Obrót 90°",
+          "Układ": [
+            [
+              0.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              200.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              400.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              600.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              800.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              1000.0,
+              165.0,
+              200.0,
+              470.0
+            ]
+          ],
+          "Kartonów/warstwę": 6,
+          "Pełnych warstw": 4,
+          "Pojemność": 24,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 300.0
+        },
+        {
+          "Nazwa": "Mieszany / zaawansowany",
+          "Układ": [
+            [
+              30.0,
+              0.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              200.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              400.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              600.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              0.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              200.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              400.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              600.0,
+              470,
+              200
+            ],
+            [
+              970.0,
+              165.0,
+              200,
+              470
+            ]
+          ],
+          "Kartonów/warstwę": 9,
+          "Pełnych warstw": 4,
+          "Pojemność": 36,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 300.0
+        }
+      ]
+    }
+  },
+  "Ritual Rolls - EURO - 2026-08-24 22:48": {
+    "saved_at": "2026-08-24T22:48:30",
+    "result": {
+      "order_id": "EMBURN-260824-D12C",
+      "source_module": "Inteligentne sugestie (4)",
+      "Produkt": "Ritual Rolls",
+      "SKU": "3858891162256",
+      "Poziom obliczeń": "Master Case",
+      "catalog_snapshot": {
+        "Nazwa produktu": "Ritual Rolls",
+        "SKU": "3858891162256",
+        "Klient": "Ritual",
+        "Producent": "Emburn",
+        "Produkt": {
+          "Długość [mm]": 40.0,
+          "Szerokość [mm]": 55.0,
+          "Wysokość [mm]": 25.0,
+          "Masa netto [kg]": 0.2,
+          "EAN produktu": "3858891162256"
+        },
+        "Display": {
+          "Długość [mm]": 0.0,
+          "Szerokość [mm]": 0.0,
+          "Wysokość [mm]": 0.0,
+          "Masa pustego displaya [kg]": 0.0,
+          "Masa pełnego displaya [kg]": 0.35,
+          "EAN displaya": "",
+          "Pudełek w displayu": 16
+        },
+        "Master Case": {
+          "Długość wewnętrzna [mm]": 0.0,
+          "Szerokość wewnętrzna [mm]": 0.0,
+          "Wysokość wewnętrzna [mm]": 0.0,
+          "Długość zewnętrzna [mm]": 470.0,
+          "Szerokość zewnętrzna [mm]": 200.0,
+          "Wysokość zewnętrzna [mm]": 310.0,
+          "Tara [kg]": 0.0,
+          "Maks. masa brutto [kg]": 0.0,
+          "EAN Master Case": "",
+          "FEFCO": "0201",
+          "Tektura / fala": "3-warstwowa / E",
+          "Displayów w Master Case": 24
+        },
+        "Relacje pakowania": {
+          "Sztuk w pudełku": 1,
+          "Pudełek w displayu": 16,
+          "Displayów w Master Case": 24
+        },
+        "Paleta": {
+          "Domyślny typ palety": "EURO",
+          "Limit wysokości [mm]": 2000.0,
+          "Limit masy [kg]": 500.0
+        }
+      },
+      "EAN produktu": "3858891162256",
+      "EAN displaya": "",
+      "EAN Master Case": "",
+      "EAN/GTIN": "",
+      "EAN": "",
+      "Paleta": "EURO",
+      "Orientacja": "Mieszany / zaawansowany",
+      "Kartonów/warstwę": 9,
+      "Pełnych warstw": 5,
+      "Kartonów na pełnej palecie": 45,
+      "Liczba palet": 1,
+      "Kartonów na ostatniej palecie": 1,
+      "Warstw na ostatniej palecie": 1,
+      "Masa brutto/paleta kg": 23.4,
+      "Masa brutto ostatniej palety kg": 23.4,
+      "Masa brutto całkowita kg": 23.4,
+      "Wymiary palety mm": [
+        1200,
+        800,
+        1702.4
+      ],
+      "Wysokość palety mm": 1702.4,
+      "Stabilność /100": 35,
+      "Ocena stabilności": "ryzykowna",
+      "Wystawanie mm": 0.0,
+      "Miejsce dostawy": "",
+      "Ostrzeżenia": [
+        "Paleta wysoka lub niestabilna - wymagane dodatkowe zabezpieczenie.",
+        "Informacja BCT: Brak analizy BCT dla bieżącego zlecenia."
+      ],
+      "Warianty": [
+        {
+          "Nazwa": "Oryginalna",
+          "Układ": [
+            [
+              130.0,
+              0.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              200.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              400.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              600.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              0.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              200.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              400.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              600.0,
+              470.0,
+              200.0
+            ]
+          ],
+          "Kartonów/warstwę": 8,
+          "Pełnych warstw": 5,
+          "Pojemność": 40,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 310.0
+        },
+        {
+          "Nazwa": "Obrót 90°",
+          "Układ": [
+            [
+              0.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              200.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              400.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              600.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              800.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              1000.0,
+              165.0,
+              200.0,
+              470.0
+            ]
+          ],
+          "Kartonów/warstwę": 6,
+          "Pełnych warstw": 5,
+          "Pojemność": 30,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 310.0
+        },
+        {
+          "Nazwa": "Mieszany / zaawansowany",
+          "Układ": [
+            [
+              30.0,
+              0.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              200.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              400.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              600.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              0.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              200.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              400.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              600.0,
+              470,
+              200
+            ],
+            [
+              970.0,
+              165.0,
+              200,
+              470
+            ]
+          ],
+          "Kartonów/warstwę": 9,
+          "Pełnych warstw": 5,
+          "Pojemność": 45,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 310.0
+        }
+      ],
+      "BCT status": "brak analizy BCT (informacyjnie)",
+      "BCT blokada": false,
+      "BCT powody": [
+        "Brak analizy BCT dla bieżącego zlecenia."
+      ]
+    }
+  },
+  "Medusa 10 pack Bleached - EURO - 2026-08-27 00:25": {
+    "saved_at": "2026-08-27T00:25:00",
+    "result": {
+      "order_id": "EMBURN-260826-FE9F",
+      "source_module": "Inteligentne sugestie (4)",
+      "Produkt": "Medusa 10 pack Bleached",
+      "SKU": "4270002129566",
+      "Poziom obliczeń": "Master Case",
+      "catalog_snapshot": {
+        "Nazwa produktu": "Medusa 10 pack Bleached",
+        "SKU": "4270002129566",
+        "Klient": "Medusa",
+        "Producent": "Emburn",
+        "Produkt": {
+          "Długość [mm]": 4.75,
+          "Szerokość [mm]": 111.0,
+          "Wysokość [mm]": 26.0,
+          "Masa netto [g]": 4.676,
+          "EAN produktu": "4270002129566"
+        },
+        "Display": {
+          "Długość [mm]": 55.0,
+          "Szerokość [mm]": 114.0,
+          "Wysokość [mm]": 27.0,
+          "Masa pustego displaya [g]": 7.779999999999999,
+          "Masa pełnego displaya [g]": 54.54,
+          "EAN displaya": "4262408941576",
+          "Pudełek w displayu": 10
+        },
+        "Master Case": {
+          "Długość wewnętrzna [mm]": 269.0,
+          "Szerokość wewnętrzna [mm]": 135.0,
+          "Wysokość wewnętrzna [mm]": 218.0,
+          "Długość zewnętrzna [mm]": 275.0,
+          "Szerokość zewnętrzna [mm]": 142.0,
+          "Wysokość zewnętrzna [mm]": 224.0,
+          "Tara [kg]": 0.23,
+          "Maks. masa brutto [kg]": 3.0,
+          "EAN Master Case": "",
+          "FEFCO": "0201",
+          "Tektura / fala": "3-warstwowa / E",
+          "Displayów w Master Case": 50
+        },
+        "Relacje pakowania": {
+          "Sztuk w pudełku": 1,
+          "Pudełek w displayu": 10,
+          "Displayów w Master Case": 50
+        },
+        "Paleta": {
+          "Domyślny typ palety": "EURO",
+          "Limit wysokości [mm]": 2000.0,
+          "Limit masy [kg]": 500.0
+        }
+      },
+      "EAN produktu": "4270002129566",
+      "EAN displaya": "4262408941576",
+      "EAN Master Case": "",
+      "EAN/GTIN": "",
+      "EAN": "",
+      "Paleta": "EURO",
+      "Orientacja": "Oryginalna",
+      "Kartonów/warstwę": 20,
+      "Pełnych warstw": 5,
+      "Kartonów na pełnej palecie": 100,
+      "Liczba palet": 1,
+      "Kartonów na ostatniej palecie": 1,
+      "Warstw na ostatniej palecie": 1,
+      "Masa brutto/paleta kg": 17.96,
+      "Masa brutto ostatniej palety kg": 17.96,
+      "Masa brutto całkowita kg": 17.96,
+      "Wymiary palety mm": [
+        1200,
+        800,
+        1272.4
+      ],
+      "Wysokość palety mm": 1272.4,
+      "Stabilność /100": 63,
+      "Ocena stabilności": "wymaga zabezpieczenia",
+      "Wystawanie mm": 0.0,
+      "Miejsce dostawy": "",
+      "Ostrzeżenia": [
+        "Informacja BCT: Brak analizy BCT dla bieżącego zlecenia."
+      ],
+      "Warianty": [
+        {
+          "Nazwa": "Oryginalna",
+          "Układ": [
+            [
+              50.0,
+              45.0,
+              275.0,
+              142.0
+            ],
+            [
+              50.0,
+              187.0,
+              275.0,
+              142.0
+            ],
+            [
+              50.0,
+              329.0,
+              275.0,
+              142.0
+            ],
+            [
+              50.0,
+              471.0,
+              275.0,
+              142.0
+            ],
+            [
+              50.0,
+              613.0,
+              275.0,
+              142.0
+            ],
+            [
+              325.0,
+              45.0,
+              275.0,
+              142.0
+            ],
+            [
+              325.0,
+              187.0,
+              275.0,
+              142.0
+            ],
+            [
+              325.0,
+              329.0,
+              275.0,
+              142.0
+            ],
+            [
+              325.0,
+              471.0,
+              275.0,
+              142.0
+            ],
+            [
+              325.0,
+              613.0,
+              275.0,
+              142.0
+            ],
+            [
+              600.0,
+              45.0,
+              275.0,
+              142.0
+            ],
+            [
+              600.0,
+              187.0,
+              275.0,
+              142.0
+            ],
+            [
+              600.0,
+              329.0,
+              275.0,
+              142.0
+            ],
+            [
+              600.0,
+              471.0,
+              275.0,
+              142.0
+            ],
+            [
+              600.0,
+              613.0,
+              275.0,
+              142.0
+            ],
+            [
+              875.0,
+              45.0,
+              275.0,
+              142.0
+            ],
+            [
+              875.0,
+              187.0,
+              275.0,
+              142.0
+            ],
+            [
+              875.0,
+              329.0,
+              275.0,
+              142.0
+            ],
+            [
+              875.0,
+              471.0,
+              275.0,
+              142.0
+            ],
+            [
+              875.0,
+              613.0,
+              275.0,
+              142.0
+            ]
+          ],
+          "Kartonów/warstwę": 20,
+          "Pełnych warstw": 5,
+          "Pojemność": 100,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 224.0
+        },
+        {
+          "Nazwa": "Obrót 90°",
+          "Układ": [
+            [
+              32.0,
+              125.0,
+              142.0,
+              275.0
+            ],
+            [
+              32.0,
+              400.0,
+              142.0,
+              275.0
+            ],
+            [
+              174.0,
+              125.0,
+              142.0,
+              275.0
+            ],
+            [
+              174.0,
+              400.0,
+              142.0,
+              275.0
+            ],
+            [
+              316.0,
+              125.0,
+              142.0,
+              275.0
+            ],
+            [
+              316.0,
+              400.0,
+              142.0,
+              275.0
+            ],
+            [
+              458.0,
+              125.0,
+              142.0,
+              275.0
+            ],
+            [
+              458.0,
+              400.0,
+              142.0,
+              275.0
+            ],
+            [
+              600.0,
+              125.0,
+              142.0,
+              275.0
+            ],
+            [
+              600.0,
+              400.0,
+              142.0,
+              275.0
+            ],
+            [
+              742.0,
+              125.0,
+              142.0,
+              275.0
+            ],
+            [
+              742.0,
+              400.0,
+              142.0,
+              275.0
+            ],
+            [
+              884.0,
+              125.0,
+              142.0,
+              275.0
+            ],
+            [
+              884.0,
+              400.0,
+              142.0,
+              275.0
+            ],
+            [
+              1026.0,
+              125.0,
+              142.0,
+              275.0
+            ],
+            [
+              1026.0,
+              400.0,
+              142.0,
+              275.0
+            ]
+          ],
+          "Kartonów/warstwę": 16,
+          "Pełnych warstw": 5,
+          "Pojemność": 80,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 224.0
+        },
+        {
+          "Nazwa": "Mieszany / zaawansowany",
+          "Układ": [
+            [
+              50.0,
+              45.0,
+              275,
+              142
+            ],
+            [
+              50.0,
+              187.0,
+              275,
+              142
+            ],
+            [
+              50.0,
+              329.0,
+              275,
+              142
+            ],
+            [
+              50.0,
+              471.0,
+              275,
+              142
+            ],
+            [
+              50.0,
+              613.0,
+              275,
+              142
+            ],
+            [
+              325.0,
+              45.0,
+              275,
+              142
+            ],
+            [
+              325.0,
+              187.0,
+              275,
+              142
+            ],
+            [
+              325.0,
+              329.0,
+              275,
+              142
+            ],
+            [
+              325.0,
+              471.0,
+              275,
+              142
+            ],
+            [
+              325.0,
+              613.0,
+              275,
+              142
+            ],
+            [
+              600.0,
+              45.0,
+              275,
+              142
+            ],
+            [
+              600.0,
+              187.0,
+              275,
+              142
+            ],
+            [
+              600.0,
+              329.0,
+              275,
+              142
+            ],
+            [
+              600.0,
+              471.0,
+              275,
+              142
+            ],
+            [
+              600.0,
+              613.0,
+              275,
+              142
+            ],
+            [
+              875.0,
+              45.0,
+              275,
+              142
+            ],
+            [
+              875.0,
+              187.0,
+              275,
+              142
+            ],
+            [
+              875.0,
+              329.0,
+              275,
+              142
+            ],
+            [
+              875.0,
+              471.0,
+              275,
+              142
+            ],
+            [
+              875.0,
+              613.0,
+              275,
+              142
+            ]
+          ],
+          "Kartonów/warstwę": 20,
+          "Pełnych warstw": 5,
+          "Pojemność": 100,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 224.0
+        }
+      ],
+      "BCT status": "brak analizy BCT (informacyjnie)",
+      "BCT blokada": false,
+      "BCT powody": [
+        "Brak analizy BCT dla bieżącego zlecenia."
+      ]
+    }
+  },
+  "Ritual Rolls - EURO - 2026-09-01 11:36": {
+    "saved_at": "2026-09-01T11:36:04",
+    "result": {
+      "order_id": "EMBURN-260824-D12C",
+      "source_module": "Inteligentne sugestie (4)",
+      "Produkt": "Ritual Rolls",
+      "SKU": "3858891162256",
+      "Poziom obliczeń": "Master Case",
+      "catalog_snapshot": {
+        "Nazwa produktu": "Ritual Rolls",
+        "SKU": "3858891162256",
+        "Klient": "Ritual",
+        "Producent": "Emburn",
+        "Produkt": {
+          "Długość [mm]": 40.0,
+          "Szerokość [mm]": 55.0,
+          "Wysokość [mm]": 25.0,
+          "Masa netto [g]": 200.0,
+          "EAN produktu": "3858891162256"
+        },
+        "Display": {
+          "Długość [mm]": 0.0,
+          "Szerokość [mm]": 0.0,
+          "Wysokość [mm]": 0.0,
+          "Masa pustego displaya [g]": 0.0,
+          "Masa pełnego displaya [g]": 350.0,
+          "EAN displaya": "",
+          "Pudełek w displayu": 16
+        },
+        "Master Case": {
+          "Długość wewnętrzna [mm]": 0.0,
+          "Szerokość wewnętrzna [mm]": 0.0,
+          "Wysokość wewnętrzna [mm]": 0.0,
+          "Długość zewnętrzna [mm]": 470.0,
+          "Szerokość zewnętrzna [mm]": 200.0,
+          "Wysokość zewnętrzna [mm]": 310.0,
+          "Tara [kg]": 0.0,
+          "Maks. masa brutto [kg]": 0.0,
+          "EAN Master Case": "",
+          "FEFCO": "0201",
+          "Tektura / fala": "3-warstwowa / E",
+          "Displayów w Master Case": 24
+        },
+        "Relacje pakowania": {
+          "Sztuk w pudełku": 1,
+          "Pudełek w displayu": 16,
+          "Displayów w Master Case": 24
+        },
+        "Paleta": {
+          "Domyślny typ palety": "EURO",
+          "Limit wysokości [mm]": 2000.0,
+          "Limit masy [kg]": 500.0
+        }
+      },
+      "EAN produktu": "3858891162256",
+      "EAN displaya": "",
+      "EAN Master Case": "",
+      "EAN/GTIN": "",
+      "EAN": "",
+      "Paleta": "EURO",
+      "Orientacja": "Mieszany / zaawansowany",
+      "Kartonów/warstwę": 9,
+      "Pełnych warstw": 6,
+      "Kartonów na pełnej palecie": 54,
+      "Kartonów na wizualizowanej palecie": 54,
+      "Warstw wizualizowanej palety": 6,
+      "Wymiary ładunku XYZ mm": [
+        1140.0,
+        800.0,
+        1830.0
+      ],
+      "Liczba palet": 1,
+      "Kartonów na ostatniej palecie": 54,
+      "Warstw na ostatniej palecie": 6,
+      "Masa brutto/paleta kg": 468.6,
+      "Masa brutto ostatniej palety kg": 468.6,
+      "Masa brutto całkowita kg": 468.6,
+      "Wymiary palety mm": [
+        1200,
+        800,
+        1982.4
+      ],
+      "Wysokość palety mm": 1982.4,
+      "Stabilność /100": 16,
+      "Ocena stabilności": "ryzykowna",
+      "Wystawanie mm": 0.0,
+      "Miejsce dostawy": "",
+      "Ostrzeżenia": [
+        "Paleta wysoka lub niestabilna - wymagane dodatkowe zabezpieczenie.",
+        "Informacja BCT: Wysokość palety 1982 mm przekracza zatwierdzony limit BCT: 1960 mm."
+      ],
+      "Warianty": [
+        {
+          "Nazwa": "Oryginalna",
+          "Układ": [
+            [
+              130.0,
+              0.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              200.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              400.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              600.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              0.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              200.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              400.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              600.0,
+              470.0,
+              200.0
+            ]
+          ],
+          "Kartonów/warstwę": 8,
+          "Pełnych warstw": 6,
+          "Pojemność": 48,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 305.0
+        },
+        {
+          "Nazwa": "Obrót 90°",
+          "Układ": [
+            [
+              0.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              200.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              400.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              600.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              800.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              1000.0,
+              165.0,
+              200.0,
+              470.0
+            ]
+          ],
+          "Kartonów/warstwę": 6,
+          "Pełnych warstw": 6,
+          "Pojemność": 36,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 305.0
+        },
+        {
+          "Nazwa": "Mieszany / zaawansowany",
+          "Układ": [
+            [
+              30.0,
+              0.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              200.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              400.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              600.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              0.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              200.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              400.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              600.0,
+              470,
+              200
+            ],
+            [
+              970.0,
+              165.0,
+              200,
+              470
+            ]
+          ],
+          "Kartonów/warstwę": 9,
+          "Pełnych warstw": 6,
+          "Pojemność": 54,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 305.0
+        }
+      ],
+      "BCT status": "uwaga BCT",
+      "BCT blokada": false,
+      "BCT powody": [
+        "Wysokość palety 1982 mm przekracza zatwierdzony limit BCT: 1960 mm."
+      ]
+    }
+  }
+}

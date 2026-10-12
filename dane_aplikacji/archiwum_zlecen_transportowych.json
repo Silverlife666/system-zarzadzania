@@ -1,0 +1,26 @@
+[
+  {
+    "order_id": "EMBURN-260824-D12C",
+    "number": "TR/2026/EMBURN-260824-D12C",
+    "saved_at": "2026-08-24T23:40:41",
+    "carrier": "Raben (myRaben / Awizacja)",
+    "cargo_type": "Palety EUR (1200x800)",
+    "quantity": 2,
+    "total_weight": 914.0,
+    "dimensions_cm": [
+      120.0,
+      80.0,
+      195.0
+    ],
+    "pallet_type": "",
+    "ldm": 0.8,
+    "requirements": {
+      "tail_lift": true,
+      "no_stacking": true,
+      "phone_notice": false
+    },
+    "notes": "Proszę o kontakt telefoniczny przed dostawą. Towar wymaga ostrożnego rozładunku.",
+    "content": "DANE DO ZLECENIA / AWIZACJI (RABEN):\n- Rodzaj ładunku: Palety EUR (1200x800) x 2 szt.\n- Waga brutto łączna: 914.0 kg\n- Wymiary 1 sztuki: 120.0 x 80.0 x 195.0 cm\n- Szacowane metry ładunkowe (LDM): 0.80 LDM\n- Wymagania:\n  * Winda samochodowa: TAK\n  * Piętrowanie: ZABRONIONE (Nie piętrować)\n  * Awizacja telefoniczna: NIE\n- Uwagi: Proszę o kontakt telefoniczny przed dostawą. Towar wymaga ostrożnego rozładunku.",
+    "status": "robocze"
+  }
+]

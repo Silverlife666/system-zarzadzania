@@ -1,0 +1,2 @@
+<!-- Po wykonaniu `flutter create .` wklej do android/app/src/main/AndroidManifest.xml. -->
+<uses-permission android:name="android.permission.CAMERA" />

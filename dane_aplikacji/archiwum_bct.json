@@ -1,0 +1,101 @@
+[
+  {
+    "order_id": "EMBURN-260824-D12C",
+    "saved_at": "2026-08-24T23:04:44",
+    "source": "Produkt z sekcji 1",
+    "method": "Uproszczona",
+    "result": {
+      "order_id": "EMBURN-260824-D12C",
+      "safe_bct": 813.5879292713233,
+      "bct": 1464.458272688382,
+      "layers": 6,
+      "weight": 8.2,
+      "max_safe_layers": 100,
+      "max_safe_pallet_mass_kg": 820.0,
+      "max_safe_pallet_height_mm": 0.0,
+      "risk": "bezpieczne",
+      "material": "3-warstwowa",
+      "flute": "Fala E (micro)",
+      "language": "PL",
+      "approval": "zatwierdzony",
+      "signatures": {
+        "constructor": "",
+        "quality": "",
+        "warehouse": ""
+      },
+      "recommendation": "Utrzymaj 3-warstwowa, falę Fala E (micro), minimum 480 g/m²."
+    },
+    "supplier_bct": 0.0,
+    "ect": 5.76,
+    "recommendations": [
+      "Rozważ większą grubość tektury."
+    ],
+    "version": 1
+  },
+  {
+    "order_id": "EMBURN-260824-D12C",
+    "saved_at": "2026-08-24T23:09:36",
+    "source": "Ręczne",
+    "method": "McKee",
+    "result": {
+      "order_id": "EMBURN-260824-D12C",
+      "safe_bct": 813.5879292713233,
+      "bct": 1464.458272688382,
+      "layers": 5,
+      "weight": 8.0,
+      "max_safe_layers": 102,
+      "max_safe_pallet_mass_kg": 816.0,
+      "max_safe_pallet_height_mm": 1960.0,
+      "risk": "bezpieczne",
+      "material": "3-warstwowa",
+      "flute": "Fala E (micro)",
+      "language": "PL",
+      "approval": "zatwierdzony",
+      "signatures": {
+        "constructor": "",
+        "quality": "",
+        "warehouse": ""
+      },
+      "recommendation": "Utrzymaj 3-warstwowa, falę Fala E (micro), minimum 480 g/m²."
+    },
+    "supplier_bct": 0.0,
+    "ect": 5.76,
+    "recommendations": [
+      "Rozważ większą grubość tektury."
+    ],
+    "version": 2
+  },
+  {
+    "order_id": "EMBURN-260824-D12C",
+    "saved_at": "2026-08-24T23:09:46",
+    "source": "Ręczne",
+    "method": "McKee",
+    "result": {
+      "order_id": "EMBURN-260824-D12C",
+      "safe_bct": 813.5879292713233,
+      "bct": 1464.458272688382,
+      "layers": 5,
+      "weight": 8.0,
+      "max_safe_layers": 102,
+      "max_safe_pallet_mass_kg": 816.0,
+      "max_safe_pallet_height_mm": 1960.0,
+      "risk": "bezpieczne",
+      "material": "3-warstwowa",
+      "flute": "Fala E (micro)",
+      "language": "PL",
+      "approval": "zatwierdzony",
+      "signatures": {
+        "constructor": "",
+        "quality": "",
+        "warehouse": ""
+      },
+      "recommendation": "Utrzymaj 3-warstwowa, falę Fala E (micro), minimum 480 g/m²."
+    },
+    "supplier_bct": 0.0,
+    "ect": 5.76,
+    "recommendations": [
+      "Rozważ większą grubość tektury."
+    ],
+    "version": 3
+  }
+]

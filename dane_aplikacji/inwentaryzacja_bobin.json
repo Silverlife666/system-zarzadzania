@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "id": "20260831200114892759",
+      "created_at": "2026-08-31T20:01:14",
+      "paper": "Różowy 14 gsm",
+      "outer_diameter_mm": 240.0,
+      "quantity": 5,
+      "meters_per_piece": 1749.4089834515366,
+      "meters": 8747.044917257683,
+      "calibration": "kalibracja: Ø365 mm = 5000 m"
+    },
+    {
+      "id": "20260831200151270215",
+      "created_at": "2026-08-31T20:01:51",
+      "paper": "Różowy 14 gsm",
+      "outer_diameter_mm": 344.0,
+      "quantity": 3,
+      "meters_per_piece": 4360.025789813024,
+      "meters": 13080.077369439072,
+      "calibration": "kalibracja: Ø365 mm = 5000 m"
+    }
+  ]
+}

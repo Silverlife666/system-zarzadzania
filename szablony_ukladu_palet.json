@@ -1,0 +1,199 @@
+{
+  "Bletka KSS BEUZ - EURO - 2026-08-23 17:00": {
+    "saved_at": "2026-08-23T17:00:35",
+    "result": {
+      "Produkt": "Bletka KSS BEUZ",
+      "EAN": "3665006001047",
+      "Paleta": "EURO",
+      "Orientacja": "Mieszany / zaawansowany",
+      "Kartonów/warstwę": 9,
+      "Pełnych warstw": 4,
+      "Kartonów na pełnej palecie": 36,
+      "Liczba palet": 1,
+      "Kartonów na ostatniej palecie": 1,
+      "Warstw na ostatniej palecie": 1,
+      "Masa brutto/paleta kg": 21.0,
+      "Wysokość palety mm": 1352.4,
+      "Stabilność /100": 59,
+      "Ocena stabilności": "ryzykowna",
+      "Wystawanie mm": 0.0,
+      "Miejsce dostawy": "",
+      "Ostrzeżenia": [
+        "Paleta wysoka lub niestabilna - wymagane dodatkowe zabezpieczenie."
+      ],
+      "Warianty": [
+        {
+          "Nazwa": "Oryginalna",
+          "Układ": [
+            [
+              130.0,
+              0.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              200.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              400.0,
+              470.0,
+              200.0
+            ],
+            [
+              130.0,
+              600.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              0.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              200.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              400.0,
+              470.0,
+              200.0
+            ],
+            [
+              600.0,
+              600.0,
+              470.0,
+              200.0
+            ]
+          ],
+          "Kartonów/warstwę": 8,
+          "Pełnych warstw": 4,
+          "Pojemność": 32,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 300.0
+        },
+        {
+          "Nazwa": "Obrót 90°",
+          "Układ": [
+            [
+              0.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              200.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              400.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              600.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              800.0,
+              165.0,
+              200.0,
+              470.0
+            ],
+            [
+              1000.0,
+              165.0,
+              200.0,
+              470.0
+            ]
+          ],
+          "Kartonów/warstwę": 6,
+          "Pełnych warstw": 4,
+          "Pojemność": 24,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 300.0
+        },
+        {
+          "Nazwa": "Mieszany / zaawansowany",
+          "Układ": [
+            [
+              30.0,
+              0.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              200.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              400.0,
+              470,
+              200
+            ],
+            [
+              30.0,
+              600.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              0.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              200.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              400.0,
+              470,
+              200
+            ],
+            [
+              500.0,
+              600.0,
+              470,
+              200
+            ],
+            [
+              970.0,
+              165.0,
+              200,
+              470
+            ]
+          ],
+          "Kartonów/warstwę": 9,
+          "Pełnych warstw": 4,
+          "Pojemność": 36,
+          "Status": "✅ Aligned (W obrysie palety)",
+          "Wystawanie mm": 0.0,
+          "Wysokość kartonu": 300.0
+        }
+      ]
+    }
+  }
+}

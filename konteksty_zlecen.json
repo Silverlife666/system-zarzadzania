@@ -1,0 +1,1201 @@
+{
+  "ORD-20260823-190937": {
+    "updated_at": "2026-08-23T19:14:46",
+    "data": {}
+  },
+  "ORD-20260823-183724": {
+    "updated_at": "2026-08-23T22:20:14",
+    "data": {
+      "ws_ord_date": "23.08.2026",
+      "ws_qnet_1": 12000,
+      "saved_specification": {
+        "timestamp": "2026-08-23 21:08:49",
+        "order_id": "ORD-20260823-183724",
+        "order_header": {
+          "order_id": "ORD-20260823-183724",
+          "order_number": "ORD-20260823-183724",
+          "priority": "normalny",
+          "document_status": "robocze",
+          "language": "PL",
+          "document_version": "v1",
+          "delivery_date": "2026-08-31",
+          "change_reason": ""
+        },
+        "lot_number": "",
+        "qty_net": 0,
+        "qty_buffer": 0,
+        "qty_with_buffer": 0,
+        "qty_production": 0,
+        "qty_shipping": 0,
+        "packaging_calculation": {},
+        "project_info": {
+          "project_number": "",
+          "project_version": "",
+          "source_link": "",
+          "attachment": {}
+        },
+        "catalog_product_image": {},
+        "numer_wewnetrzny": "KSS Rolling Papers",
+        "plik": "Set_of_xxx.pdf",
+        "pdf_data": {
+          "Informacje Ogólne": {
+            "Numer wewnętrzny": "KSS Rolling Papers",
+            "Plik": "Set_of_xxx.pdf"
+          },
+          "Nagłówek zlecenia": {
+            "Order ID": "ORD-20260823-183724",
+            "Numer zlecenia": "ORD-20260823-183724",
+            "Priorytet": "normalny",
+            "Status dokumentu": "robocze",
+            "Język dokumentu": "PL",
+            "Wersja dokumentu": "v1",
+            "Planowana data dostawy": "2026-08-31",
+            "Powód zmiany": "—"
+          },
+          "Sekcja I: Parametry Podstawowe & Materiały": {
+            "Produkt": "Rolls",
+            "Nazwa produktu": "KSS Rolling Papers",
+            "Inne kryteria": "bez filtra",
+            "Wymiary": "-",
+            "Kolor filtra": "Biały",
+            "Kolor papieru w boxie": "Biały 12,5 gsm",
+            "Druk": "Offset Biały",
+            "Zamówienie/klient": "Sklep",
+            "Numer partii / LOT": "",
+            "Ilość netto": 0,
+            "Ilość z zapasem": 0,
+            "Ilość do produkcji": 0,
+            "Ilość do wysyłki": 0,
+            "Ilość box": 0,
+            "Ilość cover": 0,
+            "Ilość display": 0,
+            "Ilość w kartonie zbiorczym": 1200
+          },
+          "SEKCJA II: SPECYFIKACJA": {
+            "Okładka - Gramatura": "-",
+            "Okładka - Zadruk": "Brak zadruku",
+            "Okładka - Rozbarwienie": "CMYK",
+            "Okładka - Druk": "-",
+            "Okładka - Lakier": "brak",
+            "Okładka - Foliowanie/Lakierowanie awers": "Tak",
+            "Okładka - Foliowanie/Lakierowanie rewers": "Tak",
+            "Okładka - Wykrojnik": "-",
+            "Box rolls - Gramatura": "-",
+            "Box rolls - Zadruk": "Brak zadruku",
+            "Box rolls - Rozbarwienie": "CMYK",
+            "Box rolls - Druk": "-",
+            "Box rolls - Lakier": "brak",
+            "Box rolls - Foliowanie front": "Tak",
+            "Box rolls - Foliowanie tył": "Tak",
+            "Box rolls - Wykrojnik": 594,
+            "Bletka - Gramatura": "-",
+            "Bletka - Zadruk": "Brak zadruku",
+            "Bletka - Rozbarwienie": "CMYK",
+            "Bletka - Druk": "-",
+            "Bletka - Lakier": "brak",
+            "Bletka - Foliowanie front": "Tak",
+            "Bletka - Foliowanie tył": "Tak",
+            "Bletka - Wykrojnik": 594,
+            "Arkusz filtra - Gramatura": "-",
+            "Arkusz filtra - Zadruk": "Brak zadruku",
+            "Arkusz filtra - Rozbarwienie": "CMYK",
+            "Arkusz filtra - Druk": "-",
+            "Arkusz filtra - Lakier": "brak",
+            "Arkusz filtra - Foliowanie front": "Tak",
+            "Arkusz filtra - Foliowanie tył": "Tak",
+            "Arkusz filtra - Wykrojnik": 594,
+            "Ilość perforacji": "Brak",
+            "Dodatkowa perforacja": "TAK",
+            "Ilość listków": "-",
+            "Ilość w Display": "-",
+            "Ilość w kartonie": "-",
+            "Nadruk na kartonie": "TAK"
+          },
+          "Sekcja III: Display": {
+            "Display": "Offset Biały",
+            "Gramatura (Display)": "-",
+            "Zadruk (Display)": "1/0",
+            "Rozbarwienie (Display)": "CMYK",
+            "Lakier (Display)": "brak",
+            "Wykrojnik (Display)": 578,
+            "Foliowanie/lakierowanie (Display)": "Tak"
+          },
+          "SEKCJA IV: INNE ISTOTNE INFORMACJE": {
+            "Uwagi do zamówienia": "Papier powierzony na bletki"
+          }
+        },
+        "form_state": {
+          "val_ok_druk": "-",
+          "chk_bl_tyl": true,
+          "chk_af_rozb": true,
+          "val_artwork_number": "",
+          "chk_internal_no": true,
+          "chk_artwork_version": false,
+          "chk_qty_cover": true,
+          "val_af_wyk": 594,
+          "master_Podsekcja_I_Materialy": true,
+          "chk_qty_production": true,
+          "val_bl_gram": "-",
+          "master_Podsekcja_II_Okładka": true,
+          "chk_qty_shipping": true,
+          "val_ok_gram": "-",
+          "val_qty_net": 0,
+          "master_Podsekcja_II_Bletka": true,
+          "chk_br_gram": true,
+          "val_br_druk": "-",
+          "chk_bl_rozb": true,
+          "val_other_notes": "Papier powierzony na bletki",
+          "val_qty_carton": 1200,
+          "val_qty_buffer": 0,
+          "chk_af_zadruk": true,
+          "val_dsp_gram": "-",
+          "val_qty_cover": 0,
+          "chk_box_paper_color": true,
+          "val_bl_rozb": "CMYK",
+          "chk_dsp_lakierowanie": true,
+          "val_br_front": "Tak",
+          "chk_br_druk": true,
+          "chk_print_type": true,
+          "val_af_lakier": "brak",
+          "chk_qty_display_pieces": true,
+          "val_br_wyk": 594,
+          "chk_br_zadruk": true,
+          "buff_box": 0,
+          "chk_filter_color": true,
+          "val_af_front": "Tak",
+          "chk_other_criteria": true,
+          "val_ok_print": "Brak zadruku",
+          "val_dsp_lakier": "brak",
+          "val_bl_front": "Tak",
+          "chk_perf_count": true,
+          "val_artwork_version": "",
+          "chk_br_lakier": true,
+          "chk_artwork_link": false,
+          "chk_product_type": true,
+          "chk_file_ref": true,
+          "val_br_gram": "-",
+          "val_ok_wyk": "-",
+          "master_Podsekcja_I_Ilosci_zamowienia": true,
+          "val_box_paper_color": "Biały 12,5 gsm",
+          "val_other_criteria": "bez filtra",
+          "chk_other_notes": true,
+          "master_Podsekcja_II_Dodatkowe_informacje": true,
+          "val_dsp_rozb": "CMYK",
+          "chk_af_front": true,
+          "chk_qty_displays_palette": true,
+          "chk_ok_print": true,
+          "val_br_rozb": "CMYK",
+          "chk_carton_print": true,
+          "chk_pack_carton": true,
+          "chk_bl_gram": true,
+          "val_br_tyl": "Tak",
+          "master_Podsekcja_IV_Inne_informacje": true,
+          "chk_dsp_type": true,
+          "chk_bl_lakier": true,
+          "chk_sheets_count": true,
+          "chk_bl_zadruk": true,
+          "chk_dimensions": true,
+          "val_bl_druk": "-",
+          "chk_qty_buffer": true,
+          "chk_ok_lakier": true,
+          "val_dsp_wyk": 578,
+          "chk_ok_rewers": true,
+          "val_artwork_link": "",
+          "val_sheets_count": "-",
+          "master_Podsekcja_II_Arkusz_filtra": true,
+          "chk_add_perf": true,
+          "val_print_type": "Offset Biały",
+          "val_qty_display": 0,
+          "val_af_gram": "-",
+          "chk_af_lakier": true,
+          "val_qty_cartons_palette": 10,
+          "val_file_ref": "Set_of_xxx.pdf",
+          "val_dsp_zadruk": "1/0",
+          "val_dimensions": "-",
+          "chk_pack_display": true,
+          "chk_ok_awers": true,
+          "val_dsp_type": "Offset Biały",
+          "val_qty_shipping": 0,
+          "val_ok_rewers": "Tak",
+          "chk_ok_druk": true,
+          "val_bl_wyk": 594,
+          "chk_af_tyl": true,
+          "chk_ok_gram": true,
+          "chk_af_gram": true,
+          "val_qty_display_pieces": 50,
+          "chk_ok_wyk": true,
+          "chk_br_tyl": true,
+          "chk_dsp_rozb": true,
+          "val_custom_filter_color": "",
+          "chk_product_name": true,
+          "val_ok_lakier": "brak",
+          "chk_dsp_zadruk": true,
+          "chk_qty_carton": true,
+          "chk_bl_front": true,
+          "val_af_rozb": "CMYK",
+          "val_pack_carton": "-",
+          "val_dsp_lakierowanie": "Tak",
+          "master_Podsekcja_III_Display": true,
+          "chk_bl_druk": true,
+          "chk_dsp_lakier": true,
+          "val_qty_box": 0,
+          "val_add_perf": "TAK",
+          "chk_lot_number": true,
+          "val_ok_rozb": "CMYK",
+          "val_qty_displays_palette": 240,
+          "master_Podsekcja_II_Box_rolls": true,
+          "val_product_name": "KSS Rolling Papers",
+          "val_br_zadruk": "Brak zadruku",
+          "val_qty_production": 0,
+          "val_bl_tyl": "Tak",
+          "val_perf_count": "Brak",
+          "chk_qty_cartons_palette": true,
+          "buff_disp": 0,
+          "val_af_druk": "-",
+          "chk_br_front": true,
+          "val_carton_print": "TAK",
+          "chk_br_rozb": true,
+          "master_Podsekcja_I_Projekt_drukarni": false,
+          "val_order_channel": "Sklep",
+          "chk_custom_filter_color": true,
+          "chk_af_druk": true,
+          "chk_qty_box": true,
+          "val_lot_number": "",
+          "chk_qty_display": true,
+          "val_product_type": "Rolls",
+          "chk_af_wyk": true,
+          "val_br_lakier": "brak",
+          "chk_dsp_gram": true,
+          "chk_order_channel": true,
+          "val_pack_display": "-",
+          "chk_qty_net": true,
+          "val_af_zadruk": "Brak zadruku",
+          "chk_bl_wyk": true,
+          "tab9_document_packaging_level": "Produkt",
+          "val_ok_awers": "Tak",
+          "chk_ok_rozb": true,
+          "chk_br_wyk": true,
+          "chk_artwork_number": false,
+          "val_filter_color": "Biały",
+          "chk_dsp_wyk": true,
+          "val_internal_no": "KSS Rolling Papers",
+          "val_bl_lakier": "brak",
+          "val_af_tyl": "Tak",
+          "buff_cover": 0,
+          "val_bl_zadruk": "Brak zadruku"
+        },
+        "catalog_snapshot": {},
+        "packaging_level": "Produkt"
+      },
+      "eo_qbuffer_0": 0,
+      "ws_crit_1": "bez filtra",
+      "eo_confirmation_note_ORD-20260823-183724": "Oczekuje na potwierdzenie",
+      "eo_pname_0": "KSS Rolling Papers",
+      "eo_drop_0": false,
+      "ws_planned_time_ORD-20260823-183724": 0.0,
+      "ppwr_components_editor_version": 0,
+      "eo_delivery_contact_select_ORD-20260823-183724": "Test | szubertxxx@gmail.com",
+      "ws_qbuffer_0": 0,
+      "ws_ord_no_ORD-20260823-183724": "ORD-20260823-183724",
+      "ws_pname_0": "Bletka KSS BEUZ",
+      "ws_invoice_0": "Brak",
+      "eo_dim_0": "-",
+      "ws_qproduction_0": 12000,
+      "ws_qproduction_1": 14500,
+      "packing_list_items": [
+        {
+          "Produkt": "Bletka KSS BEUZ",
+          "EAN": "3665006001047",
+          "Liczba Kartonów": 1
+        }
+      ],
+      "ws_client_1": "Sklep",
+      "eo_packaging_level_0": "Produkt",
+      "eo_qcarton_0": 1200,
+      "eo_fcolor_0": "Biały",
+      "eo_catalog_0": "— pozycja ręczna —",
+      "ws_qbox_0": 0,
+      "ws_notes_1": "Papier powierzony na bletki",
+      "eo_qproduction_0": 12000,
+      "packing_document": {
+        "number": "PL/2026/191653",
+        "created_at": "2026-08-23",
+        "sent_at": "2026-08-23",
+        "planned_delivery": "2026-08-23",
+        "status": "roboczy",
+        "delivery_type": "kompletna",
+        "language": "PL",
+        "sender": "",
+        "recipient": "",
+        "delivery_place": "",
+        "carrier": "",
+        "items": [
+          {
+            "Produkt": "Bletka KSS BEUZ",
+            "SKU": "",
+            "EAN/GTIN": "3665006001047",
+            "LOT": "",
+            "Sztuki": 0,
+            "Pudełka": 0,
+            "Displaye": 0,
+            "Kartony": 1,
+            "Paleta": "",
+            "Jednostka": "karton",
+            "Masa kg": 6.0
+          }
+        ],
+        "pallets": [
+          {
+            "Paleta": "1/1",
+            "Produkt": "Bletka KSS BEUZ",
+            "Kartony": 120,
+            "Status": "oczekuje",
+            "QR": "{\"pl\": \"PL/2026/191653\", \"produkt\": \"Bletka KSS BEUZ\", \"paleta\": \"1/1\"}"
+          }
+        ],
+        "summary": {
+          "pallets": 1,
+          "cartons": 1.0,
+          "pieces": 0.0,
+          "weight": 6.0,
+          "m3": 0,
+          "ldm": 0
+        }
+      },
+      "ws_drop_1": false,
+      "eo_delivery_contact_loaded_ORD-20260823-183724": "Test | szubertxxx@gmail.com",
+      "eo_recipient_name_ORD-20260823-183724": "",
+      "ws_prod_made_1": 0,
+      "ws_prod_waste_1": 0,
+      "ws_qbuffer_1": 2500,
+      "sug_layout_result": {
+        "Produkt": "Bletka KSS BEUZ",
+        "EAN": "3665006001047",
+        "Paleta": "EURO",
+        "Orientacja": "Obrót 90°",
+        "Kartonów/warstwę": 6,
+        "Pełnych warstw": 9,
+        "Kartonów na pełnej palecie": 54,
+        "Liczba palet": 1,
+        "Kartonów na ostatniej palecie": 1,
+        "Warstw na ostatniej palecie": 1,
+        "Masa brutto/paleta kg": 21.0,
+        "Wysokość palety mm": 1322.4,
+        "Stabilność /100": 61,
+        "Ocena stabilności": "wymaga zabezpieczenia",
+        "Wystawanie mm": 0.0,
+        "Miejsce dostawy": "",
+        "Ostrzeżenia": [],
+        "Warianty": [
+          {
+            "Nazwa": "Oryginalna",
+            "Układ": [
+              [
+                100.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                350.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                600.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                850.0,
+                115.0,
+                250.0,
+                570.0
+              ]
+            ],
+            "Kartonów/warstwę": 4,
+            "Pełnych warstw": 9,
+            "Pojemność": 36,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          },
+          {
+            "Nazwa": "Obrót 90°",
+            "Układ": [
+              [
+                30.0,
+                25.0,
+                570.0,
+                250.0
+              ],
+              [
+                30.0,
+                275.0,
+                570.0,
+                250.0
+              ],
+              [
+                30.0,
+                525.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                25.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                275.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                525.0,
+                570.0,
+                250.0
+              ]
+            ],
+            "Kartonów/warstwę": 6,
+            "Pełnych warstw": 9,
+            "Pojemność": 54,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          },
+          {
+            "Nazwa": "Mieszany / zaawansowany",
+            "Układ": [
+              [
+                30.0,
+                25.0,
+                570,
+                250
+              ],
+              [
+                30.0,
+                275.0,
+                570,
+                250
+              ],
+              [
+                30.0,
+                525.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                25.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                275.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                525.0,
+                570,
+                250
+              ]
+            ],
+            "Kartonów/warstwę": 6,
+            "Pełnych warstw": 9,
+            "Pojemność": 54,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          }
+        ]
+      },
+      "ws_prod_waste_0": 0,
+      "ppwr_components": {
+        "__context_type__": "dataframe",
+        "records": []
+      },
+      "eo_response_status_ORD-20260823-183724": "wysłano",
+      "ws_lot_0": "",
+      "eo_ptype_0": "Rolls",
+      "ppwr_declaration_items": {
+        "__context_type__": "dataframe",
+        "records": []
+      },
+      "ws_prod_planned_0": 0,
+      "ws_prod_made_0": 0,
+      "ws_dim_1": "-",
+      "eo_client_0": "Sklep",
+      "ws_display_0": "Offset Biały",
+      "eo_delivery_city_ORD-20260823-183724": "Zawiercie",
+      "ws_qnet_0": 0,
+      "ws_fcolor_0": "Biały",
+      "ws_waste_reason_1": "",
+      "ws_pcolor_1": "Biały 12,5 gsm",
+      "ws_prod_planned_1": 14500,
+      "ws_production_order_ORD-20260823-183724": "ORD-20260823-183724-P",
+      "ws_pcolor_0": "Biały 12,5 gsm",
+      "ws_client_0": "Sklep",
+      "ws_qcover_1": 0,
+      "ws_waste_reason_0": "",
+      "ws_qdisp_1": 0,
+      "ws_shift_ORD-20260823-183724": "I",
+      "eo_delivery_street_ORD-20260823-183724": "Nowowiejska 53",
+      "eo_dpal_0": 240,
+      "eo_cpal_0": 10,
+      "tab9_order_header": {
+        "order_id": "ORD-20260823-183724",
+        "order_number": "ORD-20260823-183724",
+        "priority": "normalny",
+        "document_status": "robocze",
+        "language": "PL",
+        "document_version": "v1",
+        "delivery_date": "2026-08-31",
+        "change_reason": "",
+        "recipient": {
+          "name": "",
+          "company": "Test",
+          "email": "szubertxxx@gmail.com"
+        },
+        "delivery_address": {
+          "street": "Nowowiejska 53",
+          "postal_code": "42-400",
+          "city": "Zawiercie",
+          "country": "Polska"
+        }
+      },
+      "eo_recipient_company_ORD-20260823-183724": "Test",
+      "pal_calc_result": {
+        "Produkt": "Bletka KSS BEUZ",
+        "Paleta": "EURO",
+        "Orientacja": "Obrót 90°",
+        "Kartonów/warstwę": 6,
+        "Pełnych warstw": 9,
+        "Pojemność palety": 54,
+        "Pełne palety": 0,
+        "Kartonów na ostatniej palecie": 1,
+        "Warstw na ostatniej palecie": 1,
+        "Liczba palet": 1,
+        "Masa netto/paleta kg": 324.0,
+        "Masa zabezpieczeń kg": 0.3,
+        "Masa brutto/paleta kg": 339.3,
+        "Wysokość palety mm": 1322.4,
+        "Stabilność /100": 93,
+        "Objętość transportowa m³": 1.27,
+        "LDM": 0.4
+      },
+      "ws_qbox_1": 14500,
+      "ws_fcolor_1": "Biały",
+      "ws_crit_0": "bez filtra",
+      "eo_recipient_email_ORD-20260823-183724": "szubertxxx@gmail.com",
+      "eo_qnet_0": 12000,
+      "ws_machine_ORD-20260823-183724": "",
+      "pal_calc_last": {
+        "calc_w": 570.0,
+        "calc_mw": 500.0,
+        "calc_orientation": "Automatycznie najlepsza",
+        "calc_wg": 6.0,
+        "calc_mh": 1400.0,
+        "calc_h": 130.0,
+        "calc_l": 250.0,
+        "calc_name": "Bletka KSS BEUZ",
+        "calc_size_unit": "mm",
+        "calc_weight_unit": "kg",
+        "calc_product": "Bletka KSS BEUZ",
+        "calc_pt": "EURO",
+        "calc_qty": 1
+      },
+      "ws_qcover_0": 0,
+      "ws_qshipping_0": 12000,
+      "eo_qshipping_0": 12000,
+      "eo_lot_0": "",
+      "e_order_items": [
+        {
+          "product_name": "KSS Rolling Papers",
+          "product_type": "Rolls",
+          "other_criteria": "bez filtra",
+          "filter_color": "Biały",
+          "dimensions": "-",
+          "box_paper_color": "Biały 12,5 gsm",
+          "order_channel": "Sklep",
+          "qty_net": 12000,
+          "qty_buffer": 0,
+          "qty_with_buffer": 12000,
+          "qty_production": 12000,
+          "qty_shipping": 12000,
+          "lot_number": "",
+          "qty_display_pieces": 50,
+          "qty_carton": 1200,
+          "qty_cartons_palette": 10,
+          "qty_displays_palette": 240,
+          "sku": "",
+          "ean_product": "",
+          "ean_display": "",
+          "ean_mastercase": "",
+          "ean_selected": "",
+          "packaging_level": "Produkt",
+          "catalog_snapshot": {},
+          "packaging_calculation": {},
+          "project_info": {
+            "project_number": "",
+            "project_version": "",
+            "source_link": "",
+            "attachment": {}
+          },
+          "order_id": "ORD-20260823-183724",
+          "order_header": {
+            "order_id": "ORD-20260823-183724",
+            "order_number": "ORD-20260823-183724",
+            "priority": "normalny",
+            "document_status": "robocze",
+            "language": "PL",
+            "document_version": "v1",
+            "delivery_date": "2026-08-31",
+            "change_reason": "",
+            "recipient": {},
+            "delivery_address": {}
+          }
+        }
+      ],
+      "ws_pname_1": "KSS Rolling Papers",
+      "ws_qshipping_1": 12000,
+      "ws_qdisp_0": 0,
+      "ws_display_1": "Offset Biały",
+      "eo_order_no_ORD-20260823-183724": "ORD-20260823-183724",
+      "eo_delivery_postal_ORD-20260823-183724": "42-400",
+      "eo_qdpieces_0": 50,
+      "ws_notes_0": "Papier powierzony na bletki",
+      "work_sheet_items": [
+        {
+          "order_channel": "Sklep",
+          "product_name": "Bletka KSS BEUZ",
+          "other_criteria": "bez filtra",
+          "display_type": "Offset Biały",
+          "box_paper_color": "Biały 12,5 gsm",
+          "filter_color": "Biały",
+          "dimensions": "-",
+          "qty_net": 0,
+          "qty_buffer": 0,
+          "qty_with_buffer": 0,
+          "qty_production": 12000,
+          "qty_shipping": 12000,
+          "production_planned": 0,
+          "production_made": 0,
+          "production_waste": 0,
+          "waste_reason": "",
+          "lot_number": "",
+          "qty_box": 0,
+          "qty_cover": 0,
+          "qty_display": 0,
+          "order_notes": "Papier powierzony na bletki",
+          "invoice_status": "Brak",
+          "sku": "",
+          "ean_product": "",
+          "ean_display": "",
+          "ean_mastercase": "",
+          "ean_selected": "",
+          "packaging_level": "Produkt",
+          "catalog_snapshot": {},
+          "packaging_calculation": {},
+          "project_info": {},
+          "order_id": "ORD-20260823-183724",
+          "order_header": {
+            "order_id": "ORD-20260823-183724",
+            "order_number": "ORD-20260823-183724",
+            "priority": "normalny",
+            "document_status": "robocze",
+            "language": "PL",
+            "document_version": "v1",
+            "change_reason": ""
+          }
+        },
+        {
+          "order_channel": "Sklep",
+          "product_name": "KSS Rolling Papers",
+          "other_criteria": "bez filtra",
+          "display_type": "Offset Biały",
+          "box_paper_color": "Biały 12,5 gsm",
+          "filter_color": "Biały",
+          "dimensions": "-",
+          "qty_net": 12000,
+          "qty_buffer": 2500,
+          "qty_with_buffer": 14500,
+          "qty_production": 14500,
+          "qty_shipping": 12000,
+          "production_planned": 14500,
+          "production_made": 0,
+          "production_waste": 0,
+          "waste_reason": "",
+          "lot_number": "",
+          "qty_box": 14500,
+          "qty_cover": 0,
+          "qty_display": 0,
+          "order_notes": "Papier powierzony na bletki",
+          "invoice_status": "Brak",
+          "sku": "",
+          "ean_product": "",
+          "ean_display": "",
+          "ean_mastercase": "",
+          "ean_selected": "",
+          "packaging_level": "Produkt",
+          "catalog_snapshot": {},
+          "packaging_calculation": {},
+          "project_info": {
+            "project_number": "",
+            "project_version": "",
+            "source_link": "",
+            "attachment": {}
+          },
+          "order_id": "ORD-20260823-183724",
+          "order_header": {
+            "order_id": "ORD-20260823-183724",
+            "order_number": "ORD-20260823-183724",
+            "priority": "normalny",
+            "document_status": "robocze",
+            "language": "PL",
+            "document_version": "v1",
+            "delivery_date": "2026-08-31",
+            "change_reason": "",
+            "recipient": {},
+            "delivery_address": {}
+          }
+        }
+      ],
+      "eo_delivery_country_ORD-20260823-183724": "Polska",
+      "box_rightsizing_result": {
+        "Nazwa": "Master Case z Box Rightsizing",
+        "Dlugosc": 529.0,
+        "Szerokosc": 233.0,
+        "Wysokosc": 170.0,
+        "boxes_per_layer": 6
+      },
+      "ws_drop_0": false,
+      "eo_crit_0": "bez filtra",
+      "ws_invoice_1": "Brak",
+      "ws_lot_1": "",
+      "ws_dim_0": "-",
+      "ws_operator_ORD-20260823-183724": "",
+      "eo_pcolor_0": "Biały 12,5 gsm",
+      "eo_document_language_ORD-20260823-183724": "PL"
+    }
+  },
+  "ORD-20260823-192336-481113": {
+    "updated_at": "2026-08-23T19:33:46",
+    "data": {
+      "pal_calc_last": {
+        "calc_w": 570.0,
+        "calc_mw": 500.0,
+        "calc_orientation": "Automatycznie najlepsza",
+        "calc_wg": 6.0,
+        "calc_mh": 1400.0,
+        "calc_h": 130.0,
+        "calc_l": 250.0,
+        "calc_name": "Bletka KSS BEUZ",
+        "calc_size_unit": "mm",
+        "calc_weight_unit": "kg",
+        "calc_product": "Bletka KSS BEUZ",
+        "calc_pt": "EURO",
+        "calc_qty": 1
+      },
+      "bct_last_result": {
+        "safe_bct": 702.8329235316172,
+        "bct": 1265.099262356911,
+        "layers": 5,
+        "weight": 10.0,
+        "max_safe_layers": 71,
+        "risk": "bezpieczne",
+        "material": "3-warstwowa",
+        "flute": "Fala E (micro)",
+        "language": "PL",
+        "approval": "roboczy",
+        "signatures": {
+          "constructor": "",
+          "quality": "",
+          "warehouse": ""
+        },
+        "recommendation": "Utrzymaj 3-warstwowa, falę Fala E (micro), minimum 480 g/m²."
+      },
+      "sug_layout_session": {
+        "Produkt": "Bletka KSS BEUZ",
+        "EAN": "3665006001047",
+        "Paleta": "EURO",
+        "Orientacja": "Obrót 90°",
+        "Kartonów/warstwę": 6,
+        "Pełnych warstw": 9,
+        "Kartonów na pełnej palecie": 54,
+        "Liczba palet": 1,
+        "Kartonów na ostatniej palecie": 1,
+        "Warstw na ostatniej palecie": 1,
+        "Masa brutto/paleta kg": 21.0,
+        "Wysokość palety mm": 1322.4,
+        "Stabilność /100": 61,
+        "Ocena stabilności": "wymaga zabezpieczenia",
+        "Wystawanie mm": 0.0,
+        "Miejsce dostawy": "",
+        "Ostrzeżenia": [],
+        "Warianty": [
+          {
+            "Nazwa": "Oryginalna",
+            "Układ": [
+              [
+                100.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                350.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                600.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                850.0,
+                115.0,
+                250.0,
+                570.0
+              ]
+            ],
+            "Kartonów/warstwę": 4,
+            "Pełnych warstw": 9,
+            "Pojemność": 36,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          },
+          {
+            "Nazwa": "Obrót 90°",
+            "Układ": [
+              [
+                30.0,
+                25.0,
+                570.0,
+                250.0
+              ],
+              [
+                30.0,
+                275.0,
+                570.0,
+                250.0
+              ],
+              [
+                30.0,
+                525.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                25.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                275.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                525.0,
+                570.0,
+                250.0
+              ]
+            ],
+            "Kartonów/warstwę": 6,
+            "Pełnych warstw": 9,
+            "Pojemność": 54,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          },
+          {
+            "Nazwa": "Mieszany / zaawansowany",
+            "Układ": [
+              [
+                30.0,
+                25.0,
+                570,
+                250
+              ],
+              [
+                30.0,
+                275.0,
+                570,
+                250
+              ],
+              [
+                30.0,
+                525.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                25.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                275.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                525.0,
+                570,
+                250
+              ]
+            ],
+            "Kartonów/warstwę": 6,
+            "Pełnych warstw": 9,
+            "Pojemność": 54,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          }
+        ]
+      },
+      "packing_document": {
+        "number": "PL/2026/192705",
+        "created_at": "2026-08-23",
+        "sent_at": "2026-08-23",
+        "planned_delivery": "2026-08-23",
+        "status": "roboczy",
+        "delivery_type": "kompletna",
+        "language": "PL",
+        "sender": "",
+        "recipient": "",
+        "delivery_place": "",
+        "carrier": "",
+        "items": [
+          {
+            "Produkt": "Bletka KSS BEUZ",
+            "SKU": "",
+            "EAN/GTIN": "3665006001047",
+            "LOT": "02/2026",
+            "Sztuki": 0,
+            "Pudełka": 0,
+            "Displaye": 0,
+            "Kartony": 54,
+            "Paleta": "EURO",
+            "Jednostka": "paleta",
+            "Masa kg": 21.0
+          }
+        ],
+        "pallets": [
+          {
+            "Paleta": "1/1",
+            "Produkt": "Bletka KSS BEUZ",
+            "Kartony": 54,
+            "Status": "oczekuje",
+            "QR": "{\"pl\": \"PL/2026/192705\", \"produkt\": \"Bletka KSS BEUZ\", \"paleta\": \"1/1\"}"
+          }
+        ],
+        "summary": {
+          "pallets": 1,
+          "cartons": 54.0,
+          "pieces": 0.0,
+          "weight": 21.0,
+          "m3": 0,
+          "ldm": 0
+        }
+      },
+      "ppwr_components_editor_version": 0,
+      "sug_layout_result": {
+        "Produkt": "Bletka KSS BEUZ",
+        "EAN": "3665006001047",
+        "Paleta": "EURO",
+        "Orientacja": "Obrót 90°",
+        "Kartonów/warstwę": 6,
+        "Pełnych warstw": 9,
+        "Kartonów na pełnej palecie": 54,
+        "Liczba palet": 1,
+        "Kartonów na ostatniej palecie": 1,
+        "Warstw na ostatniej palecie": 1,
+        "Masa brutto/paleta kg": 21.0,
+        "Wysokość palety mm": 1322.4,
+        "Stabilność /100": 61,
+        "Ocena stabilności": "wymaga zabezpieczenia",
+        "Wystawanie mm": 0.0,
+        "Miejsce dostawy": "",
+        "Ostrzeżenia": [],
+        "Warianty": [
+          {
+            "Nazwa": "Oryginalna",
+            "Układ": [
+              [
+                100.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                350.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                600.0,
+                115.0,
+                250.0,
+                570.0
+              ],
+              [
+                850.0,
+                115.0,
+                250.0,
+                570.0
+              ]
+            ],
+            "Kartonów/warstwę": 4,
+            "Pełnych warstw": 9,
+            "Pojemność": 36,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          },
+          {
+            "Nazwa": "Obrót 90°",
+            "Układ": [
+              [
+                30.0,
+                25.0,
+                570.0,
+                250.0
+              ],
+              [
+                30.0,
+                275.0,
+                570.0,
+                250.0
+              ],
+              [
+                30.0,
+                525.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                25.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                275.0,
+                570.0,
+                250.0
+              ],
+              [
+                600.0,
+                525.0,
+                570.0,
+                250.0
+              ]
+            ],
+            "Kartonów/warstwę": 6,
+            "Pełnych warstw": 9,
+            "Pojemność": 54,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          },
+          {
+            "Nazwa": "Mieszany / zaawansowany",
+            "Układ": [
+              [
+                30.0,
+                25.0,
+                570,
+                250
+              ],
+              [
+                30.0,
+                275.0,
+                570,
+                250
+              ],
+              [
+                30.0,
+                525.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                25.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                275.0,
+                570,
+                250
+              ],
+              [
+                600.0,
+                525.0,
+                570,
+                250
+              ]
+            ],
+            "Kartonów/warstwę": 6,
+            "Pełnych warstw": 9,
+            "Pojemność": 54,
+            "Status": "✅ Aligned (W obrysie palety)",
+            "Wystawanie mm": 0.0,
+            "Wysokość kartonu": 130.0
+          }
+        ]
+      },
+      "ppwr_components": {
+        "__context_type__": "dataframe",
+        "records": []
+      },
+      "ppwr_declaration_items": {
+        "__context_type__": "dataframe",
+        "records": []
+      },
+      "pal_calc_result": {
+        "Produkt": "Bletka KSS BEUZ",
+        "Paleta": "EURO",
+        "Orientacja": "Obrót 90°",
+        "Kartonów/warstwę": 6,
+        "Pełnych warstw": 9,
+        "Pojemność palety": 54,
+        "Pełne palety": 0,
+        "Kartonów na ostatniej palecie": 1,
+        "Warstw na ostatniej palecie": 1,
+        "Liczba palet": 1,
+        "Masa netto/paleta kg": 324.0,
+        "Masa zabezpieczeń kg": 0.3,
+        "Masa brutto/paleta kg": 339.3,
+        "Wysokość palety mm": 1322.4,
+        "Stabilność /100": 93,
+        "Objętość transportowa m³": 1.27,
+        "LDM": 0.4
+      }
+    }
+  }
+}

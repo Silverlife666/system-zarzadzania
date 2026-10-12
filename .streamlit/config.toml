@@ -1,0 +1,8 @@
+[server]
+# Aplikacja jest uruchamiana lokalnie przez start.vbs. Wyłączenie XSRF zapobiega
+# odpowiedzi 403 na żądanie wysyłane przez st.file_uploader po odświeżeniu sesji.
+# Ochrona CORS pozostaje włączona.
+enableXsrfProtection = false
+# Formularz Streamlit przyjmuje do 2 GB; dla większych backupów użyj w module 30
+# opcji wskazania lokalnej ścieżki ZIP, która nie przechodzi przez upload formularza.
+maxUploadSize = 2048

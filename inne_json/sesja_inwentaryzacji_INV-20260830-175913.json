@@ -1,0 +1,77 @@
+{
+  "id": "INV-20260830-175913",
+  "name": "123",
+  "created_at": "2026-08-30T17:59:13",
+  "operator": "Adrian",
+  "records": [
+    {
+      "timestamp": "2026-08-30T17:49:39,024",
+      "operator": "Adrian",
+      "ean": "",
+      "tray_id": "4",
+      "product_name": "Bialy 12",
+      "actual_quantity": 667,
+      "nominal_quantity": 667,
+      "source_row": 2,
+      "catalog_product": "",
+      "recognized": false,
+      "difference": 0,
+      "duplicate_tray": false,
+      "issue": ""
+    },
+    {
+      "timestamp": "2026-08-30T17:49:47,911",
+      "operator": "Adrian",
+      "ean": "",
+      "tray_id": "1",
+      "product_name": "Bialy 45",
+      "actual_quantity": 667,
+      "nominal_quantity": 667,
+      "source_row": 3,
+      "catalog_product": "",
+      "recognized": false,
+      "difference": 0,
+      "duplicate_tray": false,
+      "issue": ""
+    },
+    {
+      "timestamp": "2026-08-30T17:49:58,322",
+      "operator": "Adrian",
+      "ean": "",
+      "tray_id": "6",
+      "product_name": "Bialy 12",
+      "actual_quantity": 667,
+      "nominal_quantity": 667,
+      "source_row": 4,
+      "catalog_product": "",
+      "recognized": false,
+      "difference": 0,
+      "duplicate_tray": false,
+      "issue": ""
+    },
+    {
+      "timestamp": "2026-08-30T18:07:17",
+      "operator": "Adrian",
+      "ean": "",
+      "tray_id": "TRAY 0001",
+      "product_name": "ROOROR",
+      "actual_quantity": 500,
+      "nominal_quantity": 500,
+      "catalog_product": "",
+      "recognized": false,
+      "difference": 0,
+      "duplicate_tray": false,
+      "issue": ""
+    }
+  ],
+  "summary": {
+    "trays": 4,
+    "sku": 3,
+    "pieces": 2501,
+    "difference": 0,
+    "duplicates": 0,
+    "shortages": 0,
+    "surpluses": 0,
+    "unknown_products": 0
+  }
+}

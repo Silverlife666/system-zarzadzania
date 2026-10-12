@@ -1,0 +1,69 @@
+{
+  "Ritual Karton": {
+    "saved_at": "2026-08-24T23:03:14",
+    "source": "Produkt z sekcji 1",
+    "context": {
+      "Dlugosc": 40.0,
+      "Szerokosc": 55.0,
+      "Wysokosc": 25.0,
+      "Waga": 0.2,
+      "EAN": "3858891162256",
+      "Typ_Palety": "EURO",
+      "Max_Wysokosc": 2000.0,
+      "Max_Waga": 500.0,
+      "displays_in_mc": 24,
+      "boxes_in_display": 16,
+      "pcs_in_box": 1,
+      "SKU": "3858891162256",
+      "Producent": "Emburn",
+      "Klient": "Ritual",
+      "Tagi": "",
+      "Aktywny": true,
+      "Status": "Aktywny",
+      "Data_ostatniej_weryfikacji": "2026-08-24",
+      "Zdjecie": null,
+      "Zalaczniki": [],
+      "Pola_dodatkowe": {},
+      "Produkt": {
+        "Dlugosc": 40.0,
+        "Szerokosc": 55.0,
+        "Wysokosc": 25.0,
+        "Masa_netto_kg": 0.2,
+        "EAN": "3858891162256"
+      },
+      "Display": {
+        "Dlugosc": 0.0,
+        "Szerokosc": 0.0,
+        "Wysokosc": 0.0,
+        "Masa_pustego_kg": 0.0,
+        "Masa_pelnego_kg": 0.35,
+        "EAN": "",
+        "Mozna_obracac": true,
+        "Dozwolona_pozycja": "Poziomo",
+        "Pudelka_w_displayu": 16
+      },
+      "MasterCase": {
+        "Dlugosc_wewnetrzna": 0.0,
+        "Szerokosc_wewnetrzna": 0.0,
+        "Wysokosc_wewnetrzna": 0.0,
+        "Dlugosc_zewnetrzna": 470.0,
+        "Szerokosc_zewnetrzna": 200.0,
+        "Wysokosc_zewnetrzna": 310.0,
+        "Tara_kg": 0.0,
+        "Masa_brutto_max_kg": 0.0,
+        "EAN": "",
+        "FEFCO": "0201",
+        "Zamkniecie": "Klapy standardowe",
+        "Tektura": "3-warstwowa",
+        "Fala": "E",
+        "Displayow_w_mastercase": 24
+      }
+    },
+    "parameters": {
+      "Waga": 8.0,
+      "Dlugosc": 470.0,
+      "Szerokosc": 200.0,
+      "Gramatura": 480
+    }
+  }
+}

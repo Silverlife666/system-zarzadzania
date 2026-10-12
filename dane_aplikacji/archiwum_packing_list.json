@@ -1,0 +1,76 @@
+[
+  {
+    "order_id": "EMBURN-260824-D12C",
+    "number": "PL/2026/223734",
+    "created_at": "2026-08-24",
+    "sent_at": "2026-08-24",
+    "planned_delivery": "2026-08-24",
+    "status": "roboczy",
+    "delivery_type": "kompletna",
+    "language": "PL",
+    "sender": "Emburn",
+    "recipient": "Filir - Ritual",
+    "delivery_place": "Croatia",
+    "carrier": "Raben",
+    "items": [
+      {
+        "Produkt": "Ritual Rolls",
+        "SKU": "3858891162256",
+        "EAN produktu": "3858891162256",
+        "EAN displaya": "",
+        "EAN Master Case": "",
+        "Poziom opakowania": "Produkt",
+        "EAN/GTIN": "3858891162256",
+        "LOT": "02/2026",
+        "Sztuki": 20736.0,
+        "Pudełka": 20736.0,
+        "Displaye": 1296.0,
+        "Kartony": 54.0,
+        "Paleta": "1",
+        "Jednostka": "karton",
+        "Masa kg": 457.0
+      },
+      {
+        "Produkt": "Ritual Rolls",
+        "SKU": NaN,
+        "EAN produktu": "3858891162256",
+        "EAN displaya": NaN,
+        "EAN Master Case": NaN,
+        "Poziom opakowania": "Produkt",
+        "EAN/GTIN": "3858891162256",
+        "LOT": "02/2026",
+        "Sztuki": 20736.0,
+        "Pudełka": 20736.0,
+        "Displaye": 1296.0,
+        "Kartony": 54.0,
+        "Paleta": "1",
+        "Jednostka": "karton",
+        "Masa kg": 457.0
+      }
+    ],
+    "pallets": [
+      {
+        "Paleta": "1/2",
+        "Produkt": "Ritual Rolls",
+        "Kartony": 54,
+        "Status": "oczekuje",
+        "QR": "{\"pl\": \"PL/2026/223734\", \"produkt\": \"Ritual Rolls\", \"paleta\": \"1/1\"}"
+      },
+      {
+        "Paleta": "2/2",
+        "Produkt": "Ritual Rolls",
+        "Kartony": 54,
+        "Status": "oczekuje",
+        "QR": "{\"pl\": \"PL/2026/223734\", \"produkt\": \"Ritual Rolls\", \"paleta\": \"1/1\"}"
+      }
+    ],
+    "summary": {
+      "pallets": 2,
+      "cartons": 108.0,
+      "pieces": 41472.0,
+      "weight": 914.0,
+      "m3": 0,
+      "ldm": 0
+    }
+  }
+]
