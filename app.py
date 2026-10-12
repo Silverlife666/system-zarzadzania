@@ -3786,7 +3786,25 @@ MODULE_RENDERERS = {
     4: _render_module_4,
     5: _render_module_5,
     6: lambda: render_module_six(st, globals()),
-    7: lambda: render_module_seven(st, {**locals(), "FONT_REGULAR": FONT_REGULAR, "FONT_BOLD": FONT_BOLD}),
+
+
+# ---
+def safe_render_module_seven(st):
+    # Pobieramy bezpieczną kopię środowiska globalnego app.py
+    safe_deps = dict(globals())
+    
+    # Przypisujemy nasze zarejestrowane czcionki
+    safe_deps["FONT_REGULAR"] = FONT_REGULAR
+    safe_deps["FONT_BOLD"] = FONT_BOLD
+    
+    # Wywołujemy moduł 7 przekazując mu bezpieczny słownik
+    from modules.module7_screen import render_module_seven
+    return render_module_seven(st, safe_deps)
+# ---
+
+
+    7: lambda: safe_render_module_seven(st),
+
     8: lambda: render_module_eight(st, globals()),
     9: render_tab9,
     10: _render_module_10,
