@@ -63,6 +63,15 @@ def _create_mastercase_vertical_figure(result):
     return fig
 
 def render_module_seven(st, deps):
+    # --- ZABEZPIECZENIE DLA NOWEGO STREAMLITA ---
+    if isinstance(deps, dict):
+        # Tworzymy bezpieczną, lokalną kopię, aby Streamlit nie zgłaszał błędu modyfikacji
+        deps = deps.copy()
+        if 'FONT_REGULAR' not in deps:
+            deps['FONT_REGULAR'] = 'PolishFont'
+        if 'FONT_BOLD' not in deps:
+            deps['FONT_BOLD'] = 'PolishFont-Bold'
+    # ─────────────────────────────────────────────
     for _bridge_name, _bridge_value in deps.items():
         if not _bridge_name.startswith("__"):
             globals()[_bridge_name] = _bridge_value
