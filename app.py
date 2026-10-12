@@ -6,10 +6,11 @@ import io
 import os
 import time
 
-# Poniżej poprawne importy dla czcionek ReportLab w osobnych liniach:
-from reportlab.pdfmetrics import pdfmetrics
+import reportlab
 from reportlab.pdfmetrics import registerFont
 from reportlab.ttcounts import TTFont
+
+
 
 import json
 import base64
