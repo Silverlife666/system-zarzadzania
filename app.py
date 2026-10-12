@@ -3080,7 +3080,7 @@ with st.sidebar.expander("📁 Aktywne zlecenie", expanded=True):
         activate_order_context(selected_order_id)
         st.rerun()
     st.caption(f"ID: {active_order_id}")
-    if st.button("➕ Nowe zlecenie", width="stretch", key="sidebar_create_order"):
+    if st.button("➕ Nowe zlecenie", key="sidebar_create_order"):
         create_new_order()
         st.success("Utworzono nowe zlecenie.")
         st.rerun()
