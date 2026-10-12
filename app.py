@@ -6,9 +6,8 @@ import io
 import os
 import time
 
-import reportlab
-from reportlab.pdfmetrics import registerFont
-from reportlab.ttcounts import TTFont
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 
 
 
