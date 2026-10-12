@@ -3786,7 +3786,8 @@ MODULE_RENDERERS = {
     4: _render_module_4,
     5: _render_module_5,
     6: lambda: render_module_six(st, globals()),
-    7: lambda: render_module_seven(st, {"FONT_REGULAR": FONT_REGULAR, "FONT_BOLD": FONT_BOLD}),
+    7: lambda: render_module_seven(st, {"FONT_REGULAR": FONT_REGULAR, "FONT_BOLD": FONT_BOLD, "wczytaj_produkty_z_db": wczytaj_produkty_z_db}),
+
     8: lambda: render_module_eight(st, globals()),
     9: render_tab9,
     10: _render_module_10,
