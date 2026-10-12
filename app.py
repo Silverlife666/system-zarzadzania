@@ -4,7 +4,8 @@ import pandas as pd
 import numpy as np
 import io
 import os
-import time
+from reportlab.pdfmetrics import pdfmetrics
+from reportlab.ttcounts import TTFontimport time
 import json
 import base64
 import hashlib
@@ -301,7 +302,6 @@ APP_DATA_DIR = os.path.join(APP_DIR, "dane_aplikacji")
 os.makedirs(APP_DATA_DIR, exist_ok=True)
 
 
-FONT_REGULAR, FONT_BOLD = register_polish_fonts()
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 APP_DATA_DIR = os.path.join(APP_DIR, "dane_aplikacji")
