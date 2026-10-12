@@ -19,7 +19,6 @@ from datetime import datetime, timedelta
 from email.message import EmailMessage
 from xml.sax.saxutils import escape
 
-
 from core.document_safety import document_file_is_ready, is_path_in_directory
 from core.email_html import render_email_html
 from core.packaging import packaging_level_quantities as calculate_packaging_level_quantities
@@ -279,27 +278,10 @@ from reportlab.graphics import renderPDF
 
 #nowy kod#
 
+
 # Rejestracja czcionki obsługującej polskie znaki
 @st.cache_resource
 def register_polish_fonts():
-    # Ścieżka do głównego folderu Twojego projektu
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # 1. SPRAWDZENIE CZCIONEK W FOLDERZE PROJEKTU (Dla Streamlit Cloud)
-    local_reg = os.path.join(current_dir, "OpenSans.ttf")
-    local_bold = os.path.join(current_dir, "OpenSans-Bold.ttf")
-    
-    if os.path.exists(local_reg):
-        try:
-            pdfmetrics.registerFont(TTFont('PolishFont', local_reg))
-            # Jeśli istnieje wersja pogrubiona, użyj jej, w przeciwnym wypadku użyj zwykłej
-            final_bold = local_bold if os.path.exists(local_bold) else local_reg
-            pdfmetrics.registerFont(TTFont('PolishFont-Bold', final_bold))
-            return 'PolishFont', 'PolishFont-Bold'
-        except Exception:
-            pass
-
-    # 2. ORYGINALNE ŚCIEŻKI SYSTEMOWE (Jako fallback / dla wersji localhost)
     font_paths = [
         "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
         "/usr/share/fonts/TTF/DejaVuSans.ttf",
