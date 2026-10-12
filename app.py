@@ -3021,7 +3021,7 @@ def wykonaj_obliczenia_i_wyswietl(nazwa, dl, szer, wys, waga, ean, pal_typ, max_
         col1, col2 = st.columns([1, 1.2])
         with col1:
             st.markdown("#### 📋 Szczegółowe parametry")
-            st.dataframe(pd.DataFrame(list(dane_raportu.items()), columns=["Parametr", "Wartość"]), width="stretch", hide_index=True)
+            st.dataframe(pd.DataFrame(list(dane_raportu.items()), columns=["Parametr", "Wartość"]), hide_index=True)
         with col2:
             st.markdown("#### 🎨 Wizualizacja i Modele")
             tab_2d, tab_3d = st.tabs(["Wizualizacja 2D", "Model 3D (Plotly)"])
@@ -3084,7 +3084,7 @@ with st.sidebar.expander("📁 Aktywne zlecenie", expanded=True):
         create_new_order()
         st.success("Utworzono nowe zlecenie.")
         st.rerun()
-    if 12 in available_options.values() and st.button("📁 Otwórz Centrum zlecenia", width="stretch", key="sidebar_open_order_center"):
+    if 12 in available_options.values() and st.button("📁 Otwórz Centrum zlecenia", key="sidebar_open_order_center"):
         st.session_state["main_module_selector"] = module_label_for_id(MODULE_OPTIONS, 12)
         st.session_state["sidebar_module_nonce"] = st.session_state.get("sidebar_module_nonce", 0) + 1
         st.rerun()
@@ -3166,7 +3166,7 @@ with st.sidebar.expander("🔍 Wyszukiwanie produktu", expanded=False):
             st.warning("Brak produktu lub kartonu o tej nazwie.")
 
 st.sidebar.markdown("---")
-if st.sidebar.button("🚪 Wyloguj", width="stretch", key="logout_button"):
+if st.sidebar.button("🚪 Wyloguj", key="logout_button"):
     _end_persistent_session()
     st.session_state["_explicitly_logged_out"] = True
     st.session_state["authenticated"] = False
