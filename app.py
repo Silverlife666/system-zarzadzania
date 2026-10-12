@@ -9,7 +9,13 @@ import time
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-
+# Wklejamy funkcję bezpiecznego renderowania tutaj (na samej górze pliku, przy lewej krawędzi)
+def safe_render_module_seven(st):
+    safe_deps = dict(globals())
+    safe_deps["FONT_REGULAR"] = FONT_REGULAR
+    safe_deps["FONT_BOLD"] = FONT_BOLD
+    from modules.module7_screen import render_module_seven
+    return render_module_seven(st, safe_deps)
 
 import json
 import base64
@@ -3788,19 +3794,7 @@ MODULE_RENDERERS = {
     6: lambda: render_module_six(st, globals()),
 
 
-# ---
-def safe_render_module_seven(st):
-    # Pobieramy bezpieczną kopię środowiska globalnego app.py
-    safe_deps = dict(globals())
-    
-    # Przypisujemy nasze zarejestrowane czcionki
-    safe_deps["FONT_REGULAR"] = FONT_REGULAR
-    safe_deps["FONT_BOLD"] = FONT_BOLD
-    
-    # Wywołujemy moduł 7 przekazując mu bezpieczny słownik
-    from modules.module7_screen import render_module_seven
-    return render_module_seven(st, safe_deps)
-# ---
+
 
 
     7: lambda: safe_render_module_seven(st),
