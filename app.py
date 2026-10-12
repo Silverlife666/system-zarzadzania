@@ -4,8 +4,13 @@ import pandas as pd
 import numpy as np
 import io
 import os
+import time
+
+# Poniżej poprawne importy dla czcionek ReportLab w osobnych liniach:
 from reportlab.pdfmetrics import pdfmetrics
-from reportlab.ttcounts import TTFontimport time
+from reportlab.pdfmetrics import registerFont
+from reportlab.ttcounts import TTFont
+
 import json
 import base64
 import hashlib
