@@ -280,26 +280,26 @@ from reportlab.graphics import renderPDF
 
 
 # Rejestracja czcionki obsługującej polskie znaki
-@st.cache_resource
-def register_polish_fonts():
-    font_paths = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/TTF/DejaVuSans.ttf",
-        "C:/Windows/Fonts/arial.ttf",
-        "C:/Windows/Fonts/segoeui.ttf"
-    ]
-    for fp in font_paths:
-        if os.path.exists(fp):
-            try:
-                pdfmetrics.registerFont(TTFont('PolishFont', fp))
-                bold_fp = fp.replace('.ttf', '-Bold.ttf') if 'arial' not in fp.lower() else "C:/Windows/Fonts/arialbd.ttf"
-                if not os.path.exists(bold_fp):
-                    bold_fp = fp
-                pdfmetrics.registerFont(TTFont('PolishFont-Bold', bold_fp))
-                return 'PolishFont', 'PolishFont-Bold'
-            except Exception:
-                pass
-    return 'Helvetica', 'Helvetica-Bold'
+# Pobranie ścieżki do folderu projektu
+CURRENT_PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+local_arial = os.path.join(CURRENT_PROJECT_DIR, "arial.ttf")
+local_arial_bold = os.path.join(CURRENT_PROJECT_DIR, "arialbd.ttf")
+
+# Rejestracja czcionek w systemie ReportLab
+if os.path.exists(local_arial):
+    pdfmetrics.registerFont(TTFont('PolishFont', local_arial))
+if os.path.exists(local_arial_bold):
+    pdfmetrics.registerFont(TTFont('PolishFont-Bold', local_arial_bold))
+
+# Sztywne i bezpieczne przypisanie nazw dla systemu Codex
+FONT_REGULAR = 'PolishFont'
+FONT_BOLD = 'PolishFont-Bold'
+
+# Dalsza część Twojego oryginalnego kodu (zostaw tak jak było):
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+APP_DATA_DIR = os.path.join(APP_DIR, "dane_aplikacji")
+os.makedirs(APP_DATA_DIR, exist_ok=True)
+
 
 FONT_REGULAR, FONT_BOLD = register_polish_fonts()
 
