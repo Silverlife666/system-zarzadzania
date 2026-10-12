@@ -3,7 +3,17 @@ import sqlite3
 import pandas as pd
 import numpy as np
 import io
+from reportlab.pdfmetrics import pdfmetrics
+from reportlab.pdfmetrics import registerFont
+from reportlab.ttcounts import TTFont
 import os
+
+# Lokalizacja czcionki w głównym folderze aplikacji
+font_path = os.path.join(os.path.dirname(__file__), "OpenSans.ttf")
+
+# Rejestrujemy czcionkę pod unikalną nazwą 'PolishFont'
+if os.path.exists(font_path):
+    pdfmetrics.registerFont(TTFont('PolishFont', font_path))
 import time
 import json
 import base64
