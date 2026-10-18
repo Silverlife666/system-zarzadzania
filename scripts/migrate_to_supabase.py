@@ -3,7 +3,7 @@
 Uruchom na komputerze z katalogu projektu:
   $env:SUPABASE_URL='https://...supabase.co'
   $env:SUPABASE_SERVICE_ROLE_KEY='sb_secret_...'
-  python scripts/migrate_to_supabase.py
+  python scripts/migrate_to_supabase.py --operational-only
 """
 
 from __future__ import annotations
@@ -78,14 +78,14 @@ def upsert(base_url: str, key: str, state_key: str, payload: object) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Import danych aplikacji do Supabase.")
     parser.add_argument(
-        "--operational-only",
+        "--full-restore",
         action="store_true",
-        help="Przenosi wyłącznie sesje oraz dane modułu bobin; pomija archiwa zleceń.",
+        help="Nadpisuje Supabase pełnym stanem lokalnym. Używaj wyłącznie do świadomego przywrócenia backupu.",
     )
     args = parser.parse_args()
     base_url, key = configuration()
     imported = 0
-    if not args.operational_only:
+    if args.full_restore:
         state_db = DATA_DIR / "magazyn_stanu_aplikacji.db"
         if not state_db.exists():
             state_db = ROOT / "magazyn_stanu_aplikacji.db"
@@ -106,7 +106,7 @@ def main() -> None:
         except json.JSONDecodeError:
             print(f"Pominięto nieprawidłowy JSON operacyjny: {path.name}")
 
-    if not args.operational_only:
+    if args.full_restore:
         db_path = DATA_DIR / "baza_produktow.db"
         if not db_path.exists():
             db_path = ROOT / "baza_produktow.db"
