@@ -3874,7 +3874,7 @@ MODULE_RENDERERS = {
     ),
     17: lambda: render_material_library_screen(st, {"pd": pd, "datetime": datetime, "load_database": load_database, "save_database": save_database}),
     18: lambda: render_client_portal_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database, "load_document_registry": load_document_registry}),
-    19: lambda: render_client_commercial_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database}),
+    19: lambda: render_client_commercial_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
     20: lambda: render_integrations_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database, "load_products": wczytaj_produkty_z_db, "save_product": zapisz_produkt_w_db}),
     21: lambda: render_artwork_approval_screen(st),
     22: lambda: render_generators_screen(st, {"load_database": load_database, "save_database": save_database, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),

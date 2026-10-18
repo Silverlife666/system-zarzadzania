@@ -1,11 +1,8 @@
 """Moduł 19: relacje handlowe z klientem."""
 from io import BytesIO
-import os
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
@@ -25,23 +22,15 @@ def _number(value):
         return 0.0
 
 
-def build_sales_offer_pdf(offer_records, generated_at):
+def build_sales_offer_pdf(offer_records, generated_at, font_regular="Helvetica", font_bold="Helvetica-Bold"):
     """Tworzy pojedynczą lub zbiorczą ofertę handlową do pobrania."""
-    regular_font, bold_font = "Helvetica", "Helvetica-Bold"
-    try:
-        if "OfferDejaVu" not in pdfmetrics.getRegisteredFontNames():
-            pdfmetrics.registerFont(TTFont("OfferDejaVu", os.path.join(os.environ.get("WINDIR", "C:\\Windows"), "Fonts", "DejaVuSans.ttf")))
-            pdfmetrics.registerFont(TTFont("OfferDejaVuBold", os.path.join(os.environ.get("WINDIR", "C:\\Windows"), "Fonts", "DejaVuSans-Bold.ttf")))
-        regular_font, bold_font = "OfferDejaVu", "OfferDejaVuBold"
-    except Exception:
-        pass
     buffer = BytesIO()
     document = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=16 * mm, rightMargin=16 * mm, topMargin=16 * mm, bottomMargin=16 * mm)
     styles = getSampleStyleSheet()
-    title = ParagraphStyle("SalesOfferTitle", parent=styles["Title"], fontName=bold_font, fontSize=18, leading=22, textColor=colors.HexColor("#123B66"), spaceAfter=5)
-    subtitle = ParagraphStyle("SalesOfferSubtitle", parent=styles["Normal"], fontName=regular_font, fontSize=9, leading=12, textColor=colors.HexColor("#475569"), spaceAfter=12)
-    section = ParagraphStyle("SalesOfferSection", parent=styles["Heading2"], fontName=bold_font, fontSize=11, leading=14, textColor=colors.HexColor("#123B66"), spaceBefore=9, spaceAfter=5)
-    normal = ParagraphStyle("SalesOfferNormal", parent=styles["Normal"], fontName=regular_font, fontSize=8.5, leading=11)
+    title = ParagraphStyle("SalesOfferTitle", parent=styles["Title"], fontName=font_bold, fontSize=18, leading=22, textColor=colors.HexColor("#123B66"), spaceAfter=5)
+    subtitle = ParagraphStyle("SalesOfferSubtitle", parent=styles["Normal"], fontName=font_regular, fontSize=9, leading=12, textColor=colors.HexColor("#475569"), spaceAfter=12)
+    section = ParagraphStyle("SalesOfferSection", parent=styles["Heading2"], fontName=font_bold, fontSize=11, leading=14, textColor=colors.HexColor("#123B66"), spaceBefore=9, spaceAfter=5)
+    normal = ParagraphStyle("SalesOfferNormal", parent=styles["Normal"], fontName=font_regular, fontSize=8.5, leading=11)
     story = [
         Paragraph("OFERTA HANDLOWA" if len(offer_records) == 1 else "ZBIORCZA OFERTA HANDLOWA", title),
         Paragraph(f"Wygenerowano: {generated_at.strftime('%d.%m.%Y %H:%M')} | Pozycji ofertowych: {len(offer_records)}", subtitle),
@@ -76,23 +65,15 @@ def build_sales_offer_pdf(offer_records, generated_at):
     return buffer.getvalue()
 
 
-def build_price_list_pdf(price_records, group_name, generated_at):
+def build_price_list_pdf(price_records, group_name, generated_at, font_regular="Helvetica", font_bold="Helvetica-Bold"):
     """Tworzy PDF cennika z wybranymi pozycjami jednej grupy."""
     buffer = BytesIO()
-    regular_font, bold_font = "Helvetica", "Helvetica-Bold"
-    try:
-        if "OfferDejaVu" not in pdfmetrics.getRegisteredFontNames():
-            pdfmetrics.registerFont(TTFont("OfferDejaVu", os.path.join(os.environ.get("WINDIR", "C:\\Windows"), "Fonts", "DejaVuSans.ttf")))
-            pdfmetrics.registerFont(TTFont("OfferDejaVuBold", os.path.join(os.environ.get("WINDIR", "C:\\Windows"), "Fonts", "DejaVuSans-Bold.ttf")))
-        regular_font, bold_font = "OfferDejaVu", "OfferDejaVuBold"
-    except Exception:
-        pass
     document = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=14 * mm, rightMargin=14 * mm, topMargin=16 * mm, bottomMargin=16 * mm)
     styles = getSampleStyleSheet()
-    title = ParagraphStyle("PriceListTitle", parent=styles["Title"], fontName=bold_font, fontSize=18, leading=22, textColor=colors.HexColor("#123B66"), spaceAfter=5)
-    subtitle = ParagraphStyle("PriceListSubtitle", parent=styles["Normal"], fontName=regular_font, fontSize=9, leading=12, textColor=colors.HexColor("#475569"), spaceAfter=12)
-    cell = ParagraphStyle("PriceListCell", parent=styles["Normal"], fontName=regular_font, fontSize=8, leading=10)
-    header = ParagraphStyle("PriceListHeader", parent=cell, fontName=bold_font, textColor=colors.white)
+    title = ParagraphStyle("PriceListTitle", parent=styles["Title"], fontName=font_bold, fontSize=18, leading=22, textColor=colors.HexColor("#123B66"), spaceAfter=5)
+    subtitle = ParagraphStyle("PriceListSubtitle", parent=styles["Normal"], fontName=font_regular, fontSize=9, leading=12, textColor=colors.HexColor("#475569"), spaceAfter=12)
+    cell = ParagraphStyle("PriceListCell", parent=styles["Normal"], fontName=font_regular, fontSize=8, leading=10)
+    header = ParagraphStyle("PriceListHeader", parent=cell, fontName=font_bold, textColor=colors.white)
     story = [
         Paragraph("CENNIK KLIENTA", title),
         Paragraph(f"Grupa cennika: <b>{group_name}</b><br/>Wygenerowano: {generated_at.strftime('%d.%m.%Y %H:%M')}", subtitle),
@@ -125,6 +106,8 @@ def render_client_commercial_screen(st, deps):
     secrets = deps["secrets"]
     load_database = deps["load_database"]
     save_database = deps["save_database"]
+    font_regular = deps.get("font_regular", "Helvetica")
+    font_bold = deps.get("font_bold", "Helvetica-Bold")
 
     st.title("🤝 Relacje handlowe z klientami")
     st.caption("Cenniki, oferty oraz reklamacje w jednym miejscu. Każda zakładka zapisuje dane trwale.")
@@ -192,7 +175,7 @@ def render_client_commercial_screen(st, deps):
             selected_pdf_indices = set(selected_rows.index[selected_rows["Wybierz do PDF"] == True].tolist())
             chosen_price_records = [row for index, row in enumerate(group_records) if index in selected_pdf_indices]
             if chosen_price_records:
-                price_pdf = build_price_list_pdf(chosen_price_records, selected_group, datetime.now())
+                price_pdf = build_price_list_pdf(chosen_price_records, selected_group, datetime.now(), font_regular, font_bold)
                 st.download_button(
                     f"📄 Pobierz cennik PDF ({len(chosen_price_records)} pozycji)", data=price_pdf,
                     file_name=f"cennik_{selected_group.replace(' ', '_')}_{datetime.now().strftime('%Y%m%d')}.pdf",
@@ -312,7 +295,7 @@ def render_client_commercial_screen(st, deps):
                 st.rerun()
             st.markdown("#### PDF oferty")
             single_offer = offers[selected_offer]
-            single_pdf = build_sales_offer_pdf([single_offer], datetime.now())
+            single_pdf = build_sales_offer_pdf([single_offer], datetime.now(), font_regular, font_bold)
             st.download_button(
                 "📄 Pobierz wybraną ofertę PDF", data=single_pdf,
                 file_name=f"{single_offer.get('Nr oferty', 'oferta').replace('/', '_')}.pdf",
@@ -325,7 +308,7 @@ def render_client_commercial_screen(st, deps):
             )
             if len(selected_offer_indices) >= 2:
                 combined_records = [offers[index] for index in selected_offer_indices]
-                combined_pdf = build_sales_offer_pdf(combined_records, datetime.now())
+                combined_pdf = build_sales_offer_pdf(combined_records, datetime.now(), font_regular, font_bold)
                 st.download_button(
                     f"📄 Pobierz zbiorczą ofertę PDF ({len(combined_records)})", data=combined_pdf,
                     file_name=f"oferta_zbiorcza_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf",
