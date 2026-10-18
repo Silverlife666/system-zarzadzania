@@ -1,11 +1,15 @@
 """Moduł 31: niezależne rozliczenie produkcji bobin."""
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from datetime import timedelta
 from collections import Counter
 from io import BytesIO
 import copy
 import json
 import math
+import os
+import time
+import urllib.request
+import uuid
 
 
 def _planning_values(entries, settings, order_name):
@@ -72,7 +76,7 @@ def _identify(deps):
 
 def _append_log(data, who, role, act, details=""):
     log = data.setdefault("log", [])
-    log.append({"ts": datetime.now().isoformat(timespec="seconds"), "user": who, "role": ROLES.get(role, role), "act": act, "d": details})
+    log.append({"id": uuid.uuid4().hex, "ts": datetime.now().isoformat(timespec="seconds"), "user": who, "role": ROLES.get(role, role), "act": act, "d": details})
     del log[:-3000]
 
 
@@ -108,15 +112,22 @@ def _diff_log(before, data, who, role):
         L("Konfiguracja", "zapisano ustawienia")
 
 
-def _make_saver(raw_save, before, who, role):
+def _make_saver(raw_save, before, who, role, st=None):
     def saver(path, data):
         try:
             _diff_log(before, data, who, role)
         except Exception:
             pass
+        try:
+            _stamp_changes(before, data)
+        except Exception:
+            pass
         raw_save(path, data)
+        _cloud_push(st, data, raw_save, path)
         before.clear(); before.update(copy.deepcopy({k: data.get(k) for k in ("orders", "entries", "settings")}))
     return saver
+
+
 
 
 def _validate(entries, orders, f, override):
@@ -184,6 +195,291 @@ def _fc(entries, order, remaining, settings):
     return f"ok. {c.strftime('%d.%m.%Y')} ({DN[c.weekday()]}) · ~{round(pace)} szt./dzień · {n} dni rob." + (f" · mało danych ({len(ks)} dni)" if len(ks) < 3 else "")
 
 
+# ===================== Synchronizacja z chmurą (npoint.io) =====================
+# Ta sama baza JSON co w wersji HTML (index_bobina.html): obie wersje współdzielą zlecenia, wpisy,
+# konfigurację i log. Użytkownicy/PIN-y wersji HTML są przepuszczane bez zmian. Brak sieci = praca
+# lokalna; zmiany dosyłają się przy następnym zapisie lub odświeżeniu.
+NPOINT_URL = "https://api.npoint.io/b34b762a751860b3606a"   # zmienna środowiskowa BOBBIN_NPOINT_URL ma pierwszeństwo
+CLOUD_TTL = 15       # s – minimalny odstęp między automatycznymi pobraniami (przycisk „Odśwież z chmury” pomija limit)
+CLOUD_TIMEOUT = 8    # s
+_CFG_KEYS = ("employees", "capacities", "roll_lengths", "waste_rate_pct", "default_shift", "company", "report_footer", "waste_alert_pct", "pdf_history", "default_machine", "default_capacity", "default_roll_length", "paper_types", "default_paper", "work_days", "fc_window", "stale_days", "idle_min")
+_CFG_REV = {"report_footer": "footer", "waste_alert_pct": "waste_alert", "fc_window": "forecast_days"}   # klucz w chmurze -> klucz w module
+
+
+def _ms():
+    return int(time.time() * 1000)
+
+
+def _url():
+    return os.environ.get("BOBBIN_NPOINT_URL") or NPOINT_URL
+
+
+def _b36(n):
+    digits, out = "0123456789abcdefghijklmnopqrstuvwxyz", ""
+    while n:
+        n, r = divmod(n, 36)
+        out = digits[r] + out
+    return out or "0"
+
+
+def _js_norm(v):
+    """Liczby całkowite zapisane jako float (6.0) -> int, żeby JSON był taki sam jak w JavaScripcie."""
+    if isinstance(v, float) and v.is_integer():
+        return int(v)
+    if isinstance(v, dict):
+        return {k: _js_norm(x) for k, x in v.items()}
+    if isinstance(v, (list, tuple)):
+        return [_js_norm(x) for x in v]
+    return v
+
+
+def _js_dumps(v):
+    return json.dumps(_js_norm(v), ensure_ascii=False, separators=(",", ":"), default=str)
+
+
+def _js_hash(s):
+    """Odpowiednik hash() z wersji HTML (DJB2 po jednostkach UTF-16) – te same wpisy bez uid dostają to samo uid."""
+    h, b = 5381, s.encode("utf-16-le", "surrogatepass")
+    for i in range(0, len(b), 2):
+        h = ((h << 5) + h + (b[i] | (b[i + 1] << 8))) & 0xFFFFFFFF
+    return _b36(h)
+
+
+def _uid_of(e):
+    return "h" + _js_hash(_js_dumps(e))
+
+
+def _ensure_uid(e):
+    if not e.get("uid"):
+        e["uid"] = _uid_of(e)
+    if e.get("updated") is None:
+        e["updated"] = 0
+    return e["uid"]
+
+
+def _iso_ms(ts):
+    if isinstance(ts, (int, float)):
+        return int(ts)
+    try:
+        return int(datetime.fromisoformat(str(ts)).timestamp() * 1000)
+    except Exception:
+        return 0
+
+
+def _ms_iso(ms):
+    try:
+        return datetime.fromtimestamp(float(ms) / 1000).isoformat(timespec="seconds")
+    except Exception:
+        return str(ms)
+
+
+def _role_key(label):
+    return {v: k for k, v in ROLES.items()}.get(label, label)
+
+
+def _lm_stamp():
+    n = datetime.now()
+    return f"{n:%H:%M} ({n:%d.%m})"
+
+
+def _normalize(data):
+    """Dopisuje pola potrzebne do scalania z chmurą (uid wpisów, znaczniki zmian, id logu, listy usunięć)."""
+    for k in ("orders", "entries", "log", "deleted_entries", "deleted_orders"):
+        data.setdefault(k, [])
+    data.setdefault("cfg_updated", 0)
+    data.setdefault("last_modified", "—")
+    for e in data["entries"]:
+        _ensure_uid(e)
+    for o in data["orders"]:
+        if o.get("updated") is None:
+            o["updated"] = 0
+    for l in data["log"]:
+        if not l.get("id"):
+            l["id"] = "l" + _js_hash(_js_dumps(l))
+
+
+def _strip(x):
+    return {k: v for k, v in x.items() if k != "updated"}
+
+
+def _stamp_changes(before, data):
+    """Przed zapisem: nowe wpisy dostają uid, zmienione – nowy znacznik czasu, usunięte trafiają na listę usunięć."""
+    now = _ms()
+    bo = {e.get("uid"): e for e in before.get("entries") or [] if e.get("uid")}
+    seen = set()
+    for e in data.get("entries", []):
+        u = e.get("uid")
+        if not u or u in seen:            # nowy wpis albo kopia istniejącego (np. spisanie resztki) -> nowa tożsamość
+            e["uid"] = uuid.uuid4().hex
+            e["created"] = now
+            e["updated"] = now
+        elif u in bo and _strip(bo[u]) != _strip(e):
+            e["updated"] = now
+        seen.add(e["uid"])
+    data["deleted_entries"] = list(dict.fromkeys(list(data.get("deleted_entries", [])) + [u for u in bo if u not in seen]))
+    bor = {o.get("name"): o for o in before.get("orders") or []}
+    names = {o.get("name") for o in data.get("orders", [])}
+    for o in data.get("orders", []):
+        old = bor.get(o.get("name"))
+        if old is None or _strip(old) != _strip(o):
+            o["updated"] = now
+    data["deleted_orders"] = [n for n in dict.fromkeys(list(data.get("deleted_orders", [])) + [n for n in bor if n not in names]) if n not in names]
+    if before.get("settings") != data.get("settings"):
+        data["cfg_updated"] = now
+
+
+def _unpack(p):
+    p = p if isinstance(p, dict) else {}
+    d, y = p.get("data") or p, p.get("sync") or {}
+    r = {"orders": [o for o in d.get("orders") or [] if isinstance(o, dict)], "entries": [e for e in d.get("entries") or [] if isinstance(e, dict)],
+         "settings": d.get("settings") or {}, "users": y.get("users") or [], "log": [l for l in y.get("log") or [] if isinstance(l, dict)],
+         "deleted_users": y.get("deleted_users") or [], "deleted_entries": y.get("deleted_entries") or [], "deleted_orders": y.get("deleted_orders") or [],
+         "cfg_updated": y.get("cfg_updated") or 0, "last_modified": y.get("last_modified") or "—", "has_settings": bool(d.get("settings"))}
+    for e in r["entries"]:
+        _ensure_uid(e)
+    return r
+
+
+def _apply_cfg(settings, rs):
+    """Konfiguracja z chmury -> ustawienia modułu (klucze o innych nazwach są mapowane, reszta przepuszczana)."""
+    old = (settings.get("capacities"), settings.get("roll_lengths"))
+    for k, v in rs.items():
+        if k != "machines":
+            settings[_CFG_REV.get(k, k)] = v
+    names = []
+    for m in rs.get("machines") or []:
+        n = str(m.get("Maszyna", "") if isinstance(m, dict) else m).strip()
+        if n and n not in names:
+            names.append(n)
+    if names:
+        local = {str(m.get("Maszyna", "")).strip(): m for m in settings.get("machines") or [] if isinstance(m, dict)}
+        settings["machines"] = [{**local.get(n, {"Maszyna": n, "Typ": n}), "Maszyna": n, "Aktywna": True} for n in names] + [{**m, "Aktywna": False} for n, m in local.items() if n and n not in names]
+    if "staff_records" in settings and "employees" in rs:
+        rows = {str(x.get("Pracownik", "")).strip(): x for x in settings["staff_records"] if isinstance(x, dict)}
+        emp = [str(n).strip() for n in rs["employees"] if str(n).strip()]
+        settings["staff_records"] = [{**rows.get(n, {"Pracownik": n, "Stawka/h": 0}), "Pracownik": n, "Aktywny": True} for n in emp] + [{**x, "Aktywny": False} for n, x in rows.items() if n and n not in emp]
+    if (settings.get("capacities"), settings.get("roll_lengths")) != old:
+        settings.pop("bobbin_profiles", None)   # profile bobin zostaną zbudowane od nowa z pojemności × długości
+
+
+def _cfg_for_cloud(settings, base):
+    out = dict(base or {})
+    for k in _CFG_KEYS:
+        v = settings.get(_CFG_REV.get(k, k))
+        if v is not None:
+            out[k] = v
+    if "machines" in settings:
+        out["machines"] = [{"Maszyna": n, "Aktywna": True} for n in (str(m.get("Maszyna", "")).strip() for m in settings["machines"] if isinstance(m, dict) and m.get("Aktywna", True)) if n]
+    return _js_norm(out)
+
+
+def _merge(data, r):
+    """Scalanie jak w wersji HTML: wpisy po uid (wygrywa nowszy 'updated'), zlecenia po nazwie, listy usunięć, log, konfiguracja."""
+    de = list(dict.fromkeys(list(data["deleted_entries"]) + list(r["deleted_entries"])))
+    dord = list(dict.fromkeys(list(data["deleted_orders"]) + list(r["deleted_orders"])))
+    em, om = {}, {}
+    for e in list(data["entries"]) + list(r["entries"]):
+        u = _ensure_uid(e)
+        if u not in em or (e.get("updated") or 0) > (em[u].get("updated") or 0):
+            em[u] = e
+    for o in list(data["orders"]) + list(r["orders"]):
+        n = o.get("name")
+        if n not in om or (o.get("updated") or 0) > (om[n].get("updated") or 0):
+            om[n] = o
+    data["deleted_entries"], data["deleted_orders"] = de, dord
+    dset, oset = set(de), set(dord)
+    data["entries"] = sorted((e for u, e in em.items() if u not in dset), key=lambda e: (e.get("date") or "", e.get("created") or 0))
+    data["orders"] = [o for n, o in om.items() if n not in oset]
+    for e in data["entries"]:
+        if e.get("completed") is None and e.get("done") is not None:
+            e["completed"] = e["done"]
+    lm = {l["id"]: l for l in data["log"] if l.get("id")}
+    for l in r["log"]:
+        if l.get("id") and l["id"] not in lm:
+            lm[l["id"]] = {"id": l["id"], "ts": _ms_iso(l.get("ts") or 0), "user": l.get("user") or "—", "role": ROLES.get(l.get("role"), l.get("role") or "—"), "act": l.get("act") or "", "d": l.get("d") or ""}
+    data["log"] = sorted(lm.values(), key=lambda l: _iso_ms(l.get("ts")))[-3000:]
+    if r["cfg_updated"] > data["cfg_updated"] or (r["cfg_updated"] == data["cfg_updated"] == 0 and r["has_settings"]):
+        _apply_cfg(data.setdefault("settings", {}), r["settings"])
+        data["cfg_updated"] = r["cfg_updated"]
+
+
+def _needs_push(data, r):
+    re_ = {e["uid"]: (e.get("updated") or 0) for e in r["entries"]}
+    rn = {o.get("name"): (o.get("updated") or 0) for o in r["orders"]}
+    rl = {l.get("id") for l in r["log"]}
+    return (any(re_.get(e["uid"], -1) < (e.get("updated") or 0) for e in data["entries"])
+            or any(rn.get(o.get("name"), -1) < (o.get("updated") or 0) for o in data["orders"])
+            or any(u not in r["deleted_entries"] for u in data["deleted_entries"])
+            or any(n not in r["deleted_orders"] for n in data["deleted_orders"])
+            or data["cfg_updated"] > r["cfg_updated"]
+            or any(l.get("id") not in rl for l in data["log"]))
+
+
+def _cloud_pack(data, r):
+    entries = []
+    for e in data["entries"]:
+        c = dict(e)
+        c.setdefault("done", c.get("completed", "NIE"))   # wersja HTML czyta pole „done”
+        entries.append(c)
+    log = [{"id": l["id"], "ts": _iso_ms(l.get("ts")), "user": l.get("user") or "—", "role": _role_key(l.get("role")), "act": l.get("act") or "", "d": l.get("d") or ""} for l in data["log"] if l.get("id")]
+    return _js_norm({"format": "system-produkcji/bobbin-settlement", "version": 1, "app_version": "module31", "exported_at": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
+                     "data": {"orders": data["orders"], "entries": entries, "settings": _cfg_for_cloud(data.get("settings") or {}, r["settings"])},
+                     "sync": {"users": r["users"], "log": log, "deleted_users": r["deleted_users"], "deleted_entries": data["deleted_entries"], "deleted_orders": data["deleted_orders"],
+                              "cfg_updated": data["cfg_updated"], "last_modified": data["last_modified"]}})
+
+
+def _cloud_get():
+    req = urllib.request.Request(_url() + ("&" if "?" in _url() else "?") + "nocache=" + str(_ms()), headers={"Cache-Control": "no-store", "User-Agent": "bobbin-module31"})
+    with urllib.request.urlopen(req, timeout=CLOUD_TIMEOUT) as resp:
+        return json.loads(resp.read().decode("utf-8") or "{}")
+
+
+def _cloud_post(payload):
+    req = urllib.request.Request(_url(), data=json.dumps(payload, ensure_ascii=False, default=str).encode("utf-8"), method="POST", headers={"Content-Type": "application/json", "User-Agent": "bobbin-module31"})
+    with urllib.request.urlopen(req, timeout=CLOUD_TIMEOUT) as resp:
+        return resp.status
+
+
+def _cloud_sync(data, raw_save, path):
+    """Pobiera chmurę, scala z lokalnymi danymi i – jeśli lokalnie jest coś nowego – wysyła z powrotem. Zwraca komunikat statusu."""
+    try:
+        _normalize(data)
+        r = _unpack(_cloud_get())
+        sig = lambda: json.dumps([data["orders"], data["entries"], data.get("settings"), [l.get("id") for l in data["log"]], data["deleted_entries"], data["deleted_orders"]], sort_keys=True, default=str)
+        s0 = sig()
+        _merge(data, r)
+        if sig() != s0:
+            if r["last_modified"] not in ("", "—"):
+                data["last_modified"] = r["last_modified"]
+            raw_save(path, data)
+        if _needs_push(data, r):
+            data["last_modified"] = _lm_stamp()
+            _cloud_post(_cloud_pack(data, r))
+            raw_save(path, data)
+        return f"☁️ Chmura: zsynchronizowano {datetime.now():%H:%M:%S}"
+    except Exception as exc:
+        return f"⚠️ Chmura niedostępna ({type(exc).__name__}) – praca lokalna, dane zsynchronizują się przy następnym zapisie lub odświeżeniu"
+
+
+def _cloud_push(st, data, raw_save, path):
+    msg = _cloud_sync(data, raw_save, path)
+    if st is not None:
+        try:
+            st.session_state["m31_cloud"] = msg
+            st.session_state["m31_cloud_t"] = time.time()
+        except Exception:
+            pass
+
+
+def _cloud_boot(st, deps, data):
+    """Na starcie widoku (nie częściej niż co CLOUD_TTL s) pobiera dane z chmury i scala je z lokalnym plikiem."""
+    _normalize(data)
+    ss = st.session_state
+    if time.time() - ss.get("m31_cloud_t", 0) >= CLOUD_TTL:
+        ss["m31_cloud_t"] = time.time()
+        ss["m31_cloud"] = _cloud_sync(data, deps["save_json"], deps["archive_file"])
+
+
 def _remnants_tab(st, deps, data, entries, settings, who, role):
     pd, latest = deps["pd"], {}
     for e in entries:
@@ -215,7 +511,7 @@ def _log_tab(st, deps, data):
     st.markdown("### Dziennik zdarzeń")
     if not data.get("log"):
         st.info("Brak zdarzeń."); return
-    df = deps["pd"].DataFrame(data["log"]).rename(columns={"ts": "Czas", "user": "Użytkownik", "role": "Rola", "act": "Zdarzenie", "d": "Szczegóły"})
+    df = deps["pd"].DataFrame(data["log"]).drop(columns=["id"], errors="ignore").rename(columns={"ts": "Czas", "user": "Użytkownik", "role": "Rola", "act": "Zdarzenie", "d": "Szczegóły"})
     c1, c2, c3 = st.columns(3)
     users, acts, q = c1.multiselect("Użytkownik", sorted(df["Użytkownik"].unique())), c2.multiselect("Zdarzenie", sorted(df["Zdarzenie"].unique())), c3.text_input("Szukaj (tekst lub data RRRR-MM-DD)")
     if users: df = df[df["Użytkownik"].isin(users)]
@@ -518,6 +814,7 @@ def _pdf_fonts(deps):
 
 def render_bobbin_settlement_screen(st, deps):
     data = deps["load_json"](deps["archive_file"], {"orders": [], "entries": [], "settings": {}})
+    _cloud_boot(st, deps, data)
     orders, entries = data.setdefault("orders", []), data.setdefault("entries", [])
     settings = data.setdefault("settings", {})
     employees = settings.setdefault("employees", [])
@@ -528,12 +825,15 @@ def render_bobbin_settlement_screen(st, deps):
     can = lambda perm: perm in PERMS[role]
     data.setdefault("log", [])
     raw_save = deps["save_json"]
-    deps = dict(deps, save_json=_make_saver(raw_save, copy.deepcopy({k: data.get(k) for k in ("orders", "entries", "settings")}), who, role))
+    deps = dict(deps, save_json=_make_saver(raw_save, copy.deepcopy({k: data.get(k) for k in ("orders", "entries", "settings")}), who, role, st))
     def event(act, details=""):
         _append_log(data, who, role, act, details); raw_save(deps["archive_file"], data)
     if not st.session_state.get("m31_session_logged"):
         st.session_state["m31_session_logged"] = True; event("Wejście do modułu")
     st.caption(f"👤 Zalogowano: {who} · rola w module: {ROLES[role]}")
+    _cc1, _cc2 = st.columns([4, 1])
+    _cc1.caption(st.session_state.get("m31_cloud", "☁️ Chmura: —"))
+    _cc2.button("🔄 Odśwież z chmury", key="m31_cloud_btn", on_click=lambda: st.session_state.__setitem__("m31_cloud_t", 0))
     spec = [("orders", "Zlecenia", "order.manage"), ("entries", "Wpisy produkcyjne", "entry.add"), ("remnants", "Resztki bobin", "remnants"), ("summary", "Podsumowanie", "summary"), ("calc", "Kalkulator", "calc"), ("settings", "Konfiguracja", "config"), ("transfer", "Import / eksport", "data"), ("log", "Log", "log")]
     visible = [s for s in spec if can(s[2])]
     tabs = dict(zip([s[0] for s in visible], st.tabs([s[1] for s in visible])))
@@ -749,7 +1049,7 @@ def render_bobbin_settlement_screen(st, deps):
     if "transfer" in tabs:
         with tabs["transfer"]:
             st.markdown("### Kopia danych modułu")
-            payload = {"format": "system-produkcji/bobbin-settlement", "version": 1, "exported_at": datetime.now().isoformat(timespec="seconds"), "data": {k: v for k, v in data.items() if k != "log"}}
+            payload = {"format": "system-produkcji/bobbin-settlement", "version": 1, "exported_at": datetime.now().isoformat(timespec="seconds"), "data": {k: v for k, v in data.items() if k not in ("log", "deleted_entries", "deleted_orders", "cfg_updated", "last_modified")}}
             st.download_button("⬇️ Eksportuj dane JSON", json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8"), "rozliczenie_bobin.json", "application/json", width="stretch", on_click=lambda: event("Eksport JSON", "pełna kopia danych"))
             imported = st.file_uploader("Importuj kopię JSON", type=["json"], key="m31_import")
             if imported:
@@ -759,7 +1059,7 @@ def render_bobbin_settlement_screen(st, deps):
                         raise ValueError("Plik nie zawiera danych modułu 31.")
                     st.success(f"Poprawny plik: {len(imported_data['orders'])} zleceń i {len(imported_data['entries'])} wpisów.")
                     if st.button("Wczytaj plik i zastąp bieżące dane", type="primary"):
-                        keep_log = data.get("log", []); data.clear(); data.update(imported_data); data["log"] = keep_log; _append_log(data, who, role, "Import danych", f"{len(imported_data.get('orders', []))} zleceń, {len(imported_data.get('entries', []))} wpisów"); data.setdefault("settings", {}); deps["save_json"](deps["archive_file"], data); st.rerun()
+                        keep_log = data.get("log", []); data.clear(); data.update(imported_data); data["log"] = keep_log; _append_log(data, who, role, "Import danych", f"{len(imported_data.get('orders', []))} zleceń, {len(imported_data.get('entries', []))} wpisów"); data.setdefault("settings", {}); _normalize(data); deps["save_json"](deps["archive_file"], data); st.rerun(); deps["save_json"](deps["archive_file"], data); st.rerun()
                 except Exception as exc:
                     st.error(f"Nie można odczytać pliku JSON: {exc}")
     if "remnants" in tabs:
