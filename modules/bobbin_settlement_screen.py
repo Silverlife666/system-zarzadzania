@@ -255,6 +255,225 @@ def _calc_tab(st, deps, data, entries, orders):
         st.table(pd.DataFrame([(lbl, int(q), z(cost * q), z(price * q), z((price - cost) * q)) for lbl, q in (("Docelowo", tgt), ("Wykonano", done), ("Pozostało", max(tgt - done, 0)))], columns=["Zakres", "Szt.", "Koszt", "Przychód", "Zysk"]))
 
 
+# ===================== RAPORT PDF (odpowiednik generatora z wersji offline) =====================
+PRESETS = {"Bieżący tydzień": ("w", 0), "Poprzedni tydzień": ("w", 1), "Bieżący miesiąc": ("m", 0), "Poprzedni miesiąc": ("m", 1), "Bieżący kwartał": ("q", 0), "Poprzedni kwartał": ("q", 1), "Cały okres": ("all", 0), "Własny zakres dat": ("custom", 0)}
+MONTHS = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"]
+
+
+def _preset_range(kind, entries):
+    t, (k, back) = date.today(), kind
+    if k == "all":
+        ds = sorted(e["date"] for e in entries if e.get("date"))
+        return (date.fromisoformat(ds[0]), date.fromisoformat(ds[-1])) if ds else (t, t)
+    if k == "w":
+        a = t - timedelta(days=t.weekday() + 7 * back); return a, a + timedelta(days=6)
+    if k == "m":
+        m = t.year * 12 + t.month - 1 - back; a = date(m // 12, m % 12 + 1, 1); n = m + 1
+        return a, date(n // 12, n % 12 + 1, 1) - timedelta(days=1)
+    if k == "q":
+        q = (t.year * 4 + (t.month - 1) // 3) - back; a = date(q // 4, (q % 4) * 3 + 1, 1); n = q + 1
+        return a, date(n // 4, (n % 4) * 3 + 1, 1) - timedelta(days=1)
+    return t.replace(day=1), t
+
+
+_fl = lambda x, k: float(x.get(k, 0) or 0)
+_done = lambda x: x.get("completed") == "TAK"
+_w = lambda x: _fl(x, "waste") if _done(x) else 0.0
+_wm = lambda x: (float(x.get("waste_m") or 0) or _fl(x, "waste") * _fl(x, "roll_length_m")) if _done(x) else 0.0
+_n = lambda v: str(int(v)) if float(v) == int(float(v)) else f"{float(v):.1f}"
+_fd = lambda d: f"{d[8:10]}.{d[5:7]}.{d[:4]}" if d and len(d) >= 10 else (d or "—")
+_pct = lambda w, p: f"{(w / (p + w) * 100) if (p + w) else 0:.1f}"
+_shifts = lambda es: len({(e.get("date", ""), str(e.get("shift", ""))) for e in es})
+_days = lambda es: len({e.get("date", "") for e in es})
+
+
+def _agg(es, kf):
+    m = {}
+    for e in es:
+        a = m.setdefault(kf(e), {"n": 0, "p": 0.0, "w": 0.0, "d": 0, "b": set(), "s": set(), "dd": set(), "m": 0.0})
+        a["n"] += 1; a["p"] += _fl(e, "produced"); a["w"] += _w(e); a["m"] += _wm(e); a["d"] += _done(e)
+        a["b"].add(e.get("bobbin_id")); a["s"].add((e.get("date", ""), str(e.get("shift", "")))); a["dd"].add(e.get("date", ""))
+    return m
+
+
+def _ostats(o, entries, settings, a, b):
+    all_e = [x for x in entries if x.get("order") == o["name"]]; g = [x for x in all_e if a <= x.get("date", "") <= b]
+    p, pall, w = sum(_fl(x, "produced") for x in g), sum(_fl(x, "produced") for x in all_e), sum(_w(x) for x in g)
+    target = float(o.get("target", 0) or 0); left = max(target - pall, 0); cap, length = _planning_values(entries, settings, o["name"])
+    eff = (cap / length) * (1 - float(settings.get("waste_rate_pct", 1.0) or 0) / 100) if length else 0
+    sc = _shifts(g)
+    return {"g": g, "p": p, "pall": pall, "w": w, "left": left, "target": target, "forecast": math.ceil(left / eff) if eff and left else 0, "percent": min(100, pall / target * 100) if target else 0, "wastepct": float(_pct(w, p)), "avg": p / sc if sc else 0, "done": sum(_done(x) for x in g), "m": sum(_wm(x) for x in g), "bobw": sum(_wm(x) / _fl(x, "bobbin_m") for x in g if _fl(x, "bobbin_m"))}
+
+
+def _report_v2(orders, entries, settings, opt, font="Helvetica", bold="Helvetica-Bold"):
+    from reportlab.lib.colors import HexColor
+    from reportlab.lib.pagesizes import A4
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+    from reportlab.pdfgen import canvas
+    C = {k: HexColor(v) for k, v in dict(navy="#123B69", ink="#152238", pale="#EEF4FB", line="#CBD8E6", green="#168253", red="#AE3D3D", grey="#60748A", white="#FFFFFF", zebra="#F6F9FC", soft="#C7DBF0", track="#E3EEF9").items()}
+    PW, PH = A4; PM = 36; CW = PW - 2 * PM
+    A, B, layout = opt["from"], opt["to"], opt["layout"]; single = len(orders) == 1
+    wa, hist = float(settings.get("waste_alert", 5) or 0), settings.get("pdf_history", "TAK") != "NIE"
+    foot = (settings.get("footer") or "Rozliczenie produkcji bobin")
+    GL = {"emp": ("Pracownik", "employee"), "paper": ("Typ papieru", "paper"), "mach": ("Maszyna", "machine")}.get(layout)
+    names = {o["name"] for o in orders}; ents = [x for x in entries if x.get("order") in names and A <= x.get("date", "") <= B]
+    act = [o for o in orders if any(x.get("order") == o["name"] for x in ents)]
+    kind = {"emp": "pracowników", "paper": "typów papieru", "mach": "maszyn"}.get(layout)
+    title = (f"Raport wg {kind}" + (f": {orders[0]['name']}" if single else "")) if GL else (("Raport zbiorczy: " + orders[0]["name"] if single else "Raport zbiorczy zleceń") if layout == "sum" else ("Raport zlecenia: " + orders[0]["name"] if single else "Raport wg zleceń"))
+
+    class NC(canvas.Canvas):
+        def __init__(s, *a, **k): super().__init__(*a, **k); s.saved = []
+        def showPage(s): s.saved.append(dict(s.__dict__)); s._startPage()
+        def save(s):
+            n = len(s.saved)
+            for i, st_ in enumerate(s.saved):
+                s.__dict__.update(st_); s.setStrokeColor(C["line"]); s.setLineWidth(0.6); s.line(PM, 36, PW - PM, 36)
+                s.setFillColor(C["grey"]); s.setFont(font, 7); s.drawString(PM, 24, foot[:120]); s.drawRightString(PW - PM, 24, f"Strona {i + 1} / {n}"); super().showPage()
+            super().save()
+    import io; buf = io.BytesIO(); cv = NC(buf, pagesize=A4); cv.setTitle(title)
+    S = {"Y": 0}
+    fnt = lambda b_: bold if b_ else font
+    tw = lambda s, sz, b_=False: stringWidth(s, fnt(b_), sz)
+    def text(x, y, s, sz, b_=False, col=None, al="l"):
+        s = " ".join(str(s if s is not None else "").split())
+        if not s: return
+        cv.setFillColor(col or C["ink"]); cv.setFont(fnt(b_), sz); yy = PH - y
+        (cv.drawRightString if al == "r" else cv.drawCentredString if al == "c" else cv.drawString)(x, yy, s)
+    def fit(s, sz, b_, mx):
+        s = " ".join(str(s).split())
+        while len(s) > 1 and tw(s, sz, b_) > mx: s = s[:-2] + "…" if not s.endswith("…") else s[:-2] + "…"
+        return s
+    def wrap(s, sz, b_, mx):
+        words, lines, cur = " ".join(str(s if s is not None else "").split()).split(" "), [], ""
+        for w in [x for x in words if x]:
+            while tw(w, sz, b_) > mx and len(w) > 1:
+                i = 1
+                while i < len(w) and tw(w[:i + 1], sz, b_) <= mx: i += 1
+                if cur: lines.append(cur); cur = ""
+                lines.append(w[:i]); w = w[i:]
+            nx = f"{cur} {w}" if cur else w
+            if cur and tw(nx, sz, b_) > mx: lines.append(cur); cur = w
+            else: cur = nx
+        if cur: lines.append(cur)
+        return lines or [""]
+    def rect(x, y, w, h, col): cv.setFillColor(col); cv.rect(x, PH - y - h, w, h, fill=1, stroke=0)
+    def hline(y, col, wd=0.5): cv.setStrokeColor(col); cv.setLineWidth(wd); cv.line(PM, PH - y, PW - PM, PH - y)
+    def new_page():
+        cv.showPage(); text(PM, 30, fit(f"{title}  ·  {_fd(A)} – {_fd(B)}", 8, False, CW - 60), 8, False, C["grey"]); hline(38, C["line"]); S["Y"] = 54
+    def ensure(h):
+        if S["Y"] + h > PH - 52: new_page()
+    def heading(t, sz=11):
+        ensure(40); text(PM, S["Y"] + 12, fit(t, sz, True, CW), sz, True, C["navy"]); S["Y"] += 18; hline(S["Y"], C["line"], 0.8); S["Y"] += 8
+    def sub(t): ensure(60); text(PM, S["Y"] + 8, t, 7, True, C["grey"]); S["Y"] += 14
+    def tiles(items):
+        per, gap, h = 4, 8, 38; w = (CW - gap * (per - 1)) / per
+        for i in range(0, len(items), per):
+            ensure(h + gap)
+            for j, it in enumerate(items[i:i + per]):
+                x = PM + j * (w + gap); rect(x, S["Y"], w, h, C["pale"]); text(x + 8, S["Y"] + 13, it[0], 7, True, C["grey"])
+                text(x + 8, S["Y"] + 30, fit(str(it[1]), 14, True, w - 14), 14, True, C["red"] if len(it) > 2 and it[2] else C["navy"])
+            S["Y"] += h + gap
+    def table(cols, rows):
+        fixed = sum(k["w"] for k in cols if k["w"] != "*"); ws = [CW - fixed if k["w"] == "*" else k["w"] for k in cols]; fs, lh, pad = 7.5, 9.5, 4
+        ax = lambda i, al: ws[i] - pad if al == "r" else ws[i] / 2 if al == "c" else pad
+        def head():
+            rect(PM, S["Y"], CW, 18, C["navy"]); x = PM
+            for i, k in enumerate(cols): text(x + ax(i, k.get("a")), S["Y"] + 12, fit(k["h"], 6.8, True, ws[i] - 2 * pad), 6.8, True, C["white"], k.get("a", "l")); x += ws[i]
+            S["Y"] += 18
+        ensure(40); head()
+        for ri, r in enumerate(rows):
+            cells = [dict(v) if isinstance(v, dict) else {"t": v} for v in r]
+            for i, z in enumerate(cells): z["lines"] = wrap(z["t"], fs, z.get("b", False), ws[i] - 2 * pad)
+            h = max(len(z["lines"]) for z in cells) * lh + 6
+            if S["Y"] + h > PH - 52: new_page(); head()
+            if ri % 2: rect(PM, S["Y"], CW, h, C["zebra"])
+            x = PM
+            for i, z in enumerate(cells):
+                for k, l in enumerate(z["lines"]): text(x + ax(i, cols[i].get("a")), S["Y"] + 10 + k * lh, l, fs, z.get("b", False), z.get("c"), cols[i].get("a", "l"))
+                x += ws[i]
+            hline(S["Y"] + h, C["line"], 0.4); S["Y"] += h
+        S["Y"] += 10
+    sort_h = lambda a: sorted(a, key=lambda x: x.get("date", ""))
+    status = lambda x: {"t": "Zakończona", "c": C["green"], "b": True} if _done(x) else "W toku" + (f" ({_n(_fl(x, 'remaining_m'))} m)" if _fl(x, "remaining_m") else "")
+    R = lambda *a: [str(v) for v in a]
+    def group_table(label, key, es):
+        sub(label.upper()); table([{"h": label, "w": "*"}, {"h": "Zmiany", "w": 56, "a": "r"}, {"h": "Wpisy", "w": 56, "a": "r"}, {"h": "Wykonano [szt.]", "w": 90, "a": "r"}, {"h": "Odpad [szt.]", "w": 80, "a": "r"}, {"h": "Bobiny zakończone", "w": 100, "a": "r"}],
+            [R(k, len(a["s"]), a["n"], _n(a["p"]), _n(a["w"]), a["d"]) for k, a in sorted(_agg(es, lambda x: x.get(key) or "—").items(), key=lambda kv: -kv[1]["p"])])
+    def paper_table(es, nosub=False):
+        if not any(x.get("paper") for x in es): return
+        if not nosub: sub("TYPY PAPIERU")
+        table([{"h": "Typ papieru", "w": "*"}, {"h": "Wpisy", "w": 44, "a": "r"}, {"h": "Bobiny", "w": 44, "a": "r"}, {"h": "Zakończone", "w": 56, "a": "r"}, {"h": "Wykonano [szt.]", "w": 74, "a": "r"}, {"h": "Odpad [szt.]", "w": 66, "a": "r"}, {"h": "Odpad [%]", "w": 52, "a": "r"}],
+            [R(k, a["n"], len(a["b"]), a["d"], _n(a["p"]), _n(a["w"]), _pct(a["w"], a["p"]) + "%") for k, a in sorted(_agg(es, lambda x: x.get("paper") or "Nie określono").items(), key=lambda kv: -kv[1]["p"])])
+    cnt_cols = lambda lbl: [{"h": lbl, "w": "*"}, {"h": "Dni", "w": 36, "a": "r"}, {"h": "Zmiany", "w": 46, "a": "r"}, {"h": "Wpisy", "w": 42, "a": "r"}, {"h": "Wykonano [szt.]", "w": 74, "a": "r"}, {"h": "Odpad [szt.]", "w": 62, "a": "r"}, {"h": "Odpad [%]", "w": 50, "a": "r"}, {"h": "Bobiny zakoń.", "w": 68, "a": "r"}]
+    cnt_rows = lambda m: [R(k, len(a["dd"]), len(a["s"]), a["n"], _n(a["p"]), _n(a["w"]), _pct(a["w"], a["p"]) + "%", a["d"]) for k, a in sorted(m.items(), key=lambda kv: -kv[1]["p"])]
+    def hist_table(es, with_order):
+        sub("HISTORIA WPISÓW")
+        cols = [{"h": "Data", "w": 50}] + ([{"h": "Zlecenie", "w": 84}] if with_order else []) + [{"h": "Bob.", "w": 24, "a": "c"}, {"h": "Pracownik", "w": 70}, {"h": "Maszyna", "w": 48}, {"h": "Zm.", "w": 22, "a": "c"}, {"h": "Wykonano", "w": 46, "a": "r"}, {"h": "Odpad szt.", "w": 46, "a": "r"}, {"h": "Status", "w": 70}] + ([] if with_order else [{"h": "Uwagi", "w": "*"}])
+        if with_order: cols[-1]["w"] = "*"
+        table(cols, [[_fd(x.get("date"))] + ([x.get("order", "")] if with_order else []) + [str(x.get("bobbin_index") or "—"), x.get("employee", ""), x.get("machine", ""), str(x.get("shift", "")), _n(_fl(x, "produced")), _n(_w(x)), status(x)] + ([] if with_order else [x.get("notes", "")]) for x in sort_h(es)])
+    # --- pierwsza strona
+    rect(0, 0, PW, 80, C["navy"]); text(PM, 26, fit((settings.get("company") or "Rozliczenie produkcji bobin").upper(), 8, True, CW - 80), 8, True, C["soft"]); text(PW - PM, 26, "Moduł 31", 8, True, C["soft"], "r")
+    tsz = 19
+    while tw(title, tsz, True) > CW and tsz > 11: tsz -= 1
+    text(PM, 54, title, tsz, True, C["white"])
+    text(PM, 71, fit(opt["label"] + "  ·  " + {"sum": "zestawienie zbiorcze", "emp": "z podziałem na pracowników", "paper": "z podziałem na typy papieru", "mach": "z podziałem na maszyny"}.get(layout, "z podziałem na zlecenia"), 8.5, False, CW), 8.5, False, C["soft"])
+    S["Y"] = 94; rect(PM, S["Y"], CW, 38, C["pale"]); totp = sum(_fl(x, "produced") for x in ents)
+    for i, (l, v) in enumerate([("Wygenerowano", datetime.now().strftime("%d.%m.%Y %H:%M")), ("Okres", f"{_fd(A)} – {_fd(B)}"), ("Wpisy produkcyjne", len(ents)), ("Wykonano w okresie", f"{_n(totp)} szt.")]):
+        x = PM + i * CW / 4; text(x + 10, S["Y"] + 14, l.upper(), 6.5, True, C["grey"]); text(x + 10, S["Y"] + 29, fit(str(v), 10, True, CW / 4 - 16), 10, True)
+    S["Y"] += 54
+    wsum = sum(_w(x) for x in ents); wp = float(_pct(wsum, totp)); alt = wa > 0 and wp > wa
+    heading("Podsumowanie okresu")
+    tiles([("Dni produkcji", _days(ents)), ("Zmiany", _shifts(ents)), ("Wpisy", len(ents)), ("Wykonano [szt.]", _n(totp)), ("Odpad [szt.]", _n(wsum)), ("Odpad [%]", f"{wp:.1f}", alt), ("Średnio / zmianę", f"{totp / _shifts(ents):.1f}" if ents else 0), ("Bobiny zakończone", sum(_done(x) for x in ents)), ("Osoby", len({x.get("employee") for x in ents})), ("Zlecenia w okresie", len(act))])
+    if alt: ensure(16); text(PM, S["Y"] + 8, f"UWAGA: odpad {wp:.1f}% przekracza ustalony próg {wa:g}%.", 8.5, True, C["red"]); S["Y"] += 18
+    # rozbicie w czasie
+    span = (date.fromisoformat(B) - date.fromisoformat(A)).days + 1
+    if span <= 10: bname, bkey, blab = "dni", (lambda d: d), (lambda k: DN[date.fromisoformat(k).weekday()] + " " + _fd(k))
+    elif span <= 70:
+        bname, bkey = "tygodnie", (lambda d: (date.fromisoformat(d) - timedelta(days=date.fromisoformat(d).weekday())).isoformat())
+        blab = lambda k: "Tydzień " + _fd(k)[:5] + " – " + _fd((date.fromisoformat(k) + timedelta(days=6)).isoformat())
+    else: bname, bkey, blab = "miesiące", (lambda d: d[:7]), (lambda k: MONTHS[int(k[5:7]) - 1] + " " + k[:4])
+    bm = _agg([x for x in ents if x.get("date")], lambda x: bkey(x["date"]))
+    if len(bm) > 1:
+        heading(f"Rozbicie w czasie ({bname})"); table(cnt_cols("Okres"), [R(blab(k), len(a["dd"]), len(a["s"]), a["n"], _n(a["p"]), _n(a["w"]), _pct(a["w"], a["p"]) + "%", a["d"]) for k, a in sorted(bm.items())])
+    if len(act) > 1:
+        heading("Przegląd zleceń w okresie"); rows = []
+        for o in act:
+            s = _ostats(o, entries, settings, A, B); al = wa > 0 and s["wastepct"] > wa
+            rows.append(R(o["name"], _n(s["target"]), _n(s["p"]), f"{s['percent']:.0f}%", _n(s["w"])) + [{"t": f"{s['wastepct']:.1f}%", "c": C["red"] if al else C["ink"], "b": al}] + R(_n(s["left"]), s["forecast"], "zamknięte" if o.get("closed") else "otwarte"))
+        table([{"h": "Zlecenie", "w": "*"}, {"h": "Docelowo", "w": 50, "a": "r"}, {"h": "W okresie [szt.]", "w": 62, "a": "r"}, {"h": "Realizacja", "w": 50, "a": "r"}, {"h": "Odpad szt.", "w": 48, "a": "r"}, {"h": "Odpad %", "w": 44, "a": "r"}, {"h": "Pozostało", "w": 50, "a": "r"}, {"h": "Prognoza bob.", "w": 58, "a": "r"}, {"h": "Status", "w": 52}], rows)
+    if GL:
+        gl, gk = GL; key = lambda x: x.get(gk) or ("Nie określono" if gk == "paper" else "—"); gm = _agg(ents, key)
+        dims = [d for d in (("Typ papieru", "paper"), ("Pracownik", "employee"), ("Maszyna", "machine")) if d[1] != gk]
+        heading("Przegląd: " + gl.lower()); table(cnt_cols(gl), cnt_rows(gm))
+        for k in sorted(gm, key=lambda z: -gm[z]["p"]):
+            es = [x for x in ents if key(x) == k]; p2, w2 = sum(_fl(x, "produced") for x in es), sum(_w(x) for x in es); wp2 = float(_pct(w2, p2)); sc = _shifts(es)
+            ensure(210); heading(f"{gl}: {k}")
+            tiles([("Dni", _days(es)), ("Zmiany", sc), ("Wpisy", len(es)), ("Wykonano [szt.]", _n(p2)), ("Odpad [szt.]", _n(w2)), ("Odpad [%]", f"{wp2:.1f}", wa > 0 and wp2 > wa), ("Średnio / zmianę", f"{p2 / sc:.1f}" if sc else 0), ("Bobiny zakończone", sum(_done(x) for x in es)), ("Odpad [m]", _n(sum(_wm(x) for x in es))), ("Zlecenia", len({x.get("order") for x in es}))])
+            sub("ZLECENIA"); table(cnt_cols("Zlecenie"), cnt_rows(_agg(es, lambda x: x.get("order") or "—")))
+            for d in dims: paper_table(es) if d[1] == "paper" else group_table(d[0], d[1], es)
+            if hist: hist_table(es, True)
+    elif layout == "sum":
+        heading("Zestawienie zbiorcze"); paper_table(ents); group_table("Pracownik", "employee", ents); group_table("Maszyna", "machine", ents)
+        if hist: hist_table(ents, True)
+    else:
+        if not single and act: heading("Typy papieru w okresie"); paper_table(ents, True)
+        for o in act:
+            s = _ostats(o, entries, settings, A, B); al = wa > 0 and s["wastepct"] > wa
+            if not single: ensure(210)
+            heading(f"Zlecenie: {o['name']}  ·  " + ("zamknięte" if o.get("closed") else "otwarte"), 12 if single else 11)
+            ensure(60); rect(PM, S["Y"], CW, 10, C["track"])
+            if s["percent"] > 0: rect(PM, S["Y"], CW * s["percent"] / 100, 10, C["green"])
+            S["Y"] += 10
+            text(PM, S["Y"] + 12, f"okres: {_n(s['p'])} szt.  ·  łącznie: {_n(s['pall'])} / {_n(s['target'])} szt. ({s['percent']:.1f}%)  ·  pozostało: {_n(s['left'])} szt.  ·  prognoza: {s['forecast']} bob. (odpad plan. {float(settings.get('waste_rate_pct', 1.0) or 0):g}%)", 8, False, C["grey"])
+            text(PM, S["Y"] + 24, "Prognoza zakończenia: " + _fc(entries, o["name"], s["left"], settings), 8, True, C["navy"]); S["Y"] += 36
+            tiles([("Dni", _days(s["g"])), ("Zmiany", _shifts(s["g"])), ("Wpisy", len(s["g"])), ("Wykonano [szt.]", _n(s["p"])), ("Odpad [szt.]", _n(s["w"])), ("Odpad [%]", f"{s['wastepct']:.1f}", al), ("Średnio / zmianę", f"{s['avg']:.1f}" if s["g"] else 0), ("Bobiny zakończone", s["done"]), ("Odpad [m]", _n(s["m"])), ("Odpad [bobiny]", f"{s['bobw']:.2f}")])
+            if al: ensure(16); text(PM, S["Y"] + 8, f"UWAGA: odpad {s['wastepct']:.1f}% przekracza ustalony próg {wa:g}%.", 8.5, True, C["red"]); S["Y"] += 18
+            paper_table(s["g"]); group_table("Pracownik", "employee", s["g"]); group_table("Maszyna", "machine", s["g"])
+            if hist: hist_table(s["g"], False)
+    cv.showPage(); cv.save()
+    return buf.getvalue()
+
+
 def render_bobbin_settlement_screen(st, deps):
     data = deps["load_json"](deps["archive_file"], {"orders": [], "entries": [], "settings": {}})
     orders, entries = data.setdefault("orders", []), data.setdefault("entries", [])
@@ -425,10 +644,31 @@ def render_bobbin_settlement_screen(st, deps):
                 summary = deps["pd"].DataFrame(rows)
                 st.markdown("### Pełne zestawienie według zlecenia")
                 st.dataframe(summary, hide_index=True, width="stretch")
-                report_order = st.selectbox("Zlecenie do raportu PDF", list(frame["order"].unique()), key="m31_report_order")
-                selected_order = next((o for o in orders if o["name"] == report_order), {"target": 0})
-                report_rows = [row for row in entries if row.get("order") == report_order]
-                st.download_button("📄 Pobierz raport PDF zlecenia", _report_pdf(report_order, selected_order.get("target", 0), report_rows, deps.get("font_regular", "Helvetica"), deps.get("font_bold", "Helvetica-Bold")), f"Rozliczenie_bobin_{report_order.replace('/', '_')}.pdf", "application/pdf", width="stretch", on_click=lambda: event("Eksport PDF", report_order))
+                st.markdown("### Raport PDF")
+                ra, rb = st.columns(2)
+                report_order = ra.selectbox("Zlecenia", ["Wszystkie zlecenia"] + [o["name"] for o in orders], key="m31_report_order")
+                preset = rb.selectbox("Okres", list(PRESETS), index=2, key="m31_rep_period")
+                pa, pb = _preset_range(PRESETS[preset], entries)
+                da, db = st.columns(2)
+                rep_from = da.date_input("Od", value=pa, disabled=preset != "Własny zakres dat", key=f"m31_rf_{preset}")
+                rep_to = db.date_input("Do", value=pb, disabled=preset != "Własny zakres dat", key=f"m31_rt_{preset}")
+                layouts = {"Z podziałem na zlecenia": "split", "Zbiorczy (zlecenia razem)": "sum", "Z podziałem na pracowników": "emp", "Z podziałem na maszyny": "mach"}
+                if any(e.get("paper") for e in entries): layouts["Z podziałem na typy papieru"] = "paper"
+                layout_label = st.selectbox("Układ raportu", list(layouts), key="m31_rep_layout")
+                if st.button("📄 Generuj raport PDF", width="stretch", key="m31_rep_btn"):
+                    sel_orders = orders if report_order == "Wszystkie zlecenia" else [o for o in orders if o["name"] == report_order]
+                    sel_names = {o["name"] for o in sel_orders}
+                    if rep_from > rep_to:
+                        st.error("Data „Od” jest późniejsza niż „Do”.")
+                    elif not any(e.get("order") in sel_names and rep_from.isoformat() <= e.get("date", "") <= rep_to.isoformat() for e in entries):
+                        st.warning("Brak wpisów produkcyjnych w wybranym zakresie dat.")
+                    else:
+                        pdf_bytes = _report_v2(sel_orders, entries, settings, {"from": rep_from.isoformat(), "to": rep_to.isoformat(), "layout": layouts[layout_label], "label": preset}, deps.get("font_regular", "Helvetica"), deps.get("font_bold", "Helvetica-Bold"))
+                        slug = "".join(ch if ch.isalnum() else "_" for ch in (report_order if len(sel_orders) == 1 else "wszystkie")).strip("_") or "zlecenie"
+                        st.session_state["m31_pdf"] = (pdf_bytes, f"raport_bobiny_{layouts[layout_label]}_{slug}_{rep_from.isoformat()}_{rep_to.isoformat()}.pdf")
+                        event("Raport PDF", f"{layouts[layout_label]} {rep_from.isoformat()} – {rep_to.isoformat()}")
+                if st.session_state.get("m31_pdf"):
+                    st.download_button("⬇️ Pobierz wygenerowany raport PDF", st.session_state["m31_pdf"][0], st.session_state["m31_pdf"][1], "application/pdf", width="stretch")
     if "settings" in tabs:
         with tabs["settings"]:
             st.markdown("### Konfigurator produkcji")
@@ -451,12 +691,16 @@ def render_bobbin_settlement_screen(st, deps):
                 work_days = st.selectbox("Dni pracy (prognoza terminu)", [5, 6, 7], index=[5, 6, 7].index(int(settings.get("work_days", 5))) if int(settings.get("work_days", 5)) in (5, 6, 7) else 0, help="5 = pn–pt, 6 = pn–sob, 7 = codziennie")
                 forecast_days = st.number_input("Prognoza z ostatnich [dni produkcji]", min_value=1, value=int(settings.get("forecast_days", 7)), step=1)
                 stale_days = st.number_input("Resztka nieaktywna po [dniach]", min_value=1, value=int(settings.get("stale_days", 7)), step=1)
+                company = st.text_input("Nazwa firmy w raporcie PDF", value=settings.get("company", ""))
+                report_footer = st.text_input("Stopka raportu PDF", value=settings.get("footer", ""))
+                waste_alert = st.number_input("Próg alarmu odpadu w raporcie [%] (0 = wyłączony)", min_value=0.0, max_value=100.0, value=float(settings.get("waste_alert", 5)), step=0.5)
+                pdf_history = st.selectbox("Historia wpisów w raporcie PDF", ["TAK", "NIE"], index=0 if settings.get("pdf_history", "TAK") != "NIE" else 1)
                 st.caption("Gdy bobina nie jest zakończona, reszta jest przenoszona. Prognoza bobin uwzględnia podany procent odpadu.")
             bad_profiles = [r for r in material_edit.to_dict("records") if not (float(r.get("Pojemność bobiny [m]") or 0) > 0 and float(r.get("Długość rolki [m]") or 0) > 0 and float(r.get("Długość rolki [m]") or 0) <= float(r.get("Pojemność bobiny [m]") or 0))]
             if bad_profiles: st.error("Profile bobin: pojemność i długość rolki muszą być > 0, a rolka nie może być dłuższa niż bobina.")
             if st.button("💾 Zapisz konfigurację produkcji", type="primary", width="stretch", disabled=bool(bad_profiles)):
                 settings["staff_records"] = staff_edit.to_dict("records"); settings["employees"] = [str(row["Pracownik"]).strip() for row in settings["staff_records"] if str(row.get("Pracownik", "")).strip() and row.get("Aktywny", True)]
-                settings["machines"] = machine_edit.to_dict("records"); settings["bobbin_profiles"] = material_edit.to_dict("records"); settings["capacities"] = sorted({int(row["Pojemność bobiny [m]"]) for row in settings["bobbin_profiles"] if row.get("Aktywny", True)}) or [3000]; settings["roll_lengths"] = sorted({float(row["Długość rolki [m]"]) for row in settings["bobbin_profiles"] if row.get("Aktywny", True)}) or [6]; settings["default_shift"] = default_shift; settings["automatic_waste"] = automatic_waste; settings["waste_rate_pct"] = waste_rate; settings["planning_capacity"] = planning_capacity; settings["planning_roll_length"] = planning_length; settings["work_days"] = work_days; settings["forecast_days"] = int(forecast_days); settings["stale_days"] = int(stale_days)
+                settings["machines"] = machine_edit.to_dict("records"); settings["bobbin_profiles"] = material_edit.to_dict("records"); settings["capacities"] = sorted({int(row["Pojemność bobiny [m]"]) for row in settings["bobbin_profiles"] if row.get("Aktywny", True)}) or [3000]; settings["roll_lengths"] = sorted({float(row["Długość rolki [m]"]) for row in settings["bobbin_profiles"] if row.get("Aktywny", True)}) or [6]; settings["default_shift"] = default_shift; settings["automatic_waste"] = automatic_waste; settings["waste_rate_pct"] = waste_rate; settings["planning_capacity"] = planning_capacity; settings["planning_roll_length"] = planning_length; settings["work_days"] = work_days; settings["forecast_days"] = int(forecast_days); settings["stale_days"] = int(stale_days); settings["company"] = company.strip(); settings["footer"] = report_footer.strip(); settings["waste_alert"] = waste_alert; settings["pdf_history"] = pdf_history
                 deps["save_json"](deps["archive_file"], data); st.success("Zapisano konfigurację produkcji.")
     if "transfer" in tabs:
         with tabs["transfer"]:
