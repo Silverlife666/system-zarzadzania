@@ -373,6 +373,12 @@ PREORDER_ARCHIVE_FILE = application_storage_path("archiwum_preorderow.json")
 APP_STATE_DB = application_storage_path("magazyn_stanu_aplikacji.db")
 _supabase_url = str(st.secrets.get("supabase", {}).get("url", "")).strip()
 _supabase_key = str(st.secrets.get("supabase", {}).get("key", "")).strip()
+if not (_supabase_url and _supabase_key) and os.environ.get("STREAMLIT_SHARING_MODE"):
+    st.error(
+        "Brak konfiguracji Supabase w Settings → Secrets. Dodaj sekcję [supabase] z url i key, "
+        "a następnie zrestartuj aplikację. Dane nie zostaną zapisane lokalnie."
+    )
+    st.stop()
 SHARED_STATE_STORE = (
     SupabaseStateStore(APP_STATE_DB, APP_DATA_DIR, _supabase_url, _supabase_key)
     if _supabase_url and _supabase_key
