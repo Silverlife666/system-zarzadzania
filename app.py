@@ -203,6 +203,7 @@ from services.order_documents import (
     validate_base_data as service_validate_base_data,
 )
 
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import plotly.graph_objects as go
@@ -284,24 +285,32 @@ from reportlab.graphics import renderPDF
 # Rejestracja czcionki obsługującej polskie znaki
 @st.cache_resource
 def register_polish_fonts():
-    font_paths = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/TTF/DejaVuSans.ttf",
-        "C:/Windows/Fonts/arial.ttf",
-        "C:/Windows/Fonts/segoeui.ttf"
+    """Rejestruje czcionkę z polskimi znakami. Kolejność: folder fonts/ aplikacji, Windows, Linux, czcionka DejaVu dołączona do matplotlib."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        (os.path.join(here, "fonts", "LiberationSans-Regular.ttf"), os.path.join(here, "fonts", "LiberationSans-Bold.ttf")),
+        ("C:/Windows/Fonts/arial.ttf", "C:/Windows/Fonts/arialbd.ttf"),
+        ("C:/Windows/Fonts/segoeui.ttf", "C:/Windows/Fonts/segoeuib.ttf"),
+        ("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"),
+        ("/usr/share/fonts/TTF/DejaVuSans.ttf", "/usr/share/fonts/TTF/DejaVuSans-Bold.ttf"),
+        ("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf", "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"),
     ]
-    for fp in font_paths:
-        if os.path.exists(fp):
+    try:
+        mpl_dir = os.path.join(matplotlib.get_data_path(), "fonts", "ttf")  # matplotlib jest zawsze w aplikacji
+        candidates.append((os.path.join(mpl_dir, "DejaVuSans.ttf"), os.path.join(mpl_dir, "DejaVuSans-Bold.ttf")))
+    except Exception:
+        pass
+    for regular, bold in candidates:
+        if os.path.exists(regular):
             try:
-                pdfmetrics.registerFont(TTFont('PolishFont', fp))
-                bold_fp = fp.replace('.ttf', '-Bold.ttf') if 'arial' not in fp.lower() else "C:/Windows/Fonts/arialbd.ttf"
-                if not os.path.exists(bold_fp):
-                    bold_fp = fp
-                pdfmetrics.registerFont(TTFont('PolishFont-Bold', bold_fp))
+                pdfmetrics.registerFont(TTFont('PolishFont', regular))
+                pdfmetrics.registerFont(TTFont('PolishFont-Bold', bold if os.path.exists(bold) else regular))
                 return 'PolishFont', 'PolishFont-Bold'
             except Exception:
                 pass
+    print("UWAGA: nie znaleziono czcionki z polskimi znakami - PDF-y będą bez polskich liter.")
     return 'Helvetica', 'Helvetica-Bold'
+
 
 FONT_REGULAR, FONT_BOLD = register_polish_fonts()
 
@@ -2900,19 +2909,7 @@ def generuj_pdf_raport(nazwa, dane_slownik, img_buffer=None):
     doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40)
     story = []
     
-    font_name = 'Helvetica'
-    font_bold = 'Helvetica-Bold'
-    try:
-        arial_path = "C:/Windows/Fonts/arial.ttf"
-        arial_bold_path = "C:/Windows/Fonts/arialbd.ttf"
-        if os.path.exists(arial_path) and os.path.exists(arial_bold_path):
-            pdfmetrics.registerFont(TTFont('CustomArial', arial_path))
-            pdfmetrics.registerFont(TTFont('CustomArialBold', arial_bold_path))
-            font_name = 'CustomArial'
-            font_bold = 'CustomArialBold'
-    except Exception:
-        pass
-
+    font_name, font_bold = FONT_REGULAR, FONT_BOLD
     styles = getSampleStyleSheet()
     title_style = ParagraphStyle('TitleStyle', parent=styles['Heading1'], fontName=font_bold, fontSize=15, textColor=colors.HexColor('#1A202C'), spaceAfter=8)
     cell_style = ParagraphStyle('CellStyle', parent=styles['Normal'], fontName=font_name, fontSize=8, textColor=colors.HexColor('#2D3748'))
@@ -3528,19 +3525,7 @@ def _legacy_generuj_pdf_packing_list(df_pack):
     doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=40, leftMargin=40, topMargin=40, bottomMargin=40)
     story = []
     
-    font_name = 'Helvetica'
-    font_bold = 'Helvetica-Bold'
-    try:
-        arial_path = "C:/Windows/Fonts/arial.ttf"
-        arial_bold_path = "C:/Windows/Fonts/arialbd.ttf"
-        if os.path.exists(arial_path) and os.path.exists(arial_bold_path):
-            pdfmetrics.registerFont(TTFont('CustomArial', arial_path))
-            pdfmetrics.registerFont(TTFont('CustomArialBold', arial_bold_path))
-            font_name = 'CustomArial'
-            font_bold = 'CustomArialBold'
-    except Exception:
-        pass
-
+    font_name, font_bold = FONT_REGULAR, FONT_BOLD
     styles = getSampleStyleSheet()
     title_style = ParagraphStyle('TitleStyle', parent=styles['Heading1'], fontName=font_bold, fontSize=14, textColor=colors.HexColor('#1A202C'), spaceAfter=12)
     cell_style = ParagraphStyle('CellStyle', parent=styles['Normal'], fontName=font_name, fontSize=9, textColor=colors.HexColor('#2D3748'))
