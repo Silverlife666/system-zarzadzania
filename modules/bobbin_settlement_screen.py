@@ -474,6 +474,48 @@ def _report_v2(orders, entries, settings, opt, font="Helvetica", bold="Helvetica
     return buf.getvalue()
 
 
+def _pdf_fonts(deps):
+    """Czcionka z polskimi znakami: najpierw ta z systemu, potem folder fonts/, Windows (Arial), Linux, matplotlib."""
+    from pathlib import Path
+    from reportlab.pdfbase import pdfmetrics
+    from reportlab.pdfbase.ttfonts import TTFont
+    pl = "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
+    def supports(name):
+        try:
+            cmap = getattr(getattr(pdfmetrics.getFont(name), "face", None), "charToGlyph", None)
+            return bool(cmap) and all(ord(c) in cmap for c in pl)
+        except Exception:
+            return False
+    reg, bold = deps.get("font_regular", "Helvetica"), deps.get("font_bold", "Helvetica-Bold")
+    if supports(reg) and supports(bold):
+        return reg, bold
+    if supports("M31Sans") and supports("M31Sans-Bold"):
+        return "M31Sans", "M31Sans-Bold"
+    here = Path(__file__).resolve().parent
+    dirs = [here / "fonts", here.parent / "fonts"]
+    try:
+        dirs.append(Path(deps["archive_file"]).resolve().parent.parent / "fonts")
+    except Exception:
+        pass
+    dirs += [Path("C:/Windows/Fonts"), Path("/usr/share/fonts/truetype/liberation"), Path("/usr/share/fonts/truetype/dejavu"), Path("/Library/Fonts"), Path("/System/Library/Fonts/Supplemental")]
+    try:
+        import matplotlib
+        dirs.append(Path(matplotlib.get_data_path()) / "fonts" / "ttf")
+    except Exception:
+        pass
+    pairs = [("LiberationSans-Regular.ttf", "LiberationSans-Bold.ttf"), ("arial.ttf", "arialbd.ttf"), ("Arial.ttf", "Arial Bold.ttf"), ("segoeui.ttf", "segoeuib.ttf"), ("calibri.ttf", "calibrib.ttf"), ("tahoma.ttf", "tahomabd.ttf"), ("DejaVuSans.ttf", "DejaVuSans-Bold.ttf")]
+    for d in dirs:
+        for r, b in pairs:
+            if (d / r).is_file() and (d / b).is_file():
+                try:
+                    pdfmetrics.registerFont(TTFont("M31Sans", str(d / r))); pdfmetrics.registerFont(TTFont("M31Sans-Bold", str(d / b)))
+                    if supports("M31Sans") and supports("M31Sans-Bold"):
+                        return "M31Sans", "M31Sans-Bold"
+                except Exception:
+                    continue
+    return reg, bold
+
+
 def render_bobbin_settlement_screen(st, deps):
     data = deps["load_json"](deps["archive_file"], {"orders": [], "entries": [], "settings": {}})
     orders, entries = data.setdefault("orders", []), data.setdefault("entries", [])
@@ -663,7 +705,9 @@ def render_bobbin_settlement_screen(st, deps):
                     elif not any(e.get("order") in sel_names and rep_from.isoformat() <= e.get("date", "") <= rep_to.isoformat() for e in entries):
                         st.warning("Brak wpisów produkcyjnych w wybranym zakresie dat.")
                     else:
-                        pdf_bytes = _report_v2(sel_orders, entries, settings, {"from": rep_from.isoformat(), "to": rep_to.isoformat(), "layout": layouts[layout_label], "label": preset}, deps.get("font_regular", "Helvetica"), deps.get("font_bold", "Helvetica-Bold"))
+                        f_reg, f_bold = _pdf_fonts(deps)
+                        if f_reg.startswith("Helvetica"): st.warning("Nie znaleziono czcionki z polskimi znakami – wgraj folder fonts/ (LiberationSans-Regular.ttf i LiberationSans-Bold.ttf) obok pliku modułu 31.")
+                        pdf_bytes = _report_v2(sel_orders, entries, settings, {"from": rep_from.isoformat(), "to": rep_to.isoformat(), "layout": layouts[layout_label], "label": preset}, f_reg, f_bold)
                         slug = "".join(ch if ch.isalnum() else "_" for ch in (report_order if len(sel_orders) == 1 else "wszystkie")).strip("_") or "zlecenie"
                         st.session_state["m31_pdf"] = (pdf_bytes, f"raport_bobiny_{layouts[layout_label]}_{slug}_{rep_from.isoformat()}_{rep_to.isoformat()}.pdf")
                         event("Raport PDF", f"{layouts[layout_label]} {rep_from.isoformat()} – {rep_to.isoformat()}")
