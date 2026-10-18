@@ -23,6 +23,98 @@ PAPER_VARIANTS = (
     {"name": "Brązowy 14 gsm", "diameter": 362.0, "length": 5000.0},
 )
 
+BOBBIN_ARCHIVE_FORMAT = "system-zarzadzania-produkcja/bobbin-inventory"
+BOBBIN_ARCHIVE_VERSION = 1
+
+
+def _records_by_fingerprint(records):
+    """Zwraca rekordy bez duplikatów; ID jest preferowanym identyfikatorem."""
+    result, fingerprints = [], set()
+    for record in records if isinstance(records, list) else []:
+        if not isinstance(record, dict):
+            continue
+        fingerprint = str(record.get("id") or json.dumps(record, ensure_ascii=False, sort_keys=True, default=str))
+        if fingerprint not in fingerprints:
+            result.append(record)
+            fingerprints.add(fingerprint)
+    return result
+
+
+def export_bobbin_archive(calibration_store, bobbin_inventory, sheet_inventory):
+    """Tworzy przenośny eksport wszystkich trwałych danych modułu 16."""
+    payload = {
+        "format": BOBBIN_ARCHIVE_FORMAT,
+        "version": BOBBIN_ARCHIVE_VERSION,
+        "exported_at": datetime.now().isoformat(timespec="seconds"),
+        "calibrations": load_calibration_store_from_value(calibration_store),
+        "bobbin_inventory": load_bobbin_inventory_from_value(bobbin_inventory),
+        "sheet_paper_inventory": load_sheet_paper_inventory_from_value(sheet_inventory),
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
+
+
+def load_calibration_store_from_value(store):
+    store = store if isinstance(store, dict) else {}
+    return {
+        "calibrations": _records_by_fingerprint(store.get("calibrations", [])),
+        "active_ids": store.get("active_ids", {}) if isinstance(store.get("active_ids"), dict) else {},
+    }
+
+
+def load_bobbin_inventory_from_value(inventory):
+    inventory = inventory if isinstance(inventory, dict) else {}
+    return {"records": _records_by_fingerprint(inventory.get("records", []))}
+
+
+def load_sheet_paper_inventory_from_value(inventory):
+    inventory = inventory if isinstance(inventory, dict) else {}
+    return {"movements": _records_by_fingerprint(inventory.get("movements", []))}
+
+
+def parse_bobbin_archive(file_bytes):
+    try:
+        payload = json.loads(file_bytes.decode("utf-8-sig"))
+    except (AttributeError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ValueError("Plik importu nie jest poprawnym plikiem JSON UTF-8.") from error
+    if not isinstance(payload, dict) or payload.get("format") != BOBBIN_ARCHIVE_FORMAT:
+        raise ValueError("Wybrany plik nie jest eksportem modułu 16.")
+    if payload.get("version") != BOBBIN_ARCHIVE_VERSION:
+        raise ValueError("Ta wersja eksportu modułu 16 nie jest obsługiwana.")
+    return (
+        load_calibration_store_from_value(payload.get("calibrations")),
+        load_bobbin_inventory_from_value(payload.get("bobbin_inventory")),
+        load_sheet_paper_inventory_from_value(payload.get("sheet_paper_inventory")),
+    )
+
+
+def merge_bobbin_archive(current_store, current_bobbins, current_sheets, imported_store, imported_bobbins, imported_sheets):
+    """Scala import jak moduł 24: nie usuwa lokalnych danych ani duplikatów."""
+    def merge_records(current, incoming):
+        merged = _records_by_fingerprint(current + incoming)
+        return merged, len(merged) - len(_records_by_fingerprint(current))
+
+    merged_calibrations, added_calibrations = merge_records(
+        current_store.get("calibrations", []), imported_store.get("calibrations", []),
+    )
+    merged_bobbins, added_bobbins = merge_records(
+        current_bobbins.get("records", []), imported_bobbins.get("records", []),
+    )
+    merged_movements, added_movements = merge_records(
+        current_sheets.get("movements", []), imported_sheets.get("movements", []),
+    )
+    calibration_ids = {record.get("id") for record in merged_calibrations}
+    active_ids = dict(current_store.get("active_ids", {}))
+    active_ids.update({
+        paper: record_id for paper, record_id in imported_store.get("active_ids", {}).items()
+        if record_id in calibration_ids
+    })
+    return (
+        {"calibrations": merged_calibrations, "active_ids": active_ids},
+        {"records": merged_bobbins},
+        {"movements": merged_movements},
+        {"calibrations": added_calibrations, "bobbins": added_bobbins, "movements": added_movements},
+    )
+
 
 def thickness_from_calibration(outer_diameter_mm, length_m):
     annulus_area_mm2 = pi * ((outer_diameter_mm ** 2 - CORE_OUTER_DIAMETER_MM ** 2) / 4)
@@ -44,12 +136,7 @@ def load_calibration_store(load_json=None):
             store = json.loads(CALIBRATION_FILE.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             store = {"calibrations": [], "active_ids": {}}
-    if not isinstance(store, dict):
-        return {"calibrations": [], "active_ids": {}}
-    return {
-        "calibrations": store.get("calibrations", []) if isinstance(store.get("calibrations"), list) else [],
-        "active_ids": store.get("active_ids", {}) if isinstance(store.get("active_ids"), dict) else {},
-    }
+    return load_calibration_store_from_value(store)
 
 
 def save_calibration_store(store, save_json=None):
@@ -72,7 +159,7 @@ def load_bobbin_inventory(load_json=None):
             inventory = json.loads(BOBBIN_INVENTORY_FILE.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             inventory = {"records": []}
-    return {"records": inventory.get("records", []) if isinstance(inventory, dict) and isinstance(inventory.get("records"), list) else []}
+    return load_bobbin_inventory_from_value(inventory)
 
 
 def save_bobbin_inventory(inventory, save_json=None):
@@ -95,8 +182,7 @@ def load_sheet_paper_inventory(load_json=None):
             inventory = json.loads(SHEET_PAPER_INVENTORY_FILE.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             inventory = {"movements": []}
-    movements = inventory.get("movements", []) if isinstance(inventory, dict) else []
-    return {"movements": movements if isinstance(movements, list) else []}
+    return load_sheet_paper_inventory_from_value(inventory)
 
 
 def save_sheet_paper_inventory(inventory, save_json=None):
@@ -217,6 +303,50 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
     st.subheader("🧻 Kalkulator bobin SWM")
     st.caption("Podaj tylko średnicę zewnętrzną bobiny. Tuleja zewnętrzna: 130 mm.")
     store = load_calibration_store(load_json)
+    inventory = load_bobbin_inventory(load_json)
+    sheet_inventory = load_sheet_paper_inventory(load_json)
+
+    with st.expander("Wymiana danych z kopią JSON", expanded=False):
+        st.caption("Eksport zawiera kalibracje, inwentaryzację bobin i magazyn papieru. Import scala dane i zapisuje je w Supabase.")
+        transfer_left, transfer_right = st.columns(2)
+        with transfer_left:
+            st.download_button(
+                "Eksportuj dane modułu 16",
+                data=export_bobbin_archive(store, inventory, sheet_inventory),
+                file_name=f"modul_16_bobiny_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                mime="application/json",
+                key="bobbin_archive_export",
+                width="stretch",
+            )
+        with transfer_right:
+            import_file = st.file_uploader(
+                "Importuj kopię modułu 16", type=["json"], key="bobbin_archive_import",
+            )
+            if import_file is not None:
+                try:
+                    imported_store, imported_bobbins, imported_sheets = parse_bobbin_archive(import_file.getvalue())
+                    st.caption(
+                        f"Kalibracje: {len(imported_store['calibrations'])} · "
+                        f"bobiny: {len(imported_bobbins['records'])} · "
+                        f"ruchy magazynowe: {len(imported_sheets['movements'])}"
+                    )
+                    if st.button("Scal z bieżącymi danymi", key="bobbin_archive_import_confirm", width="stretch"):
+                        store, inventory, sheet_inventory, stats = merge_bobbin_archive(
+                            store, inventory, sheet_inventory,
+                            imported_store, imported_bobbins, imported_sheets,
+                        )
+                        save_calibration_store(store, save_json)
+                        save_bobbin_inventory(inventory, save_json)
+                        save_sheet_paper_inventory(sheet_inventory, save_json)
+                        st.success(
+                            f"Dodano: kalibracje {stats['calibrations']} · bobiny {stats['bobbins']} · "
+                            f"ruchy magazynowe {stats['movements']}."
+                        )
+                        st.rerun()
+                except ValueError as error:
+                    st.error(str(error))
+        st.caption("Import nie usuwa ani nie zastępuje danych zapisanych już w aplikacji.")
+
     calibrations = current_calibrations(store)
 
     outer_diameter_mm = st.number_input(
@@ -300,7 +430,6 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
     st.markdown("---")
     st.subheader("📋 Inwentaryzacja bobin")
     st.caption("Dodawaj kolejne pozycje. Lista i podsumowanie są zapisywane trwale, niezależnie od sesji przeglądarki.")
-    inventory = load_bobbin_inventory(load_json)
     with st.form("add_bobbin_inventory_record", clear_on_submit=True):
         inventory_paper = st.selectbox("Papier", list(calibrations), key="bobbin_inventory_paper")
         inventory_diameter = st.number_input(
@@ -378,7 +507,6 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
     st.markdown("---")
     st.subheader("📚 Magazyn papieru w stosach")
     st.caption("Stan jest liczony z zapisanych przyjęć i pobrań na produkcję.")
-    sheet_inventory = load_sheet_paper_inventory(load_json)
     sheet_stock_rows = sheet_paper_stock(sheet_inventory["movements"])
 
     intake_column, production_column = st.columns(2)
