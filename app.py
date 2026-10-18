@@ -5,18 +5,6 @@ import numpy as np
 import io
 import os
 import time
-
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-
-# Wklejamy funkcję bezpiecznego renderowania tutaj (na samej górze pliku, przy lewej krawędzi)
-def safe_render_module_seven(st):
-    safe_deps = dict(globals())
-    safe_deps["FONT_REGULAR"] = FONT_REGULAR
-    safe_deps["FONT_BOLD"] = FONT_BOLD
-    from modules.module7_screen import render_module_seven
-    return render_module_seven(st, safe_deps)
-
 import json
 import base64
 import hashlib
@@ -59,6 +47,7 @@ from modules.module6_screen import render_module_six
 from modules.module7_screen import render_module_seven
 from modules.module8_screen import render_module_eight
 from modules.inventory_screen import render_inventory_screen
+from modules.order_stock_screen import render_order_stock_screen
 from modules.bobbin_calculator_screen import render_bobbin_calculator_screen
 from modules.material_library_screen import render_material_library_screen
 from modules.client_portal_screen import render_client_portal_screen
@@ -71,6 +60,7 @@ from modules.generators_screen import render_generators_screen
 from modules.client_product_card_screen import render_client_product_card_screen
 from modules.work_settlement_screen import render_work_settlement_screen
 from modules.work_settlement_archive_screen import render_work_settlement_archive_screen
+from modules.bobbin_settlement_screen import render_bobbin_settlement_screen
 from modules.preorder_screen import render_preorder_screen
 from modules.preflight_dtp_screen import render_preflight_dtp_screen
 from modules.backup_center_screen import render_backup_center_screen
@@ -292,27 +282,28 @@ from reportlab.graphics import renderPDF
 
 
 # Rejestracja czcionki obsługującej polskie znaki
-# Pobranie ścieżki do folderu projektu
-CURRENT_PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-local_arial = os.path.join(CURRENT_PROJECT_DIR, "arial.ttf")
-local_arial_bold = os.path.join(CURRENT_PROJECT_DIR, "arialbd.ttf")
+@st.cache_resource
+def register_polish_fonts():
+    font_paths = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/TTF/DejaVuSans.ttf",
+        "C:/Windows/Fonts/arial.ttf",
+        "C:/Windows/Fonts/segoeui.ttf"
+    ]
+    for fp in font_paths:
+        if os.path.exists(fp):
+            try:
+                pdfmetrics.registerFont(TTFont('PolishFont', fp))
+                bold_fp = fp.replace('.ttf', '-Bold.ttf') if 'arial' not in fp.lower() else "C:/Windows/Fonts/arialbd.ttf"
+                if not os.path.exists(bold_fp):
+                    bold_fp = fp
+                pdfmetrics.registerFont(TTFont('PolishFont-Bold', bold_fp))
+                return 'PolishFont', 'PolishFont-Bold'
+            except Exception:
+                pass
+    return 'Helvetica', 'Helvetica-Bold'
 
-# Rejestracja czcionek w systemie ReportLab
-if os.path.exists(local_arial):
-    pdfmetrics.registerFont(TTFont('PolishFont', local_arial))
-if os.path.exists(local_arial_bold):
-    pdfmetrics.registerFont(TTFont('PolishFont-Bold', local_arial_bold))
-
-# Sztywne i bezpieczne przypisanie nazw dla systemu Codex
-FONT_REGULAR = 'PolishFont'
-FONT_BOLD = 'PolishFont-Bold'
-
-# Dalsza część Twojego oryginalnego kodu (zostaw tak jak było):
-APP_DIR = os.path.dirname(os.path.abspath(__file__))
-APP_DATA_DIR = os.path.join(APP_DIR, "dane_aplikacji")
-os.makedirs(APP_DATA_DIR, exist_ok=True)
-
-
+FONT_REGULAR, FONT_BOLD = register_polish_fonts()
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 APP_DATA_DIR = os.path.join(APP_DIR, "dane_aplikacji")
@@ -366,6 +357,7 @@ ORDER_CONTEXT_FILE = application_storage_path("konteksty_zlecen.json")
 USER_WORKSPACE_FILE = application_storage_path("ustawienia_przestrzeni_uzytkownikow.json")
 PRODUCTION_PLANNER_FILE = application_storage_path("plan_produkcji.json")
 INVENTORY_SESSIONS_FILE = application_storage_path("sesje_inwentaryzacji.json")
+ORDER_STOCK_ARCHIVE_FILE = application_storage_path("archiwum_rozliczenia_stanu_zamowienia.json")
 WORK_SETTLEMENT_ARCHIVE_FILE = application_storage_path("archiwum_rozliczen_pracy.json")
 PREORDER_ARCHIVE_FILE = application_storage_path("archiwum_preorderow.json")
 APP_STATE_DB = application_storage_path("magazyn_stanu_aplikacji.db")
@@ -2217,9 +2209,11 @@ MODULE_OPTIONS = {
     "📝 25. Pre-Order": {"id": 25, "roles": ["Administrator", "Manager", "Użytkownik"]},
     "🖨️ 26. Preflight DTP": {"id": 26, "roles": ["Administrator", "Manager", "Użytkownik"]},
     "🛡️ 27. Centrum kopii bezpieczeństwa": {"id": 27, "roles": ["Administrator"]},
+    "📋 28. Rozliczenie stanu i zamówienia": {"id": 28, "roles": ["Administrator", "Manager", "Użytkownik"]},
     "⚙️ 29. Panel użytkowników": {"id": 29, "roles": ["Administrator"]},
     "🔄 30. Aktualizacje": {"id": 30, "roles": ["Administrator"]},
-    "🏷️ 31. Etykieta magazynowa A4": {"id": 31, "roles": ["Administrator", "Manager", "Użytkownik"]},
+    "🧻 31. Rozliczenie bobin": {"id": 31, "roles": ["Administrator", "Manager", "Użytkownik"]},
+    "🏷️ 32. Etykieta magazynowa A4": {"id": 32, "roles": ["Administrator", "Manager", "Użytkownik"]},
 }
 
 ROLE_PERMISSIONS = build_role_permissions(
@@ -2230,10 +2224,10 @@ MODULE_OPTIONS = apply_role_permissions(MODULE_OPTIONS, ROLE_PERMISSIONS)
 MODULE_GROUPS = {
     "📋 Zlecenie i dane": [1, 9, 12, 14, 21, 23],
     "📦 Konstrukcja i paletyzacja": [7, 8, 2, 4],
-    "🚚 Logistyka i wysyłka": [6, 5, 3, 31],
+    "🚚 Logistyka i wysyłka": [6, 5, 3, 32],
     "✅ Zgodność i jakość": [10, 11, 26],
     "🏭 Planowanie produkcji": [13, 24, 25],
-    "📦 Inwentaryzacja": [15],
+    "📦 Inwentaryzacja": [15, 28],
     "🧻 Kalkulatory": [16, 22],
     "📚 Materiały i klient": [17, 18, 19, 20],
     "⚙️ Administracja": [27, 29, 30],
@@ -3027,7 +3021,7 @@ def wykonaj_obliczenia_i_wyswietl(nazwa, dl, szer, wys, waga, ean, pal_typ, max_
         col1, col2 = st.columns([1, 1.2])
         with col1:
             st.markdown("#### 📋 Szczegółowe parametry")
-            st.dataframe(pd.DataFrame(list(dane_raportu.items()), columns=["Parametr", "Wartość"]), hide_index=True)
+            st.dataframe(pd.DataFrame(list(dane_raportu.items()), columns=["Parametr", "Wartość"]), width="stretch", hide_index=True)
         with col2:
             st.markdown("#### 🎨 Wizualizacja i Modele")
             tab_2d, tab_3d = st.tabs(["Wizualizacja 2D", "Model 3D (Plotly)"])
@@ -3086,11 +3080,11 @@ with st.sidebar.expander("📁 Aktywne zlecenie", expanded=True):
         activate_order_context(selected_order_id)
         st.rerun()
     st.caption(f"ID: {active_order_id}")
-    if st.button("➕ Nowe zlecenie", key="sidebar_create_order"):
+    if st.button("➕ Nowe zlecenie", width="stretch", key="sidebar_create_order"):
         create_new_order()
         st.success("Utworzono nowe zlecenie.")
         st.rerun()
-    if 12 in available_options.values() and st.button("📁 Otwórz Centrum zlecenia", key="sidebar_open_order_center"):
+    if 12 in available_options.values() and st.button("📁 Otwórz Centrum zlecenia", width="stretch", key="sidebar_open_order_center"):
         st.session_state["main_module_selector"] = module_label_for_id(MODULE_OPTIONS, 12)
         st.session_state["sidebar_module_nonce"] = st.session_state.get("sidebar_module_nonce", 0) + 1
         st.rerun()
@@ -3172,7 +3166,7 @@ with st.sidebar.expander("🔍 Wyszukiwanie produktu", expanded=False):
             st.warning("Brak produktu lub kartonu o tej nazwie.")
 
 st.sidebar.markdown("---")
-if st.sidebar.button("🚪 Wyloguj", key="logout_button"):
+if st.sidebar.button("🚪 Wyloguj", width="stretch", key="logout_button"):
     _end_persistent_session()
     st.session_state["_explicitly_logged_out"] = True
     st.session_state["authenticated"] = False
@@ -3792,13 +3786,7 @@ MODULE_RENDERERS = {
     4: _render_module_4,
     5: _render_module_5,
     6: lambda: render_module_six(st, globals()),
-
-
-
-
-
-    7: lambda: safe_render_module_seven(st),
-
+    7: lambda: render_module_seven(st, globals()),
     8: lambda: render_module_eight(st, globals()),
     9: render_tab9,
     10: _render_module_10,
@@ -3818,13 +3806,14 @@ MODULE_RENDERERS = {
         "font_regular": FONT_REGULAR,
         "font_bold": FONT_BOLD,
     }),
+    28: lambda: render_order_stock_screen(st, {"load_json": load_persistent_json, "save_json": save_persistent_json, "archive_file": ORDER_STOCK_ARCHIVE_FILE, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
     16: lambda: render_bobbin_calculator_screen(st, font_regular=FONT_REGULAR, font_bold=FONT_BOLD, user_role=role),
     17: lambda: render_material_library_screen(st, {"pd": pd, "datetime": datetime, "load_database": load_database, "save_database": save_database}),
     18: lambda: render_client_portal_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database, "load_document_registry": load_document_registry}),
     19: lambda: render_client_commercial_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database}),
     20: lambda: render_integrations_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database, "load_products": wczytaj_produkty_z_db, "save_product": zapisz_produkt_w_db}),
     21: lambda: render_artwork_approval_screen(st),
-    22: lambda: render_generators_screen(st, {"load_database": load_database, "save_database": save_database}),
+    22: lambda: render_generators_screen(st, {"load_database": load_database, "save_database": save_database, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
     23: lambda: render_client_product_card_screen(st, {"pd": pd, "get_current_order_id": get_current_order_id, "load_document_registry": load_document_registry, "load_database": load_database, "save_database": save_database, "update_order_snapshot": update_order_snapshot, "save_order_context": save_order_context, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
     24: lambda: render_work_settlement_archive_screen(st, {"pd": pd, "get_current_order_id": get_current_order_id, "current_operator": current_operator, "store_order_pdf": store_order_pdf, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD, "archive_file": WORK_SETTLEMENT_ARCHIVE_FILE, "load_json": load_persistent_json, "save_json": save_persistent_json, "load_order_contexts": load_order_contexts, "deserialize_context": _deserialize_order_context_value}),
     25: lambda: render_preorder_screen(st, {"pd": pd, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD, "logo_path": os.path.join(APP_DIR, "logo1.jpg"), "archive_file": PREORDER_ARCHIVE_FILE, "load_json": load_persistent_json, "save_json": save_persistent_json, "deepl_api_key": st.secrets.get("DEEPL_API_KEY", "")}),
@@ -3832,7 +3821,8 @@ MODULE_RENDERERS = {
     27: lambda: render_backup_center_screen(st, {"app_root": APP_DIR}),
     29: lambda: render_user_admin_screen(st, globals()),
     30: lambda: render_update_screen(st, {"app_root": APP_DIR}),
-    31: lambda: render_warehouse_label_screen(st, {"font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
+    31: lambda: render_bobbin_settlement_screen(st, {"pd": pd, "current_operator": current_operator, "archive_file": os.path.join(APP_DIR, "dane_aplikacji", "rozliczenie_bobin.json"), "load_json": load_persistent_json, "save_json": save_persistent_json, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
+    32: lambda: render_warehouse_label_screen(st, {"font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
 }
 
 selected_renderer = MODULE_RENDERERS.get(selected_module)
@@ -3840,3 +3830,5 @@ if selected_renderer is None:
     st.error("Nie znaleziono widoku wybranego modułu.")
 else:
     selected_renderer()
+
+

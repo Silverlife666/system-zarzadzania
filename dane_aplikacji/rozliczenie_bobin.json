@@ -1,0 +1,110 @@
+{
+  "orders": [
+    {
+      "name": "Ritual 4 kwartał",
+      "target": 41472,
+      "closed": false
+    },
+    {
+      "name": "JOQ",
+      "target": 24000,
+      "closed": false
+    }
+  ],
+  "entries": [
+    {
+      "date": "2026-09-30",
+      "order": "JOQ",
+      "employee": "Klaudia",
+      "machine": "Nowa",
+      "shift": "1",
+      "bobbin_id": "JOQ|2026-09-30|1",
+      "bobbin_index": 1,
+      "bobbin_m": 5000,
+      "roll_length_m": 6,
+      "capacity": 5000,
+      "length": 6,
+      "produced": 825,
+      "expected": 833,
+      "waste": 8,
+      "completed": "TAK",
+      "done": "TAK",
+      "remaining_m": 0,
+      "carry_m": 0,
+      "notes": "",
+      "waste_m": 48.0
+    },
+    {
+      "date": "2026-09-30",
+      "order": "JOQ",
+      "employee": "Klaudia",
+      "machine": "Nowa",
+      "shift": "1",
+      "bobbin_id": "JOQ|2026-09-30|2",
+      "bobbin_index": 2,
+      "bobbin_m": 5000,
+      "roll_length_m": 6,
+      "produced": 752,
+      "expected": 833,
+      "waste": 81,
+      "completed": "TAK",
+      "remaining_m": 0,
+      "carry_m": 0,
+      "notes": "",
+      "waste_m": 486.0
+    },
+    {
+      "date": "2026-09-30",
+      "order": "JOQ",
+      "employee": "Klaudia",
+      "machine": "Nowa",
+      "shift": "1",
+      "bobbin_id": "JOQ|2026-09-30|3",
+      "bobbin_index": 3,
+      "bobbin_m": 5000,
+      "roll_length_m": 6,
+      "produced": 452,
+      "expected": 833,
+      "waste": 0,
+      "waste_m": 0.0,
+      "completed": "TAK",
+      "remaining_m": 2286.0,
+      "carry_m": 0,
+      "notes": ""
+    }
+  ],
+  "settings": {
+    "employees": [
+      "Jola",
+      "Judyta",
+      "Bożena",
+      "Klaudia",
+      "Kamila",
+      "Serwis"
+    ],
+    "capacities": [
+      3000,
+      5000
+    ],
+    "roll_lengths": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      20
+    ],
+    "waste_rate_pct": 1,
+    "default_shift": "1",
+    "machines": [
+      {
+        "Maszyna": "Nowa",
+        "Aktywna": true
+      },
+      {
+        "Maszyna": "Stara",
+        "Aktywna": true
+      }
+    ]
+  }
+}

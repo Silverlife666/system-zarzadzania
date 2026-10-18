@@ -1,0 +1,85 @@
+{
+  "PayPay Nowy": {
+    "saved_at": "2026-10-07T15:09:48",
+    "source_product": "",
+    "source_order_id": "EMBURN-260826-7E29",
+    "result": {
+      "Nazwa": "Master Case z Box Rightsizing",
+      "Dlugosc": 276.0,
+      "Szerokosc": 244.0,
+      "Wysokosc": 276.0,
+      "Waga": 0.0,
+      "boxes_per_layer": 12,
+      "order_id": "EMBURN-260826-7E29",
+      "source_product": "",
+      "source_sku": "",
+      "source_type": "Ręczne",
+      "displays_per_mastercase": 20,
+      "layout": {
+        "length": 2,
+        "width": 2,
+        "height": 5
+      },
+      "pallet": "Euro (1200 x 800 mm)",
+      "warianty": [
+        {
+          "score": -68.98,
+          "uklad": {
+            "length": 2,
+            "width": 2,
+            "height": 5
+          },
+          "displaye": 20,
+          "puste_miejsca": 0,
+          "wymiary_wewnetrzne_mm": {
+            "dlugosc": 270.0,
+            "szerokosc": 238.0,
+            "wysokosc": 270.0
+          },
+          "kartony_na_warstwe_palety": 12,
+          "wykorzystanie_palety_pct": 80.3
+        }
+      ],
+      "Display": {
+        "Dlugosc": 130.0,
+        "Szerokosc": 114.0,
+        "Wysokosc": 52.0,
+        "Masa_pelnego_kg": 0.0,
+        "Mozna_obracac": true,
+        "Dozwolona_pozycja": "Poziomo"
+      },
+      "MasterCase": {
+        "Dlugosc_wewnetrzna": 270.0,
+        "Szerokosc_wewnetrzna": 238.0,
+        "Wysokosc_wewnetrzna": 270.0,
+        "Dlugosc_zewnetrzna": 276.0,
+        "Szerokosc_zewnetrzna": 244.0,
+        "Wysokosc_zewnetrzna": 276.0,
+        "Tara_kg": 0.0,
+        "Masa_brutto_kg": 0.0,
+        "Masa_brutto_max_kg": 0.0,
+        "Grubosc_scianki_mm": 3.0,
+        "FEFCO": "0201",
+        "Zamkniecie": "Klapy standardowe",
+        "Tektura": "3-warstwowa",
+        "Fala": "B"
+      },
+      "Ograniczenia": {
+        "docelowa_liczba_displayow": 20,
+        "luz_montazowy_mm": 10.0,
+        "limit_dlugosci": {
+          "aktywny": true,
+          "mm": 280.0
+        },
+        "limit_szerokosci": {
+          "aktywny": true,
+          "mm": 250.0
+        },
+        "limit_warstw": {
+          "aktywny": true,
+          "liczba": 5
+        }
+      }
+    }
+  }
+}

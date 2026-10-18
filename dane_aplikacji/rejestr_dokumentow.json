@@ -6416,7 +6416,7 @@
   },
   "EMBURN-260826-FE9F": {
     "created_at": "2026-08-26T13:05:08",
-    "updated_at": "2026-09-14T19:10:27",
+    "updated_at": "2026-10-15T20:20:37",
     "order_name": "",
     "order_status": "w produkcji",
     "documents": [
@@ -6849,52 +6849,52 @@
           }
         },
         "paletyzacja": {
-          "updated_at": "2026-08-27T00:24:44",
+          "updated_at": "2026-10-15T20:20:37",
           "data": {
             "order_id": "EMBURN-260826-FE9F",
             "source_module": "Inteligentne sugestie (4)",
-            "Produkt": "Medusa 10 pack Bleached",
-            "SKU": "4270002129566",
+            "Produkt": "Ritual Rolls",
+            "SKU": "3858891162256",
             "Poziom obliczeń": "Master Case",
             "catalog_snapshot": {
-              "Nazwa produktu": "Medusa 10 pack Bleached",
-              "SKU": "4270002129566",
-              "Klient": "Medusa",
+              "Nazwa produktu": "Ritual Rolls",
+              "SKU": "3858891162256",
+              "Klient": "Ritual",
               "Producent": "Emburn",
               "Produkt": {
-                "Długość [mm]": 4.75,
-                "Szerokość [mm]": 111.0,
-                "Wysokość [mm]": 26.0,
-                "Masa netto [g]": 4.676,
-                "EAN produktu": "4270002129566"
+                "Długość [mm]": 40.0,
+                "Szerokość [mm]": 55.0,
+                "Wysokość [mm]": 25.0,
+                "Masa netto [g]": 200.0,
+                "EAN produktu": "3858891162256"
               },
               "Display": {
-                "Długość [mm]": 55.0,
-                "Szerokość [mm]": 114.0,
-                "Wysokość [mm]": 27.0,
-                "Masa pustego displaya [g]": 7.779999999999999,
-                "Masa pełnego displaya [g]": 54.54,
-                "EAN displaya": "4262408941576",
-                "Pudełek w displayu": 10
+                "Długość [mm]": 0.0,
+                "Szerokość [mm]": 0.0,
+                "Wysokość [mm]": 0.0,
+                "Masa pustego displaya [g]": 0.0,
+                "Masa pełnego displaya [g]": 350.0,
+                "EAN displaya": "",
+                "Pudełek w displayu": 16
               },
               "Master Case": {
-                "Długość wewnętrzna [mm]": 269.0,
-                "Szerokość wewnętrzna [mm]": 135.0,
-                "Wysokość wewnętrzna [mm]": 218.0,
-                "Długość zewnętrzna [mm]": 275.0,
-                "Szerokość zewnętrzna [mm]": 142.0,
-                "Wysokość zewnętrzna [mm]": 224.0,
-                "Tara [kg]": 0.23,
-                "Maks. masa brutto [kg]": 3.0,
+                "Długość wewnętrzna [mm]": 0.0,
+                "Szerokość wewnętrzna [mm]": 0.0,
+                "Wysokość wewnętrzna [mm]": 0.0,
+                "Długość zewnętrzna [mm]": 470.0,
+                "Szerokość zewnętrzna [mm]": 200.0,
+                "Wysokość zewnętrzna [mm]": 310.0,
+                "Tara [kg]": 0.0,
+                "Maks. masa brutto [kg]": 0.0,
                 "EAN Master Case": "",
                 "FEFCO": "0201",
                 "Tektura / fala": "3-warstwowa / E",
-                "Displayów w Master Case": 50
+                "Displayów w Master Case": 24
               },
               "Relacje pakowania": {
                 "Sztuk w pudełku": 1,
-                "Pudełek w displayu": 10,
-                "Displayów w Master Case": 50
+                "Pudełek w displayu": 16,
+                "Displayów w Master Case": 24
               },
               "Paleta": {
                 "Domyślny typ palety": "EURO",
@@ -6902,410 +6902,220 @@
                 "Limit masy [kg]": 500.0
               }
             },
-            "EAN produktu": "4270002129566",
-            "EAN displaya": "4262408941576",
+            "EAN produktu": "3858891162256",
+            "EAN displaya": "",
             "EAN Master Case": "",
             "EAN/GTIN": "",
             "EAN": "",
             "Paleta": "EURO",
-            "Orientacja": "Oryginalna",
-            "Kartonów/warstwę": 20,
+            "Orientacja": "Mieszany / zaawansowany",
+            "Kartonów/warstwę": 9,
             "Pełnych warstw": 5,
-            "Kartonów na pełnej palecie": 100,
-            "Liczba palet": 1,
-            "Kartonów na ostatniej palecie": 1,
+            "Kartonów na pełnej palecie": 45,
+            "Kartonów na wizualizowanej palecie": 45,
+            "Warstw wizualizowanej palety": 5,
+            "Wymiary ładunku XYZ mm": [
+              1140.0,
+              800.0,
+              1550.0
+            ],
+            "Liczba palet": 2,
+            "Kartonów na ostatniej palecie": 9,
             "Warstw na ostatniej palecie": 1,
-            "Masa brutto/paleta kg": 17.96,
-            "Masa brutto ostatniej palety kg": 17.96,
-            "Masa brutto całkowita kg": 17.96,
+            "Masa brutto/paleta kg": 393.0,
+            "Masa brutto ostatniej palety kg": 90.6,
+            "Masa brutto całkowita kg": 483.6,
             "Wymiary palety mm": [
               1200,
               800,
-              1272.4
+              1702.4
             ],
-            "Wysokość palety mm": 1272.4,
-            "Stabilność /100": 63,
-            "Ocena stabilności": "wymaga zabezpieczenia",
+            "Wysokość palety mm": 1702.4,
+            "Stabilność /100": 35,
+            "Ocena stabilności": "ryzykowna",
             "Wystawanie mm": 0.0,
             "Miejsce dostawy": "",
             "Ostrzeżenia": [
-              "Informacja BCT: Brak analizy BCT dla bieżącego zlecenia."
+              "Paleta wysoka lub niestabilna - wymagane dodatkowe zabezpieczenie.",
+              "Informacja BCT: Analiza BCT nie ma statusu „zatwierdzony”."
             ],
             "Warianty": [
               {
                 "Nazwa": "Oryginalna",
                 "Układ": [
                   [
-                    50.0,
-                    45.0,
-                    275.0,
-                    142.0
+                    130.0,
+                    0.0,
+                    470.0,
+                    200.0
                   ],
                   [
-                    50.0,
-                    187.0,
-                    275.0,
-                    142.0
+                    130.0,
+                    200.0,
+                    470.0,
+                    200.0
                   ],
                   [
-                    50.0,
-                    329.0,
-                    275.0,
-                    142.0
+                    130.0,
+                    400.0,
+                    470.0,
+                    200.0
                   ],
                   [
-                    50.0,
-                    471.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    50.0,
-                    613.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    325.0,
-                    45.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    325.0,
-                    187.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    325.0,
-                    329.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    325.0,
-                    471.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    325.0,
-                    613.0,
-                    275.0,
-                    142.0
+                    130.0,
+                    600.0,
+                    470.0,
+                    200.0
                   ],
                   [
                     600.0,
-                    45.0,
-                    275.0,
-                    142.0
+                    0.0,
+                    470.0,
+                    200.0
                   ],
                   [
                     600.0,
-                    187.0,
-                    275.0,
-                    142.0
+                    200.0,
+                    470.0,
+                    200.0
                   ],
                   [
                     600.0,
-                    329.0,
-                    275.0,
-                    142.0
+                    400.0,
+                    470.0,
+                    200.0
                   ],
                   [
                     600.0,
-                    471.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
                     600.0,
-                    613.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    875.0,
-                    45.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    875.0,
-                    187.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    875.0,
-                    329.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    875.0,
-                    471.0,
-                    275.0,
-                    142.0
-                  ],
-                  [
-                    875.0,
-                    613.0,
-                    275.0,
-                    142.0
+                    470.0,
+                    200.0
                   ]
                 ],
-                "Kartonów/warstwę": 20,
+                "Kartonów/warstwę": 8,
                 "Pełnych warstw": 5,
-                "Pojemność": 100,
+                "Pojemność": 40,
                 "Status": "✅ Aligned (W obrysie palety)",
                 "Wystawanie mm": 0.0,
-                "Wysokość kartonu": 224.0
+                "Wysokość kartonu": 310.0
               },
               {
                 "Nazwa": "Obrót 90°",
                 "Układ": [
                   [
-                    32.0,
-                    125.0,
-                    142.0,
-                    275.0
+                    0.0,
+                    165.0,
+                    200.0,
+                    470.0
                   ],
                   [
-                    32.0,
+                    200.0,
+                    165.0,
+                    200.0,
+                    470.0
+                  ],
+                  [
                     400.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    174.0,
-                    125.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    174.0,
-                    400.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    316.0,
-                    125.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    316.0,
-                    400.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    458.0,
-                    125.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    458.0,
-                    400.0,
-                    142.0,
-                    275.0
+                    165.0,
+                    200.0,
+                    470.0
                   ],
                   [
                     600.0,
-                    125.0,
-                    142.0,
-                    275.0
+                    165.0,
+                    200.0,
+                    470.0
                   ],
                   [
-                    600.0,
-                    400.0,
-                    142.0,
-                    275.0
+                    800.0,
+                    165.0,
+                    200.0,
+                    470.0
                   ],
                   [
-                    742.0,
-                    125.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    742.0,
-                    400.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    884.0,
-                    125.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    884.0,
-                    400.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    1026.0,
-                    125.0,
-                    142.0,
-                    275.0
-                  ],
-                  [
-                    1026.0,
-                    400.0,
-                    142.0,
-                    275.0
+                    1000.0,
+                    165.0,
+                    200.0,
+                    470.0
                   ]
                 ],
-                "Kartonów/warstwę": 16,
+                "Kartonów/warstwę": 6,
                 "Pełnych warstw": 5,
-                "Pojemność": 80,
+                "Pojemność": 30,
                 "Status": "✅ Aligned (W obrysie palety)",
                 "Wystawanie mm": 0.0,
-                "Wysokość kartonu": 224.0
+                "Wysokość kartonu": 310.0
               },
               {
                 "Nazwa": "Mieszany / zaawansowany",
                 "Układ": [
                   [
-                    50.0,
-                    45.0,
-                    275,
-                    142
+                    30.0,
+                    0.0,
+                    470,
+                    200
                   ],
                   [
-                    50.0,
-                    187.0,
-                    275,
-                    142
+                    30.0,
+                    200.0,
+                    470,
+                    200
                   ],
                   [
-                    50.0,
-                    329.0,
-                    275,
-                    142
+                    30.0,
+                    400.0,
+                    470,
+                    200
                   ],
                   [
-                    50.0,
-                    471.0,
-                    275,
-                    142
-                  ],
-                  [
-                    50.0,
-                    613.0,
-                    275,
-                    142
-                  ],
-                  [
-                    325.0,
-                    45.0,
-                    275,
-                    142
-                  ],
-                  [
-                    325.0,
-                    187.0,
-                    275,
-                    142
-                  ],
-                  [
-                    325.0,
-                    329.0,
-                    275,
-                    142
-                  ],
-                  [
-                    325.0,
-                    471.0,
-                    275,
-                    142
-                  ],
-                  [
-                    325.0,
-                    613.0,
-                    275,
-                    142
-                  ],
-                  [
+                    30.0,
                     600.0,
-                    45.0,
-                    275,
-                    142
+                    470,
+                    200
                   ],
                   [
+                    500.0,
+                    0.0,
+                    470,
+                    200
+                  ],
+                  [
+                    500.0,
+                    200.0,
+                    470,
+                    200
+                  ],
+                  [
+                    500.0,
+                    400.0,
+                    470,
+                    200
+                  ],
+                  [
+                    500.0,
                     600.0,
-                    187.0,
-                    275,
-                    142
+                    470,
+                    200
                   ],
                   [
-                    600.0,
-                    329.0,
-                    275,
-                    142
-                  ],
-                  [
-                    600.0,
-                    471.0,
-                    275,
-                    142
-                  ],
-                  [
-                    600.0,
-                    613.0,
-                    275,
-                    142
-                  ],
-                  [
-                    875.0,
-                    45.0,
-                    275,
-                    142
-                  ],
-                  [
-                    875.0,
-                    187.0,
-                    275,
-                    142
-                  ],
-                  [
-                    875.0,
-                    329.0,
-                    275,
-                    142
-                  ],
-                  [
-                    875.0,
-                    471.0,
-                    275,
-                    142
-                  ],
-                  [
-                    875.0,
-                    613.0,
-                    275,
-                    142
+                    970.0,
+                    165.0,
+                    200,
+                    470
                   ]
                 ],
-                "Kartonów/warstwę": 20,
+                "Kartonów/warstwę": 9,
                 "Pełnych warstw": 5,
-                "Pojemność": 100,
+                "Pojemność": 45,
                 "Status": "✅ Aligned (W obrysie palety)",
                 "Wystawanie mm": 0.0,
-                "Wysokość kartonu": 224.0
+                "Wysokość kartonu": 310.0
               }
             ],
-            "BCT status": "brak analizy BCT (informacyjnie)",
+            "BCT status": "uwaga BCT",
             "BCT blokada": false,
             "BCT powody": [
-              "Brak analizy BCT dla bieżącego zlecenia."
+              "Analiza BCT nie ma statusu „zatwierdzony”."
             ]
           }
         },
@@ -7670,7 +7480,7 @@
           }
         }
       },
-      "updated_at": "2026-09-14T19:10:27"
+      "updated_at": "2026-10-15T20:20:37"
     }
   },
   "EMBURN-260826-7E29": {

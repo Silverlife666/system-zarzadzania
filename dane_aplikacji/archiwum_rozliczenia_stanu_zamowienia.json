@@ -1,0 +1,1259 @@
+[
+  {
+    "name": "Zestawienie 2026-09-18 17:09",
+    "created_at": "2026-09-18T17:09:44",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 23520
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "Emburn",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić gotowy produkt"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      },
+      "corrections": {
+        "1|wiseskies pink|kartonik bletka": -500
+      },
+      "conversions": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "consume": 5490,
+          "waste": 500
+        }
+      ],
+      "purchase_adjustments": {
+        "2|wiseskies pink|okładka": 837,
+        "3|wiseskies pink|display kss 50 szt.": 5,
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": 9
+      }
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 17:02",
+    "created_at": "2026-09-18T17:02:01",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 23520
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "Emburn",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić gotowy produkt"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      },
+      "corrections": {
+        "1|wiseskies pink|kartonik bletka": -500
+      },
+      "conversions": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "consume": 5490,
+          "waste": 500
+        }
+      ],
+      "purchase_adjustments": {
+        "2|wiseskies pink|okładka": 837,
+        "3|wiseskies pink|display kss 50 szt.": 5,
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": 9
+      }
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:55",
+    "created_at": "2026-09-18T16:55:09",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 23520
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "Emburn",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić gotowy produkt"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      },
+      "corrections": {
+        "1|wiseskies pink|kartonik bletka": -500
+      },
+      "conversions": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "consume": 5490,
+          "waste": 500
+        }
+      ]
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:51",
+    "created_at": "2026-09-18T16:51:21",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 23520
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "Emburn",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Decyzja ręczna"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      },
+      "corrections": {
+        "1|wiseskies pink|kartonik bletka": -500
+      },
+      "conversions": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "consume": 5490,
+          "waste": 500
+        }
+      ]
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:50",
+    "created_at": "2026-09-18T16:50:10",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 23520
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "Emburn",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić półprodukt"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      },
+      "corrections": {
+        "1|wiseskies pink|kartonik bletka": -500
+      },
+      "conversions": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "consume": 5490,
+          "waste": 500
+        }
+      ]
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:49",
+    "created_at": "2026-09-18T16:49:07",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 23520
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "Emburn",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić półprodukt"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      },
+      "corrections": {
+        "1|wiseskies pink|kartonik bletka": -500
+      },
+      "conversions": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "consume": 5490,
+          "waste": 500
+        }
+      ]
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:38",
+    "created_at": "2026-09-18T16:38:47",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 23520
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "Emburn",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić gotowy produkt"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      },
+      "corrections": {
+        "1|wiseskies pink|kartonik bletka": -500
+      }
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:36",
+    "created_at": "2026-09-18T16:36:36",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 23520
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić gotowy produkt"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      }
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:34",
+    "created_at": "2026-09-18T16:34:07",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 23520
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "",
+        "2|wiseskies pink|okładka": "Ceris",
+        "3|wiseskies pink|display kss 50 szt.": "Ceris",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Ceris",
+        "5|wiseskies pink|gotowa bibułka": "Jean RJ2sas"
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Produkcja wewnętrzna",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić gotowy produkt"
+      },
+      "planned": {
+        "5|wiseskies pink|gotowa bibułka": 20000
+      }
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:28",
+    "created_at": "2026-09-18T16:28:22",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 23520
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "",
+        "2|wiseskies pink|okładka": "",
+        "3|wiseskies pink|display kss 50 szt.": "",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "",
+        "5|wiseskies pink|gotowa bibułka": ""
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ],
+      "fulfillments": {
+        "1|wiseskies pink|kartonik bletka": "Zlecić gotowy produkt",
+        "2|wiseskies pink|okładka": "Zlecić półprodukt",
+        "3|wiseskies pink|display kss 50 szt.": "Zlecić półprodukt",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "Zlecić półprodukt",
+        "5|wiseskies pink|gotowa bibułka": "Zlecić gotowy produkt"
+      }
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:25",
+    "created_at": "2026-09-18T16:25:07",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 154
+        },
+        {
+          "Pozycja": "5",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Gotowa bibułka",
+          "Ilość": 54
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 23520
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        },
+        {
+          "Pozycja": "4",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS  Connoisseur Display 24 szt.",
+          "Ilość": 480
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "",
+        "2|wiseskies pink|okładka": "",
+        "3|wiseskies pink|display kss 50 szt.": "",
+        "4|wiseskies pink|display kss  connoisseur display 24 szt.": "",
+        "5|wiseskies pink|gotowa bibułka": ""
+      },
+      "relations": [
+        {
+          "semi_key": "1|wiseskies pink|kartonik bletka",
+          "finished_key": "5|wiseskies pink|gotowa bibułka",
+          "semi_label": "1 · WiseSkies Pink · Kartonik Bletka",
+          "finished_label": "5 · WiseSkies Pink · Gotowa bibułka",
+          "factor": 1.0,
+          "fulfillment": "Zlecić gotowy produkt"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:18",
+    "created_at": "2026-09-18T16:18:56",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 1857
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 0
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 23520
+        },
+        {
+          "Pozycja": "2",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Okładka",
+          "Ilość": 11520
+        },
+        {
+          "Pozycja": "3",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Display KSS 50 szt.",
+          "Ilość": 240
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": "",
+        "2|wiseskies pink|okładka": "",
+        "3|wiseskies pink|display kss 50 szt.": ""
+      }
+    }
+  },
+  {
+    "name": "Zestawienie 2026-09-18 16:13",
+    "created_at": "2026-09-18T16:13:13",
+    "data": {
+      "stock": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 5490
+        }
+      ],
+      "order": [
+        {
+          "Pozycja": "1",
+          "Nazwa": "WiseSkies Pink",
+          "Rodzaj towaru": "Kartonik Bletka",
+          "Ilość": 23520
+        }
+      ],
+      "executors": {
+        "none|none|none": "",
+        "1|none|none": "",
+        "1|wise skies kartonik bletka|none": "",
+        "1|wise skies|none": "",
+        "1|wise skies pink|none": "",
+        "1|wise skies pink|kartonik bletka": "",
+        "1|wiseskies pink|kartonik bletka": ""
+      }
+    }
+  }
+]

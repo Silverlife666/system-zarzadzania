@@ -1,0 +1,221 @@
+{
+  "EMBURN-260824-D12C": {
+    "created_at": "2026-08-24T21:25:52",
+    "updated_at": "2026-08-24T21:26:15",
+    "order_name": "",
+    "order_status": "w produkcji",
+    "documents": [
+      {
+        "type": "ZAMÓWIENIE",
+        "created_at": "2026-08-24T21:26:15",
+        "status": "wygenerowany",
+        "file_name": "ZAM_WIENIE.pdf",
+        "document_key": "ZAM_WIENIE.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\EMBURN-260824-D12C\\ZAM_WIENIE.pdf",
+        "content_hash": "2058652c1d2c17fbe6003c4a19de005f9846734460cc34c3d8d5195818c9dac8",
+        "approved_by": "",
+        "metadata": {
+          "source": "PDF TDS/Zamówienie"
+        },
+        "version": 2,
+        "history": [
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 1,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\EMBURN-260824-D12C\\wersje\\ZAM_WIENIE_v1.pdf",
+            "previous_status": "wygenerowany",
+            "previous_approved_by": "admin",
+            "requires_reapproval": false
+          }
+        ],
+        "updated_at": "2026-08-24T21:26:15"
+      },
+      {
+        "type": "E-Order",
+        "created_at": "2026-08-24T21:26:15",
+        "status": "wygenerowany",
+        "file_name": "e_order.pdf",
+        "document_key": "e_order.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\EMBURN-260824-D12C\\e_order.pdf",
+        "content_hash": "2e0ba193e8e953d4c86832c4b52571561185c5f9d934ee6cbe62d022d7382c30",
+        "approved_by": "",
+        "metadata": {
+          "order_no": "14/2026",
+          "recipient": "",
+          "response_status": "wysłano",
+          "language": "en"
+        },
+        "version": 2,
+        "history": [
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 1,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\EMBURN-260824-D12C\\wersje\\e_order_v1.pdf",
+            "previous_status": "wygenerowany",
+            "previous_approved_by": "admin",
+            "requires_reapproval": false
+          }
+        ],
+        "updated_at": "2026-08-24T21:26:15"
+      },
+      {
+        "type": "E-Order",
+        "created_at": "2026-08-24T21:26:15",
+        "status": "wygenerowany",
+        "file_name": "e_order_pl_en.pdf",
+        "document_key": "e_order_pl_en.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\EMBURN-260824-D12C\\e_order_pl_en.pdf",
+        "content_hash": "6934550411c5d163f55b377d3287b32908dbf8cc05f14b6417524a4eb119977c",
+        "approved_by": "admin",
+        "metadata": {
+          "order_no": "14/2026",
+          "recipient": "",
+          "response_status": "wysłano",
+          "language": "PL/EN"
+        },
+        "version": 1,
+        "history": [
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      },
+      {
+        "type": "Karta Pracy",
+        "created_at": "2026-08-24T21:26:15",
+        "status": "wygenerowany",
+        "file_name": "karta_pracy.pdf",
+        "document_key": "karta_pracy.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\EMBURN-260824-D12C\\karta_pracy.pdf",
+        "content_hash": "8b0f8cd478ebe4bc74c321fcb6b24711f9f0e0ed5d2b78a473d5f70484c0b38b",
+        "approved_by": "admin",
+        "metadata": {},
+        "version": 1,
+        "history": [
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      }
+    ],
+    "order_history": [
+      {
+        "at": "2026-08-24T21:25:52",
+        "action": "utworzono nowe zlecenie",
+        "by": "admin",
+        "to": "robocze"
+      },
+      {
+        "at": "2026-08-24T21:26:15",
+        "action": "automatyczna zmiana statusu zlecenia",
+        "by": "system",
+        "from": "robocze",
+        "to": "w produkcji",
+        "reason": "oczekuje na komplet: Raport PPWR, Raport QA drukarni"
+      }
+    ]
+  },
+  "ORD-20260823-183724": {
+    "created_at": "2026-08-24T21:26:15",
+    "documents": [
+      {
+        "type": "E-Order",
+        "created_at": "2026-08-24T21:26:15",
+        "status": "wygenerowany",
+        "file_name": "e_order.pdf",
+        "document_key": "e_order.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\ORD-20260823-183724\\e_order.pdf",
+        "content_hash": "6b077d21ce0cb2db510484c7ed5f3e1badce37599c3b59d7f897a9ef7fb50ea6",
+        "approved_by": "",
+        "metadata": {
+          "order_no": "ORD-20260823-183724",
+          "recipient": "Test ",
+          "response_status": "wysłano",
+          "language": "en"
+        },
+        "version": 2,
+        "history": [
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          },
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "zaktualizowano wersję PDF",
+            "by": "admin",
+            "status": "wygenerowany",
+            "previous_version": 1,
+            "previous_file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\ORD-20260823-183724\\wersje\\e_order_v1.pdf",
+            "previous_status": "wygenerowany",
+            "previous_approved_by": "admin",
+            "requires_reapproval": false
+          }
+        ],
+        "updated_at": "2026-08-24T21:26:15"
+      },
+      {
+        "type": "E-Order",
+        "created_at": "2026-08-24T21:26:15",
+        "status": "wygenerowany",
+        "file_name": "e_order_pl_en.pdf",
+        "document_key": "e_order_pl_en.pdf",
+        "file_path": "C:\\Users\\Adrian\\Desktop\\kalkulator\\kalkulator\\dane_aplikacji\\dokumenty_zlecen\\ORD-20260823-183724\\e_order_pl_en.pdf",
+        "content_hash": "a8a4f71460edd3564eabf8cfc4ae507cc2fec03fd46bd4e981a12574937f3b6c",
+        "approved_by": "admin",
+        "metadata": {
+          "order_no": "ORD-20260823-183724",
+          "recipient": "Test ",
+          "response_status": "wysłano",
+          "language": "PL/EN"
+        },
+        "version": 1,
+        "history": [
+          {
+            "at": "2026-08-24T21:26:15",
+            "action": "utworzono PDF",
+            "by": "admin",
+            "status": "wygenerowany"
+          }
+        ]
+      }
+    ],
+    "updated_at": "2026-08-24T21:26:15",
+    "order_history": [
+      {
+        "at": "2026-08-24T21:26:15",
+        "action": "automatyczna zmiana statusu zlecenia",
+        "by": "system",
+        "from": "robocze",
+        "to": "w produkcji",
+        "reason": "oczekuje na komplet: Raport PPWR, Raport QA drukarni"
+      }
+    ],
+    "order_status": "w produkcji"
+  }
+}
