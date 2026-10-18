@@ -5,6 +5,7 @@ from collections import Counter
 from io import BytesIO
 import copy
 import json
+from html import escape as _esc
 import math
 import os
 import time
@@ -812,6 +813,93 @@ def _pdf_fonts(deps):
     return reg, bold
 
 
+_SUMMARY_CSS = """<style>
+.m31-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:4px 0 14px}
+.m31-card{background:#eef4fb;border-radius:9px;padding:12px 14px;color:#152238}
+.m31-lab{font-size:.68rem;font-weight:800;color:#60738a;letter-spacing:.04em;text-transform:uppercase}
+.m31-val{display:block;margin-top:4px;font-size:1.5rem;font-weight:700;color:#123b69}
+.m31-prog{height:18px;background:#e3eef9;border-radius:9px;overflow:hidden;margin:2px 0 10px}
+.m31-prog i{display:block;background:#16825d;height:100%}
+.m31-warn{color:#ae3d3d;font-weight:700;margin:4px 0}
+</style>"""
+
+
+def _cards(items):
+    return '<div class="m31-grid">' + "".join(f'<div class="m31-card"><div class="m31-lab">{_esc(str(label))}</div><span class="m31-val">{_esc(str(value))}</span></div>' for label, value in items) + "</div>"
+
+
+def _nv(v):
+    v = float(v or 0)
+    return int(v) if v == int(v) else round(v, 1)
+
+
+def _summary_tab(st, deps, orders, entries, settings, event):
+    """Podsumowanie w układzie wersji HTML: kafelki, statystyki wg maszyn, panel każdego zlecenia, raport PDF."""
+    st.markdown(_SUMMARY_CSS, unsafe_allow_html=True)
+    waste_rate, waste_alert = float(settings.get("waste_rate_pct", 1.0) or 0), float(settings.get("waste_alert", 5) or 0)
+    tp, tw, sh = sum(_fl(x, "produced") for x in entries), sum(_w(x) for x in entries), _shifts(entries)
+    st.markdown(_cards([
+        ("Dni produkcji", _days(entries)), ("Ilość zmian", sh), ("Liczba wpisów", len(entries)), ("Wykonane sztuki", _n(tp)), ("Odpad w sztukach", _n(tw)),
+        ("Odpad %", _pct(tw, tp)), ("Średnio / zmianę", f"{tp / sh:.1f}" if sh else 0), ("Wykonane bobiny", sum(_done(x) for x in entries)),
+        ("Ilość osób", len({x.get("employee") for x in entries})), ("Odpad w metrach", _n(sum(_wm(x) for x in entries))),
+        ("Odpad w bobinach", f"{sum(_wm(x) / _fl(x, 'bobbin_m') for x in entries if _fl(x, 'bobbin_m')):.2f}")]), unsafe_allow_html=True)
+    st.markdown("### Statystyki wg maszyn")
+    machines = _agg(entries, lambda x: x.get("machine") or "—")
+    if machines:
+        st.dataframe(deps["pd"].DataFrame([{"Maszyna": k, "Dni": len(a["dd"]), "Zmiany": len(a["s"]), "Wpisy": a["n"], "Wykonano": _nv(a["p"]), "Odpad szt.": _nv(a["w"]), "Odpad %": float(_pct(a["w"], a["p"])), "Bobiny zakończone": a["d"], "Odpad m": _nv(a["m"])}
+                                           for k, a in sorted(machines.items(), key=lambda kv: -kv[1]["p"])]), hide_index=True, width="stretch")
+    else:
+        st.caption("Brak wpisów.")
+    st.markdown("### Statystyki, progres i prognoza per zlecenie")
+    if not orders:
+        st.caption("Brak zleceń.")
+    for o in orders:
+        s = _ostats(o, entries, settings, "", "9999-12-31"); g = s["g"]
+        with st.container(border=True):
+            st.markdown(f"#### {o['name']}{' (zamknięte)' if o.get('closed') else ''}")
+            st.markdown(f'<div class="m31-prog"><i style="width:{s["percent"]:.4g}%"></i></div>', unsafe_allow_html=True)
+            st.markdown(f"{_n(s['p'])} / {_n(s['target'])} szt. · pozostało {_n(s['left'])} szt. · prognoza {s['forecast']} bobin (odpad {_n(waste_rate)}%)")
+            st.markdown("**📅 Prognoza zakończenia:** " + ("zamknięte" if o.get("closed") else _fc(entries, o["name"], s["left"], settings)))
+            papers = {}
+            for x in g:
+                if x.get("paper"):
+                    papers[x["paper"]] = papers.get(x["paper"], 0) + _fl(x, "produced")
+            if papers:
+                st.caption("Typy papieru: " + ", ".join(f"{k}: {_n(v)} szt." for k, v in papers.items()))
+            if waste_alert > 0 and s["wastepct"] > waste_alert:
+                st.markdown(f'<p class="m31-warn">⚠ Odpad {s["wastepct"]:.1f}% przekracza próg {_n(waste_alert)}%</p>', unsafe_allow_html=True)
+            st.markdown(_cards([("Dni", _days(g)), ("Zmiany", _shifts(g)), ("Wpisy", len(g)), ("Wykonano", _n(s["p"])), ("Odpad szt.", _n(s["w"])), ("Odpad %", f"{s['wastepct']:.1f}"),
+                                ("Średnio / zmianę", f"{s['avg']:.1f}" if g else 0), ("Bobiny zakończone", s["done"]), ("Osoby", len({x.get("employee") for x in g})), ("Odpad m", _n(s["m"])), ("Odpad bob.", f"{s['bobw']:.2f}")]), unsafe_allow_html=True)
+    if entries:
+        st.markdown("### Raport PDF")
+        ra, rb = st.columns(2)
+        report_order = ra.selectbox("Zlecenia", ["Wszystkie zlecenia"] + [o["name"] for o in orders], key="m31_report_order")
+        preset = rb.selectbox("Okres", list(PRESETS), index=2, key="m31_rep_period")
+        pa, pb = _preset_range(PRESETS[preset], entries)
+        da, db = st.columns(2)
+        rep_from = da.date_input("Od", value=pa, disabled=preset != "Własny zakres dat", key=f"m31_rf_{preset}")
+        rep_to = db.date_input("Do", value=pb, disabled=preset != "Własny zakres dat", key=f"m31_rt_{preset}")
+        layouts = {"Z podziałem na zlecenia": "split", "Zbiorczy (zlecenia razem)": "sum", "Z podziałem na pracowników": "emp", "Z podziałem na maszyny": "mach"}
+        if any(e.get("paper") for e in entries): layouts["Z podziałem na typy papieru"] = "paper"
+        layout_label = st.selectbox("Układ raportu", list(layouts), key="m31_rep_layout")
+        if st.button("📄 Generuj raport PDF", width="stretch", key="m31_rep_btn"):
+            sel_orders = orders if report_order == "Wszystkie zlecenia" else [o for o in orders if o["name"] == report_order]
+            sel_names = {o["name"] for o in sel_orders}
+            if rep_from > rep_to:
+                st.error("Data „Od” jest późniejsza niż „Do”.")
+            elif not any(e.get("order") in sel_names and rep_from.isoformat() <= e.get("date", "") <= rep_to.isoformat() for e in entries):
+                st.warning("Brak wpisów produkcyjnych w wybranym zakresie dat.")
+            else:
+                f_reg, f_bold = _pdf_fonts(deps)
+                if f_reg.startswith("Helvetica"): st.warning("Nie znaleziono czcionki z polskimi znakami – wgraj folder fonts/ (LiberationSans-Regular.ttf i LiberationSans-Bold.ttf) obok pliku modułu 31.")
+                pdf_bytes = _report_v2(sel_orders, entries, settings, {"from": rep_from.isoformat(), "to": rep_to.isoformat(), "layout": layouts[layout_label], "label": preset}, f_reg, f_bold)
+                slug = "".join(ch if ch.isalnum() else "_" for ch in (report_order if len(sel_orders) == 1 else "wszystkie")).strip("_") or "zlecenie"
+                st.session_state["m31_pdf"] = (pdf_bytes, f"raport_bobiny_{layouts[layout_label]}_{slug}_{rep_from.isoformat()}_{rep_to.isoformat()}.pdf")
+                event("Raport PDF", f"{layouts[layout_label]} {rep_from.isoformat()} – {rep_to.isoformat()}")
+        if st.session_state.get("m31_pdf"):
+            st.download_button("⬇️ Pobierz wygenerowany raport PDF", st.session_state["m31_pdf"][0], st.session_state["m31_pdf"][1], "application/pdf", width="stretch")
+
+
 def render_bobbin_settlement_screen(st, deps):
     data = deps["load_json"](deps["archive_file"], {"orders": [], "entries": [], "settings": {}})
     _cloud_boot(st, deps, data)
@@ -950,69 +1038,7 @@ def render_bobbin_settlement_screen(st, deps):
                                 item.update({"date": e_date.isoformat(), "shift": e_shift, "roll_length_m": e_roll_length, "produced":e_produced,"expected":e_expected,"waste":final_waste,"waste_m":final_waste * float(e_roll_length),"completed":e_completed,"remaining_m":remaining_after_edit,"carry_m":remaining_after_edit if e_completed=="NIE" else 0,"notes":e_notes}); deps["save_json"](deps["archive_file"],data); st.rerun()
     if "summary" in tabs:
         with tabs["summary"]:
-            if entries:
-                frame=deps["pd"].DataFrame(entries)
-                for column, default in (("completed", "NIE"), ("remaining_m", 0), ("bobbin_m", 0), ("waste_m", None)):
-                    if column not in frame: frame[column] = default
-                frame["waste_m"] = frame.apply(lambda row: row["waste_m"] if not deps["pd"].isna(row["waste_m"]) and row["waste_m"] else float(row.get("waste", 0) or 0) * float(row.get("roll_length_m", 0) or 0), axis=1)
-                frame.loc[frame["completed"] != "TAK", "waste"] = 0
-                frame.loc[frame["completed"] != "TAK", "waste_m"] = 0
-                frame["waste_bobbins"] = frame.apply(lambda row: row["waste_m"] / row["bobbin_m"] if row["bobbin_m"] else 0, axis=1)
-                st.markdown("### Statystyki produkcji")
-                metrics = [("Ilość zmian", len(frame)), ("Ilość wykonanych sztuk", int(frame.produced.sum())), ("Odpad w sztukach", int(frame.waste.sum())), ("Średnia ilość wykonanych sztuk na zmianę", round(frame.produced.mean(), 1)), ("Ilość wykonanych bobin", int((frame.completed == "TAK").sum())), ("Ilość osób", frame.employee.nunique()), ("Odpad w metrach", round(frame.waste_m.sum(), 1)), ("Odpad w bobinach", round(frame.waste_bobbins.sum(), 2))]
-                for group in (metrics[:4], metrics[4:]):
-                    columns = st.columns(4)
-                    for column, (label, value) in zip(columns, group): column.metric(label, value)
-                target_map = {o["name"]: float(o.get("target", 0) or 0) for o in orders}
-                waste_rate = float(settings.get("waste_rate_pct", 1.0) or 0)
-                rows = []
-                for order_name, group in frame.groupby("order"):
-                    produced = float(group["produced"].sum())
-                    target = target_map.get(order_name, 0)
-                    remaining = max(target - produced, 0)
-                    capacity, length = _planning_values(entries, settings, order_name)
-                    effective_pieces = (capacity / length) * (1 - waste_rate / 100) if length else 0
-                    forecast = math.ceil(remaining / effective_pieces) if effective_pieces and remaining else 0
-                    progress = (produced / target) if target else 0
-                    st.markdown(f"#### {order_name}")
-                    st.progress(min(progress, 1.0), text=f"Postęp: {int(produced)} z {int(target)} szt. · pozostało {int(remaining)} szt.")
-                    st.caption("📅 Prognoza zakończenia: " + _fc(entries, order_name, remaining, settings))
-                    st.caption(f"Prognoza: {forecast} bobin do wykonania ({capacity:g} m / {length:g} m, planowany odpad {waste_rate:g}%).")
-                    order_metrics = [("Zmiany", len(group)), ("Wykonano [szt.]", int(group["produced"].sum())), ("Odpad [szt.]", int(group["waste"].sum())), ("Średnio / zmianę", round(group["produced"].mean(), 1)), ("Bobiny zakończone", int((group["completed"] == "TAK").sum())), ("Osoby", group["employee"].nunique()), ("Odpad [m]", round(group["waste_m"].sum(), 1)), ("Odpad [bob.]", round(group["waste_bobbins"].sum(), 2))]
-                    for metric_group in (order_metrics[:4], order_metrics[4:]):
-                        for metric_column, (label, value) in zip(st.columns(4), metric_group):
-                            metric_column.metric(label, value)
-                    rows.append({"Zlecenie": order_name, "Docelowo": int(target), "Wykonano": int(produced), "Pozostało [szt.]": int(remaining), "Postęp": f"{progress * 100:.1f}%", "Bobiny do wykonania (z odpadem)": forecast, "Odpad planowany": f"{waste_rate:g}%", "Odpad [szt.]": int(group["waste"].sum()), "Odpad [m]": round(group["waste_m"].sum(), 1), "Zmiany": len(group), "Bobiny zakończone": int((group["completed"] == "TAK").sum())})
-                summary = deps["pd"].DataFrame(rows)
-                st.markdown("### Pełne zestawienie według zlecenia")
-                st.dataframe(summary, hide_index=True, width="stretch")
-                st.markdown("### Raport PDF")
-                ra, rb = st.columns(2)
-                report_order = ra.selectbox("Zlecenia", ["Wszystkie zlecenia"] + [o["name"] for o in orders], key="m31_report_order")
-                preset = rb.selectbox("Okres", list(PRESETS), index=2, key="m31_rep_period")
-                pa, pb = _preset_range(PRESETS[preset], entries)
-                da, db = st.columns(2)
-                rep_from = da.date_input("Od", value=pa, disabled=preset != "Własny zakres dat", key=f"m31_rf_{preset}")
-                rep_to = db.date_input("Do", value=pb, disabled=preset != "Własny zakres dat", key=f"m31_rt_{preset}")
-                layouts = {"Z podziałem na zlecenia": "split", "Zbiorczy (zlecenia razem)": "sum", "Z podziałem na pracowników": "emp", "Z podziałem na maszyny": "mach"}
-                if any(e.get("paper") for e in entries): layouts["Z podziałem na typy papieru"] = "paper"
-                layout_label = st.selectbox("Układ raportu", list(layouts), key="m31_rep_layout")
-                if st.button("📄 Generuj raport PDF", width="stretch", key="m31_rep_btn"):
-                    sel_orders = orders if report_order == "Wszystkie zlecenia" else [o for o in orders if o["name"] == report_order]
-                    sel_names = {o["name"] for o in sel_orders}
-                    if rep_from > rep_to:
-                        st.error("Data „Od” jest późniejsza niż „Do”.")
-                    elif not any(e.get("order") in sel_names and rep_from.isoformat() <= e.get("date", "") <= rep_to.isoformat() for e in entries):
-                        st.warning("Brak wpisów produkcyjnych w wybranym zakresie dat.")
-                    else:
-                        f_reg, f_bold = _pdf_fonts(deps)
-                        if f_reg.startswith("Helvetica"): st.warning("Nie znaleziono czcionki z polskimi znakami – wgraj folder fonts/ (LiberationSans-Regular.ttf i LiberationSans-Bold.ttf) obok pliku modułu 31.")
-                        pdf_bytes = _report_v2(sel_orders, entries, settings, {"from": rep_from.isoformat(), "to": rep_to.isoformat(), "layout": layouts[layout_label], "label": preset}, f_reg, f_bold)
-                        slug = "".join(ch if ch.isalnum() else "_" for ch in (report_order if len(sel_orders) == 1 else "wszystkie")).strip("_") or "zlecenie"
-                        st.session_state["m31_pdf"] = (pdf_bytes, f"raport_bobiny_{layouts[layout_label]}_{slug}_{rep_from.isoformat()}_{rep_to.isoformat()}.pdf")
-                        event("Raport PDF", f"{layouts[layout_label]} {rep_from.isoformat()} – {rep_to.isoformat()}")
-                if st.session_state.get("m31_pdf"):
-                    st.download_button("⬇️ Pobierz wygenerowany raport PDF", st.session_state["m31_pdf"][0], st.session_state["m31_pdf"][1], "application/pdf", width="stretch")
+            _summary_tab(st, deps, orders, entries, settings, event)
     if "settings" in tabs:
         with tabs["settings"]:
             st.markdown("### Konfigurator produkcji")
