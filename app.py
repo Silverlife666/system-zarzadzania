@@ -426,6 +426,18 @@ def save_persistent_json(path, data):
     save_shared_state(state_key, path, data)
 
 
+def load_operational_json(path, default):
+    """Trwałe dane operacyjne o stabilnym kluczu, niezależnym od ścieżki hosta."""
+    state_key = "operational_json:" + os.path.basename(os.fspath(path))
+    value = load_shared_state(state_key, os.fspath(path), default)
+    return value if isinstance(value, type(default)) else default
+
+
+def save_operational_json(path, data):
+    state_key = "operational_json:" + os.path.basename(os.fspath(path))
+    save_shared_state(state_key, os.fspath(path), data)
+
+
 # Klucze z tych modułów są przechowywane osobno dla każdego zlecenia.
 # Dzięki temu otwarcie innego order_id nie miesza wyników paletyzacji, BCT,
 # PPWR, Packing List ani QA z aktualnie oglądanym zleceniem.
@@ -2081,22 +2093,16 @@ USERS = PASS_DATA.get("users", {})
 # 2. INICJALIZACJA STANU SESJI
 # ==========================================
 SESSION_IDLE_SECONDS = 15 * 60
-SESSION_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dane_aplikacji", "active_sessions.json")
+SESSION_FILE = application_storage_path("active_sessions.json")
 
 
 def _load_active_sessions():
-    try:
-        with open(SESSION_FILE, "r", encoding="utf-8") as file:
-            data = json.load(file)
-            return data if isinstance(data, dict) else {}
-    except (OSError, json.JSONDecodeError):
-        return {}
+    data = load_shared_state("active_sessions_v1", SESSION_FILE, {})
+    return data if isinstance(data, dict) else {}
 
 
 def _save_active_sessions(sessions):
-    os.makedirs(os.path.dirname(SESSION_FILE), exist_ok=True)
-    with open(SESSION_FILE, "w", encoding="utf-8") as file:
-        json.dump(sessions, file, ensure_ascii=False, indent=2)
+    save_shared_state("active_sessions_v1", SESSION_FILE, sessions)
 
 
 def _restore_persistent_session():
@@ -3856,7 +3862,10 @@ MODULE_RENDERERS = {
         "font_bold": FONT_BOLD,
     }),
     28: lambda: render_order_stock_screen(st, {"load_json": load_persistent_json, "save_json": save_persistent_json, "archive_file": ORDER_STOCK_ARCHIVE_FILE, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
-    16: lambda: render_bobbin_calculator_screen(st, font_regular=FONT_REGULAR, font_bold=FONT_BOLD, user_role=role),
+    16: lambda: render_bobbin_calculator_screen(
+        st, font_regular=FONT_REGULAR, font_bold=FONT_BOLD, user_role=role,
+        load_json=load_operational_json, save_json=save_operational_json,
+    ),
     17: lambda: render_material_library_screen(st, {"pd": pd, "datetime": datetime, "load_database": load_database, "save_database": save_database}),
     18: lambda: render_client_portal_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database, "load_document_registry": load_document_registry}),
     19: lambda: render_client_commercial_screen(st, {"pd": pd, "datetime": datetime, "secrets": secrets, "load_database": load_database, "save_database": save_database}),

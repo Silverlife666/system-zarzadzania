@@ -34,13 +34,16 @@ def calculate_length_m(outer_diameter_mm, thickness_mm):
     return annulus_area_mm2 / thickness_mm * 0.001
 
 
-def load_calibration_store():
-    if not CALIBRATION_FILE.exists():
-        return {"calibrations": [], "active_ids": {}}
-    try:
-        store = json.loads(CALIBRATION_FILE.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return {"calibrations": [], "active_ids": {}}
+def load_calibration_store(load_json=None):
+    if load_json is not None:
+        store = load_json(str(CALIBRATION_FILE), {"calibrations": [], "active_ids": {}})
+    elif not CALIBRATION_FILE.exists():
+        store = {"calibrations": [], "active_ids": {}}
+    else:
+        try:
+            store = json.loads(CALIBRATION_FILE.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            store = {"calibrations": [], "active_ids": {}}
     if not isinstance(store, dict):
         return {"calibrations": [], "active_ids": {}}
     return {
@@ -49,42 +52,57 @@ def load_calibration_store():
     }
 
 
-def save_calibration_store(store):
+def save_calibration_store(store, save_json=None):
+    if save_json is not None:
+        save_json(str(CALIBRATION_FILE), store)
+        return
     CALIBRATION_FILE.parent.mkdir(parents=True, exist_ok=True)
     temp_file = CALIBRATION_FILE.with_suffix(".tmp")
     temp_file.write_text(json.dumps(store, ensure_ascii=False, indent=2), encoding="utf-8")
     temp_file.replace(CALIBRATION_FILE)
 
 
-def load_bobbin_inventory():
-    if not BOBBIN_INVENTORY_FILE.exists():
-        return {"records": []}
-    try:
-        inventory = json.loads(BOBBIN_INVENTORY_FILE.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return {"records": []}
+def load_bobbin_inventory(load_json=None):
+    if load_json is not None:
+        inventory = load_json(str(BOBBIN_INVENTORY_FILE), {"records": []})
+    elif not BOBBIN_INVENTORY_FILE.exists():
+        inventory = {"records": []}
+    else:
+        try:
+            inventory = json.loads(BOBBIN_INVENTORY_FILE.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            inventory = {"records": []}
     return {"records": inventory.get("records", []) if isinstance(inventory, dict) and isinstance(inventory.get("records"), list) else []}
 
 
-def save_bobbin_inventory(inventory):
+def save_bobbin_inventory(inventory, save_json=None):
+    if save_json is not None:
+        save_json(str(BOBBIN_INVENTORY_FILE), inventory)
+        return
     BOBBIN_INVENTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
     temporary_file = BOBBIN_INVENTORY_FILE.with_suffix(".tmp")
     temporary_file.write_text(json.dumps(inventory, ensure_ascii=False, indent=2), encoding="utf-8")
     temporary_file.replace(BOBBIN_INVENTORY_FILE)
 
 
-def load_sheet_paper_inventory():
-    if not SHEET_PAPER_INVENTORY_FILE.exists():
-        return {"movements": []}
-    try:
-        inventory = json.loads(SHEET_PAPER_INVENTORY_FILE.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return {"movements": []}
+def load_sheet_paper_inventory(load_json=None):
+    if load_json is not None:
+        inventory = load_json(str(SHEET_PAPER_INVENTORY_FILE), {"movements": []})
+    elif not SHEET_PAPER_INVENTORY_FILE.exists():
+        inventory = {"movements": []}
+    else:
+        try:
+            inventory = json.loads(SHEET_PAPER_INVENTORY_FILE.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            inventory = {"movements": []}
     movements = inventory.get("movements", []) if isinstance(inventory, dict) else []
     return {"movements": movements if isinstance(movements, list) else []}
 
 
-def save_sheet_paper_inventory(inventory):
+def save_sheet_paper_inventory(inventory, save_json=None):
+    if save_json is not None:
+        save_json(str(SHEET_PAPER_INVENTORY_FILE), inventory)
+        return
     SHEET_PAPER_INVENTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
     temporary_file = SHEET_PAPER_INVENTORY_FILE.with_suffix(".tmp")
     temporary_file.write_text(json.dumps(inventory, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -195,10 +213,10 @@ def current_calibrations(store):
     return calibrations
 
 
-def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Helvetica-Bold", user_role=""):
+def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Helvetica-Bold", user_role="", load_json=None, save_json=None):
     st.subheader("🧻 Kalkulator bobin SWM")
     st.caption("Podaj tylko średnicę zewnętrzną bobiny. Tuleja zewnętrzna: 130 mm.")
-    store = load_calibration_store()
+    store = load_calibration_store(load_json)
     calibrations = current_calibrations(store)
 
     outer_diameter_mm = st.number_input(
@@ -246,7 +264,7 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
                     "thickness_mm": thickness_mm, "created_at": datetime.now().isoformat(timespec="seconds"),
                 })
                 store["active_ids"][paper] = record_id
-                save_calibration_store(store)
+                save_calibration_store(store, save_json)
                 st.success(f"Zapisano aktywną kalibrację: {paper} — {thickness_mm * 1000:.3f} µm.")
                 st.rerun()
 
@@ -275,14 +293,14 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
             )
             if st.button("Ustaw wybraną kalibrację jako aktywną", width="stretch"):
                 store["active_ids"][history_paper] = selected_id
-                save_calibration_store(store)
+                save_calibration_store(store, save_json)
                 st.success("Zmieniono aktywną kalibrację.")
                 st.rerun()
 
     st.markdown("---")
     st.subheader("📋 Inwentaryzacja bobin")
     st.caption("Dodawaj kolejne pozycje. Lista i podsumowanie są zapisywane trwale, niezależnie od sesji przeglądarki.")
-    inventory = load_bobbin_inventory()
+    inventory = load_bobbin_inventory(load_json)
     with st.form("add_bobbin_inventory_record", clear_on_submit=True):
         inventory_paper = st.selectbox("Papier", list(calibrations), key="bobbin_inventory_paper")
         inventory_diameter = st.number_input(
@@ -299,7 +317,7 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
             "meters_per_piece": meters_per_piece, "meters": meters_per_piece * int(inventory_quantity),
             "calibration": calibration["reference"],
         })
-        save_bobbin_inventory(inventory)
+        save_bobbin_inventory(inventory, save_json)
         st.success(f"Dodano {int(inventory_quantity)} szt. {inventory_paper}: {meters_per_piece:,.0f} m/szt.".replace(",", " "))
         st.rerun()
 
@@ -340,12 +358,12 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
                     if st.button("Usuń wybraną pozycję", type="secondary", width="stretch"):
                         save_bobbin_inventory({
                             "records": [record for record in inventory_records if record.get("id", "") != selected_record_id]
-                        })
+                        }, save_json)
                         st.success("Usunięto pozycję z inwentaryzacji bobin.")
                         st.rerun()
                 with clear_column:
                     if st.button("Wyczyść całą inwentaryzację", type="secondary", width="stretch"):
-                        save_bobbin_inventory({"records": []})
+                        save_bobbin_inventory({"records": []}, save_json)
                         st.success("Wyczyszczono zapisaną inwentaryzację bobin.")
                         st.rerun()
             else:
@@ -360,7 +378,7 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
     st.markdown("---")
     st.subheader("📚 Magazyn papieru w stosach")
     st.caption("Stan jest liczony z zapisanych przyjęć i pobrań na produkcję.")
-    sheet_inventory = load_sheet_paper_inventory()
+    sheet_inventory = load_sheet_paper_inventory(load_json)
     sheet_stock_rows = sheet_paper_stock(sheet_inventory["movements"])
 
     intake_column, production_column = st.columns(2)
@@ -380,7 +398,7 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
                     "action": "Przyjęcie do magazynu", "paper": intake_paper.strip(), "paper_type": intake_type.strip(),
                     "quantity_change": int(intake_quantity), "project": "",
                 })
-                save_sheet_paper_inventory(sheet_inventory)
+                save_sheet_paper_inventory(sheet_inventory, save_json)
                 st.success("Dodano papier do magazynu.")
                 st.rerun()
 
@@ -405,7 +423,7 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
                         "action": "Pobranie na produkcję", "paper": selected_stock_row["paper"], "paper_type": selected_stock_row["paper_type"],
                         "quantity_change": -int(production_quantity), "project": production_project.strip(),
                     })
-                    save_sheet_paper_inventory(sheet_inventory)
+                    save_sheet_paper_inventory(sheet_inventory, save_json)
                     st.success("Zapisano pobranie na produkcję.")
                     st.rerun()
         else:
@@ -449,12 +467,12 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
                             movement for movement in sheet_inventory["movements"]
                             if movement.get("id", "") != selected_movement_id
                         ]
-                    })
+                    }, save_json)
                     st.success("Usunięto wpis magazynowy.")
                     st.rerun()
             with clear_movements_column:
                 if st.button("Wyczyść historię i stan magazynu", type="secondary", width="stretch"):
-                    save_sheet_paper_inventory({"movements": []})
+                    save_sheet_paper_inventory({"movements": []}, save_json)
                     st.success("Wyczyszczono historię i stan magazynu papieru w stosach.")
                     st.rerun()
         else:

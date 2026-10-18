@@ -20,6 +20,12 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "dane_aplikacji"
+OPERATIONAL_JSON_FILES = (
+    "active_sessions.json",
+    "bobbin_calibrations.json",
+    "inwentaryzacja_bobin.json",
+    "magazyn_papieru_w_stosach.json",
+)
 
 
 def jsonb_safe(value: object) -> object:
@@ -88,6 +94,17 @@ def main() -> None:
             imported += 1
         except json.JSONDecodeError:
             print(f"Pominięto nieprawidłowy JSON: {path.name}")
+
+    for filename in OPERATIONAL_JSON_FILES:
+        path = DATA_DIR / filename
+        if not path.exists():
+            continue
+        try:
+            state_key = "active_sessions_v1" if filename == "active_sessions.json" else f"operational_json:{filename}"
+            upsert(base_url, key, state_key, json.loads(path.read_text(encoding="utf-8")))
+            imported += 1
+        except json.JSONDecodeError:
+            print(f"Pominięto nieprawidłowy JSON operacyjny: {path.name}")
 
     db_path = DATA_DIR / "baza_produktow.db"
     if not db_path.exists():
