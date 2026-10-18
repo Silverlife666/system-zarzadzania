@@ -852,6 +852,7 @@ def render_catalog_import_screen(st, deps):
                 else:
                     with sqlite3.connect(DB_FILENAME) as conn:
                         conn.execute('INSERT OR IGNORE INTO product_custom_fields (field_name, active) VALUES (?, 1)', (cleaned_name,))
+                    sync_product_catalog_to_cloud()
                     st.rerun()
             if custom_field_names:
                 st.write("Aktywne pola: " + ", ".join(custom_field_names))

@@ -148,6 +148,7 @@ from services.document_storage import clear_pdf_version_history, store_pdf_versi
 from services.order_context import UNSERIALIZABLE_CONTEXT as SERVICE_UNSERIALIZABLE_CONTEXT, deserialize_context_value, serialize_context_value
 from services.order_registry import derive_order_lifecycle, generate_short_order_id, new_order_record, register_document_record
 from services.storage import SharedStateStore
+from services.supabase_storage import SupabaseStateStore
 from services.validation import validate_ean_gtin, validate_required_text
 from services.email_service import prepare_email_delivery
 from services.document_generation import bct_document_rows
@@ -370,7 +371,13 @@ ORDER_STOCK_ARCHIVE_FILE = application_storage_path("archiwum_rozliczenia_stanu_
 WORK_SETTLEMENT_ARCHIVE_FILE = application_storage_path("archiwum_rozliczen_pracy.json")
 PREORDER_ARCHIVE_FILE = application_storage_path("archiwum_preorderow.json")
 APP_STATE_DB = application_storage_path("magazyn_stanu_aplikacji.db")
-SHARED_STATE_STORE = SharedStateStore(APP_STATE_DB, APP_DATA_DIR)
+_supabase_url = str(st.secrets.get("supabase", {}).get("url", "")).strip()
+_supabase_key = str(st.secrets.get("supabase", {}).get("key", "")).strip()
+SHARED_STATE_STORE = (
+    SupabaseStateStore(APP_STATE_DB, APP_DATA_DIR, _supabase_url, _supabase_key)
+    if _supabase_url and _supabase_key
+    else SharedStateStore(APP_STATE_DB, APP_DATA_DIR)
+)
 EORDER_LOGO_PATH = os.path.join(APP_DIR, "logo1.jpg")
 WORKSHEET_LOGO_PATH = os.path.join(APP_DIR, "logo2.jpg")
 
@@ -2245,6 +2252,7 @@ MODULE_GROUPS = {
 # ==================== BAZA DANYCH I FUNKCJE POMOCNICZE ====================
 # Baza produktów jest przechowywana razem z aplikacją, niezależnie od sposobu jej uruchomienia.
 DB_FILENAME = application_storage_path("baza_produktow.db")
+PRODUCT_CATALOG_SNAPSHOT_FILE = application_storage_path(".product_catalog_snapshot.json")
 
 
 
@@ -2332,7 +2340,52 @@ def product_archive_backup_if_due():
         with open(last_marker, "w", encoding="utf-8") as marker:
             marker.write(str(time.time()))
 
+
+def _product_catalog_snapshot():
+    """Eksportuje SQLite katalogu do formatu możliwego do zapisania w Supabase."""
+    with sqlite3.connect(DB_FILENAME) as conn:
+        return {
+            "version": 1,
+            "produkty": [list(row) for row in conn.execute("SELECT nazwa, dane FROM produkty")],
+            "product_history": [list(row) for row in conn.execute("SELECT product_name, action, changed_at, changed_by, reason, old_data, new_data FROM product_history")],
+            "archived_products": [list(row) for row in conn.execute("SELECT original_name, data, archived_at, archived_by, reason FROM archived_products")],
+            "product_locks": [list(row) for row in conn.execute("SELECT product_name, locked_by, locked_at FROM product_locks")],
+            "product_custom_fields": [list(row) for row in conn.execute("SELECT field_name, active FROM product_custom_fields")],
+        }
+
+
+def sync_product_catalog_to_cloud():
+    """Zapisuje katalog w centralnym magazynie; lokalna SQLite pozostaje cachem."""
+    save_shared_state("product_catalog_sqlite_v1", PRODUCT_CATALOG_SNAPSHOT_FILE, _product_catalog_snapshot())
+
+
+def restore_product_catalog_from_cloud():
+    """Odtwarza cache SQLite z Supabase po starcie instancji Streamlit."""
+    snapshot = load_shared_state("product_catalog_sqlite_v1", PRODUCT_CATALOG_SNAPSHOT_FILE, None)
+    if not isinstance(snapshot, dict) or snapshot.get("version") != 1:
+        sync_product_catalog_to_cloud()
+        return
+    try:
+        with sqlite3.connect(DB_FILENAME) as conn:
+            for table in ("produkty", "product_history", "archived_products", "product_locks", "product_custom_fields"):
+                conn.execute(f"DELETE FROM {table}")
+            conn.executemany("INSERT INTO produkty (nazwa, dane) VALUES (?, ?)", snapshot.get("produkty", []))
+            conn.executemany(
+                "INSERT INTO product_history (product_name, action, changed_at, changed_by, reason, old_data, new_data) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                snapshot.get("product_history", []),
+            )
+            conn.executemany(
+                "INSERT INTO archived_products (original_name, data, archived_at, archived_by, reason) VALUES (?, ?, ?, ?, ?)",
+                snapshot.get("archived_products", []),
+            )
+            conn.executemany("INSERT INTO product_locks (product_name, locked_by, locked_at) VALUES (?, ?, ?)", snapshot.get("product_locks", []))
+            conn.executemany("INSERT INTO product_custom_fields (field_name, active) VALUES (?, ?)", snapshot.get("product_custom_fields", []))
+    except (sqlite3.Error, TypeError, ValueError):
+        # Nie usuwamy lokalnej kopii przy uszkodzonym lub niepełnym imporcie.
+        init_db()
+
 init_db()
+restore_product_catalog_from_cloud()
 product_archive_backup_if_due()
 
 def wczytaj_produkty_z_db():
@@ -2467,6 +2520,7 @@ def zapisz_produkt_w_db(nazwa, dane):
         conn.commit()
     finally:
         conn.close()
+    sync_product_catalog_to_cloud()
 
 def usun_produkt_z_db(nazwa):
     conn = sqlite3.connect(DB_FILENAME)
@@ -2474,6 +2528,7 @@ def usun_produkt_z_db(nazwa):
     cursor.execute('DELETE FROM produkty WHERE nazwa = ?', (nazwa,))
     conn.commit()
     conn.close()
+    sync_product_catalog_to_cloud()
 
 def archive_product(nazwa, reason=""):
     with sqlite3.connect(DB_FILENAME) as conn:
@@ -2488,6 +2543,7 @@ def archive_product(nazwa, reason=""):
         conn.execute('DELETE FROM produkty WHERE nazwa = ?', (nazwa,))
         conn.execute('DELETE FROM product_locks WHERE product_name = ?', (nazwa,))
         add_product_history(conn, nazwa, "archiwizacja", product_data, {}, reason)
+    sync_product_catalog_to_cloud()
 
 def restore_archived_product(nazwa):
     with sqlite3.connect(DB_FILENAME) as conn:
@@ -2500,6 +2556,7 @@ def restore_archived_product(nazwa):
         conn.execute('INSERT INTO produkty (nazwa, dane) VALUES (?, ?)', (nazwa, json.dumps(product_data, ensure_ascii=False)))
         conn.execute('DELETE FROM archived_products WHERE original_name = ?', (nazwa,))
         add_product_history(conn, nazwa, "przywrócenie", {}, product_data)
+    sync_product_catalog_to_cloud()
 
 def update_product_in_db(old_name, new_name, new_data, reason=""):
     new_name = str(new_name).strip()
@@ -2517,6 +2574,7 @@ def update_product_in_db(old_name, new_name, new_data, reason=""):
             conn.execute('DELETE FROM product_locks WHERE product_name = ?', (old_name,))
         conn.execute('INSERT OR REPLACE INTO produkty (nazwa, dane) VALUES (?, ?)', (new_name, json.dumps(new_data, ensure_ascii=False)))
         add_product_history(conn, new_name, "aktualizacja", old_data, new_data, reason)
+    sync_product_catalog_to_cloud()
 
 def get_product_history(nazwa):
     with sqlite3.connect(DB_FILENAME) as conn:
@@ -2562,6 +2620,8 @@ def remove_expired_product_locks():
                     [(product_name,) for product_name in database_expired_locks],
                 )
                 expired_locks.extend(database_expired_locks)
+    if expired_locks:
+        sync_product_catalog_to_cloud()
     return expired_locks
 
 
@@ -2571,6 +2631,8 @@ def remove_all_product_locks():
     for database_path in product_lock_database_paths():
         with sqlite3.connect(database_path) as conn:
             deleted_count += conn.execute('DELETE FROM product_locks').rowcount
+    if deleted_count:
+        sync_product_catalog_to_cloud()
     return deleted_count
 
 
@@ -2589,11 +2651,13 @@ def acquire_product_lock(nazwa):
             return False, current[0]
         conn.execute('INSERT OR REPLACE INTO product_locks (product_name, locked_by, locked_at) VALUES (?, ?, ?)',
                      (nazwa, current_operator(), datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+    sync_product_catalog_to_cloud()
     return True, current_operator()
 
 def release_product_lock(nazwa):
     with sqlite3.connect(DB_FILENAME) as conn:
         conn.execute('DELETE FROM product_locks WHERE product_name = ? AND locked_by = ?', (nazwa, current_operator()))
+    sync_product_catalog_to_cloud()
 
 if 'database_products' not in st.session_state:
     st.session_state['database_products'] = wczytaj_produkty_z_db()
