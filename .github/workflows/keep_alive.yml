@@ -1,0 +1,22 @@
+name: Keep Streamlit Awake
+
+on:
+  schedule:
+    - cron: '0 */10 * * *' # Uruchamia się automatycznie co 10 godzin
+  workflow_dispatch: # Pozwala na ręczne uruchomienie w dowolnym momencie
+
+jobs:
+  keep_alive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Daje skryptowi uprawnienia do robienia commitów
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Zapobieganie hibernacji (Pusty Commit)
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+        git commit --allow-empty -m "Chroń przed hibernacją: automatyczny commit podtrzymujący"
+        git push
