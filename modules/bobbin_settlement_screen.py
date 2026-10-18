@@ -48,7 +48,8 @@ PERMS = {
     "owner": {"entry.add", "entry.edit", "entry.delete", "order.manage", "summary", "export", "remnants", "override", "calc"},
     "operator": {"entry.add"},
 }
-OWNER_PREFIXES = ("darek", "dariusz", "katarzyna")  # konta Właściciela (reszta kont = Operator, "admin" = Administrator)
+ADMIN_PREFIXES = ("admin", "adrian")  # konta Administratora
+OWNER_PREFIXES = ("darek", "dariusz", "katarzyna")  # konta Właściciela (każde inne konto = Operator)
 DN = ["pon.", "wt.", "śr.", "czw.", "pt.", "sob.", "niedz."]
 
 
@@ -62,7 +63,7 @@ def _identify(deps):
         who = who.get("name") or who.get("login") or who.get("username") or who.get("operator") or ""
     text = str(who or "").strip()
     low = text.lower()
-    if low.startswith("admin"):
+    if low.startswith(ADMIN_PREFIXES):
         return text, "admin"
     if low.startswith(OWNER_PREFIXES):
         return text, "owner"
