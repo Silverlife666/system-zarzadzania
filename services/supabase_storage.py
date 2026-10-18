@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import math
+import sqlite3
 from datetime import datetime, timezone
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -71,8 +72,7 @@ class SupabaseStateStore(SharedStateStore):
             return super().load(state_key, mirror_path, default)
 
     def save(self, state_key: str, mirror_path: str, data: Any) -> None:
-        # Lokalna kopia pozostaje ostatnią linią obrony przy awarii sieci.
-        super().save(state_key, mirror_path, data)
+        """Najpierw zapisuje źródło prawdy; lokalna kopia nie może go blokować."""
         payload = {
             "state_key": state_key,
             "payload": data,
@@ -85,5 +85,12 @@ class SupabaseStateStore(SharedStateStore):
                 payload,
             )
         except ConnectionError:
-            # Zapis lokalny jest już wykonany; aplikacja może kontynuować pracę.
+            # Na lokalnym komputerze zachowujemy możliwość pracy awaryjnej.
+            super().save(state_key, mirror_path, data)
+            return
+        try:
+            # Streamlit Cloud ma katalog kodu tylko do odczytu. Niepowodzenie
+            # zapisu lokalnej kopii nie może cofnąć skutecznego zapisu w chmurze.
+            super().save(state_key, mirror_path, data)
+        except (OSError, sqlite3.Error):
             pass
