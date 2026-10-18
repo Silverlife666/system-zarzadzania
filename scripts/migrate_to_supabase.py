@@ -13,6 +13,7 @@ import math
 import os
 import sqlite3
 import sys
+import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -75,25 +76,24 @@ def upsert(base_url: str, key: str, state_key: str, payload: object) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Import danych aplikacji do Supabase.")
+    parser.add_argument(
+        "--operational-only",
+        action="store_true",
+        help="Przenosi wyłącznie sesje oraz dane modułu bobin; pomija archiwa zleceń.",
+    )
+    args = parser.parse_args()
     base_url, key = configuration()
     imported = 0
-    state_db = DATA_DIR / "magazyn_stanu_aplikacji.db"
-    if not state_db.exists():
-        state_db = ROOT / "magazyn_stanu_aplikacji.db"
-    if state_db.exists():
-        with sqlite3.connect(state_db) as connection:
-            for state_key, serialized in connection.execute("select state_key, payload from application_state"):
-                upsert(base_url, key, state_key, json.loads(serialized))
-                imported += 1
-
-    # Pliki JSON są kopią bezpieczeństwa, więc zapisujemy je oddzielnie. Nie
-    # nadpisują aktualnych kluczy aplikacji z centralnej SQLite.
-    for path in sorted(DATA_DIR.glob("*.json")):
-        try:
-            upsert(base_url, key, f"migration:json:{path.name}", json.loads(path.read_text(encoding="utf-8")))
-            imported += 1
-        except json.JSONDecodeError:
-            print(f"Pominięto nieprawidłowy JSON: {path.name}")
+    if not args.operational_only:
+        state_db = DATA_DIR / "magazyn_stanu_aplikacji.db"
+        if not state_db.exists():
+            state_db = ROOT / "magazyn_stanu_aplikacji.db"
+        if state_db.exists():
+            with sqlite3.connect(state_db) as connection:
+                for state_key, serialized in connection.execute("select state_key, payload from application_state"):
+                    upsert(base_url, key, state_key, json.loads(serialized))
+                    imported += 1
 
     for filename in OPERATIONAL_JSON_FILES:
         path = DATA_DIR / filename
@@ -106,21 +106,22 @@ def main() -> None:
         except json.JSONDecodeError:
             print(f"Pominięto nieprawidłowy JSON operacyjny: {path.name}")
 
-    db_path = DATA_DIR / "baza_produktow.db"
-    if not db_path.exists():
-        db_path = ROOT / "baza_produktow.db"
-    if db_path.exists():
-        with sqlite3.connect(db_path) as connection:
-            snapshot = {
-                "version": 1,
-                "produkty": [list(row) for row in connection.execute("select nazwa, dane from produkty")],
-                "product_history": [list(row) for row in connection.execute("select product_name, action, changed_at, changed_by, reason, old_data, new_data from product_history")],
-                "archived_products": [list(row) for row in connection.execute("select original_name, data, archived_at, archived_by, reason from archived_products")],
-                "product_locks": [list(row) for row in connection.execute("select product_name, locked_by, locked_at from product_locks")],
-                "product_custom_fields": [list(row) for row in connection.execute("select field_name, active from product_custom_fields")],
-            }
-        upsert(base_url, key, "product_catalog_sqlite_v1", snapshot)
-        imported += 1
+    if not args.operational_only:
+        db_path = DATA_DIR / "baza_produktow.db"
+        if not db_path.exists():
+            db_path = ROOT / "baza_produktow.db"
+        if db_path.exists():
+            with sqlite3.connect(db_path) as connection:
+                snapshot = {
+                    "version": 1,
+                    "produkty": [list(row) for row in connection.execute("select nazwa, dane from produkty")],
+                    "product_history": [list(row) for row in connection.execute("select product_name, action, changed_at, changed_by, reason, old_data, new_data from product_history")],
+                    "archived_products": [list(row) for row in connection.execute("select original_name, data, archived_at, archived_by, reason from archived_products")],
+                    "product_locks": [list(row) for row in connection.execute("select product_name, locked_by, locked_at from product_locks")],
+                    "product_custom_fields": [list(row) for row in connection.execute("select field_name, active FROM product_custom_fields")],
+                }
+            upsert(base_url, key, "product_catalog_sqlite_v1", snapshot)
+            imported += 1
 
     print(f"Import zakończony: {imported} zbiorów danych zapisano w Supabase.")
 
