@@ -3885,7 +3885,10 @@ MODULE_RENDERERS = {
     27: lambda: render_backup_center_screen(st, {"app_root": APP_DIR}),
     29: lambda: render_user_admin_screen(st, globals()),
     30: lambda: render_update_screen(st, {"app_root": APP_DIR}),
-    31: lambda: render_bobbin_settlement_screen(st, {"pd": pd, "current_operator": current_operator, "archive_file": os.path.join(APP_DIR, "dane_aplikacji", "rozliczenie_bobin.json"), "load_json": load_persistent_json, "save_json": save_persistent_json, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
+    # Moduł 31 używa stałego klucza operacyjnego. Dzięki temu Streamlit i
+    # wersja offline korzystają z tego samego rekordu Supabase, niezależnie
+    # od ścieżki katalogu na danym komputerze lub serwerze.
+    31: lambda: render_bobbin_settlement_screen(st, {"pd": pd, "current_operator": current_operator, "archive_file": os.path.join(APP_DIR, "dane_aplikacji", "rozliczenie_bobin.json"), "load_json": load_operational_json, "save_json": save_operational_json, "font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
     32: lambda: render_warehouse_label_screen(st, {"font_regular": FONT_REGULAR, "font_bold": FONT_BOLD}),
 }
 

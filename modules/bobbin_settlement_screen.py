@@ -124,7 +124,6 @@ def _make_saver(raw_save, before, who, role, st=None):
         except Exception:
             pass
         raw_save(path, data)
-        _cloud_push(st, data, raw_save, path)
         before.clear(); before.update(copy.deepcopy({k: data.get(k) for k in ("orders", "entries", "settings")}))
     return saver
 
@@ -473,12 +472,9 @@ def _cloud_push(st, data, raw_save, path):
 
 
 def _cloud_boot(st, deps, data):
-    """Na starcie widoku (nie częściej niż co CLOUD_TTL s) pobiera dane z chmury i scala je z lokalnym plikiem."""
+    """Kompatybilny no-op po migracji: stan pobiera warstwa Supabase przy load_json."""
     _normalize(data)
-    ss = st.session_state
-    if time.time() - ss.get("m31_cloud_t", 0) >= CLOUD_TTL:
-        ss["m31_cloud_t"] = time.time()
-        ss["m31_cloud"] = _cloud_sync(data, deps["save_json"], deps["archive_file"])
+    st.session_state["m31_cloud"] = "☁️ Supabase: dane centralne"
 
 
 def _remnants_tab(st, deps, data, entries, settings, who, role):
