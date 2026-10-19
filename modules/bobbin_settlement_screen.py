@@ -690,8 +690,23 @@ def _report_v2(orders, entries, settings, opt, font="Helvetica", bold="Helvetica
                 x += ws[i]
             hline(S["Y"] + h, C["line"], 0.4); S["Y"] += h
         S["Y"] += 10
-    sort_h = lambda a: sorted(a, key=lambda x: x.get("date", ""))
-    status = lambda x: {"t": "Zakończona", "c": C["green"], "b": True} if _done(x) else "W toku" + (f" ({_n(_fl(x, 'remaining_m'))} m)" if _fl(x, "remaining_m") else "")
+    entry_pos = {id(x): i for i, x in enumerate(entries)}
+    def hist_key(x):
+        return (x.get("date", ""), float(x.get("created", 0) or 0), entry_pos.get(id(x), -1))
+    sort_h = lambda a: sorted(a, key=hist_key)
+    def later_closure(x):
+        bobbin_id = x.get("bobbin_id")
+        if not bobbin_id:
+            return None
+        closures = [y for y in entries if y is not x and y.get("bobbin_id") == bobbin_id and _done(y) and hist_key(y) > hist_key(x)]
+        return min(closures, key=hist_key) if closures else None
+    def status(x):
+        if _done(x):
+            return {"t": "Zakończona", "c": C["green"], "b": True}
+        closure = later_closure(x)
+        if closure:
+            return {"t": "Kontynuowana - zakończona " + _fd(closure.get("date")), "c": C["grey"]}
+        return "W toku" + (f" ({_n(_fl(x, 'remaining_m'))} m)" if _fl(x, "remaining_m") else "")
     R = lambda *a: [str(v) for v in a]
     def group_table(label, key, es):
         sub(label.upper()); table([{"h": label, "w": "*"}, {"h": "Zmiany", "w": 56, "a": "r"}, {"h": "Wpisy", "w": 56, "a": "r"}, {"h": "Wykonano [szt.]", "w": 90, "a": "r"}, {"h": "Odpad [szt.]", "w": 80, "a": "r"}, {"h": "Bobiny zakończone", "w": 100, "a": "r"}],
