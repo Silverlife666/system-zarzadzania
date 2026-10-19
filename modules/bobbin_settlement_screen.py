@@ -897,7 +897,22 @@ def _summary_tab(st, deps, orders, entries, settings, event):
 
 
 def render_bobbin_settlement_screen(st, deps):
-    data = deps["load_json"](deps["archive_file"], {"orders": [], "entries": [], "settings": {}})
+    # Rekord Supabase współdzielony z wersją HTML ma zewnętrzne opakowanie
+    # ``{data, sync}``. Widok Streamlit pracuje wewnętrznie na rozpakowanym
+    # słowniku, ale przy zapisie odtwarza dokładnie ten sam format, aby obie
+    # wersje aplikacji widziały identyczne dane.
+    stored = deps["load_json"](deps["archive_file"], {"orders": [], "entries": [], "settings": {}})
+    cloud_base = _unpack(stored) if isinstance(stored, dict) and ("data" in stored or "sync" in stored) else _unpack({})
+    data = _unpack(stored) if isinstance(stored, dict) and ("data" in stored or "sync" in stored) else stored
+    if not isinstance(data, dict):
+        data = {"orders": [], "entries": [], "settings": {}}
+    raw_state_save = deps["save_json"]
+
+    def save_module_state(path, value):
+        _normalize(value)
+        raw_state_save(path, _cloud_pack(value, cloud_base))
+
+    deps = dict(deps, save_json=save_module_state)
     _cloud_boot(st, deps, data)
     orders, entries = data.setdefault("orders", []), data.setdefault("entries", [])
     settings = data.setdefault("settings", {})
