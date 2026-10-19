@@ -37,6 +37,7 @@ class SupabaseStateStore(SharedStateStore):
         super().__init__(database_path, default_directory)
         self.base_url = url.rstrip("/") + "/rest/v1"
         self.key = key
+        self.last_error: str | None = None
 
     def _request(self, method: str, path: str, payload: Any | None = None) -> Any:
         headers = {
@@ -61,14 +62,16 @@ class SupabaseStateStore(SharedStateStore):
         try:
             encoded_key = quote(state_key, safe="")
             rows = self._request("GET", f"application_state?state_key=eq.{encoded_key}&select=payload")
+            self.last_error = None
             if rows:
                 return rows[0]["payload"]
             # Po skutecznym połączeniu brak rekordu oznacza brak danych w
             # chmurze. Nie wolno wtedy wskrzeszać starej kopii z katalogu
             # wdrożenia (np. skasowanych zleceń).
             return default
-        except (ConnectionError, KeyError, TypeError):
+        except (ConnectionError, KeyError, TypeError) as error:
             # Tylko rzeczywista awaria sieci pozwala użyć lokalnej kopii.
+            self.last_error = type(error).__name__
             return super().load(state_key, mirror_path, default)
 
     def save(self, state_key: str, mirror_path: str, data: Any) -> None:
@@ -84,8 +87,10 @@ class SupabaseStateStore(SharedStateStore):
                 "application_state?on_conflict=state_key",
                 payload,
             )
-        except ConnectionError:
+            self.last_error = None
+        except ConnectionError as error:
             # Na lokalnym komputerze zachowujemy możliwość pracy awaryjnej.
+            self.last_error = type(error).__name__
             super().save(state_key, mirror_path, data)
             return
         try:

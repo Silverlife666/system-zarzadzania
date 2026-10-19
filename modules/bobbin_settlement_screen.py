@@ -472,9 +472,13 @@ def _cloud_push(st, data, raw_save, path):
 
 
 def _cloud_boot(st, deps, data):
-    """Kompatybilny no-op po migracji: stan pobiera warstwa Supabase przy load_json."""
+    """Pokazuje faktyczny wynik odczytu warstwy Supabase."""
     _normalize(data)
-    st.session_state["m31_cloud"] = "☁️ Supabase: dane centralne"
+    error = deps.get("storage_error", lambda: None)()
+    st.session_state["m31_cloud"] = (
+        f"⚠️ Supabase niedostępny ({error}) — wyświetlono lokalną kopię"
+        if error else "☁️ Supabase: dane centralne"
+    )
 
 
 def _remnants_tab(st, deps, data, entries, settings, who, role):
