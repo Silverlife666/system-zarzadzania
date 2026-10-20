@@ -19,6 +19,10 @@ from urllib.request import Request, urlopen
 from services.storage import SharedStateStore
 
 
+class CloudStorageUnavailable(ConnectionError):
+    """Chmura jest niedostępna; nie wolno wtedy udawać zapisu lokalną kopią."""
+
+
 def jsonb_safe(value: Any) -> Any:
     """PostgreSQL JSONB nie dopuszcza ``NaN`` ani wartości nieskończonych."""
     if isinstance(value, float):
@@ -31,7 +35,13 @@ def jsonb_safe(value: Any) -> Any:
 
 
 class SupabaseStateStore(SharedStateStore):
-    """Supabase jako źródło prawdy, SQLite/JSON jako bezpieczny fallback."""
+    """Supabase jako jedyne źródło prawdy dla wdrożenia chmurowego.
+
+    Lokalny JSON pozostaje wyłącznie kopią techniczną po *potwierdzonym*
+    zapisie do Supabase. Nie może być fallbackiem odczytu ani zapisu: katalog
+    Streamlit Cloud jest efemeryczny i taki fallback potrafi pokazać stare dane
+    po restarcie instancji.
+    """
 
     def __init__(self, database_path: str, default_directory: str, url: str, key: str):
         super().__init__(database_path, default_directory)
@@ -55,7 +65,7 @@ class SupabaseStateStore(SharedStateStore):
             with urlopen(request, timeout=10) as response:
                 body = response.read().decode("utf-8")
                 return json.loads(body) if body else None
-        except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as error:
+        except (HTTPError, URLError, TimeoutError, OSError, json.JSONDecodeError) as error:
             raise ConnectionError("Nie udało się połączyć z magazynem Supabase.") from error
 
     def load(self, state_key: str, mirror_path: str, default: Any) -> Any:
@@ -70,9 +80,13 @@ class SupabaseStateStore(SharedStateStore):
             # wdrożenia (np. skasowanych zleceń).
             return default
         except (ConnectionError, KeyError, TypeError) as error:
-            # Tylko rzeczywista awaria sieci pozwala użyć lokalnej kopii.
-            self.last_error = type(error).__name__
-            return super().load(state_key, mirror_path, default)
+            # Nie wczytujemy lokalnego pliku. Po restarcie Streamlit Cloud może
+            # on być starą kopią z obrazu wdrożenia i wskrzeszać stare zlecenia.
+            self.last_error = str(error)
+            raise CloudStorageUnavailable(
+                "Nie można wczytać danych: Supabase jest niedostępny. "
+                "Nie pokazano lokalnej kopii, aby nie wyświetlić nieaktualnych danych."
+            ) from error
 
     def save(self, state_key: str, mirror_path: str, data: Any) -> None:
         """Najpierw zapisuje źródło prawdy; lokalna kopia nie może go blokować."""
@@ -89,10 +103,13 @@ class SupabaseStateStore(SharedStateStore):
             )
             self.last_error = None
         except ConnectionError as error:
-            # Na lokalnym komputerze zachowujemy możliwość pracy awaryjnej.
-            self.last_error = type(error).__name__
-            super().save(state_key, mirror_path, data)
-            return
+            # Brak zapisu w chmurze musi zatrzymać operację. Lokalny sukces
+            # byłby nietrwały i po restarcie wyglądałby jak utrata danych.
+            self.last_error = str(error)
+            raise CloudStorageUnavailable(
+                "Nie zapisano danych: Supabase jest niedostępny. "
+                "Spróbuj ponownie po przywróceniu połączenia."
+            ) from error
         try:
             # Streamlit Cloud ma katalog kodu tylko do odczytu. Niepowodzenie
             # zapisu lokalnej kopii nie może cofnąć skutecznego zapisu w chmurze.

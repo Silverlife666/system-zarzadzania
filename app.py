@@ -148,7 +148,7 @@ from services.document_storage import clear_pdf_version_history, store_pdf_versi
 from services.order_context import UNSERIALIZABLE_CONTEXT as SERVICE_UNSERIALIZABLE_CONTEXT, deserialize_context_value, serialize_context_value
 from services.order_registry import derive_order_lifecycle, generate_short_order_id, new_order_record, register_document_record
 from services.storage import SharedStateStore
-from services.supabase_storage import SupabaseStateStore
+from services.supabase_storage import CloudStorageUnavailable, SupabaseStateStore
 from services.validation import validate_ean_gtin, validate_required_text
 from services.email_service import prepare_email_delivery
 from services.document_generation import bct_document_rows
@@ -405,12 +405,20 @@ def _atomic_write_json(path, data):
 
 def load_shared_state(state_key, mirror_path, default):
     """Odczytuje dane z centralnej SQLite i jednokrotnie/migrująco synchronizuje starszy JSON."""
-    return SHARED_STATE_STORE.load(state_key, mirror_path, default)
+    try:
+        return SHARED_STATE_STORE.load(state_key, mirror_path, default)
+    except CloudStorageUnavailable as error:
+        st.error(str(error))
+        st.stop()
 
 
 def save_shared_state(state_key, mirror_path, data):
     """Zapisuje centralnie w SQLite oraz zostawia bezpieczną kopię JSON do eksportu i zgodności."""
-    SHARED_STATE_STORE.save(state_key, mirror_path, data)
+    try:
+        SHARED_STATE_STORE.save(state_key, mirror_path, data)
+    except CloudStorageUnavailable as error:
+        st.error(str(error))
+        st.stop()
 
 
 def load_persistent_json(path, default):
