@@ -373,7 +373,11 @@ PREORDER_ARCHIVE_FILE = application_storage_path("archiwum_preorderow.json")
 APP_STATE_DB = application_storage_path("magazyn_stanu_aplikacji.db")
 _supabase_url = str(st.secrets.get("supabase", {}).get("url", "")).strip()
 _supabase_key = str(st.secrets.get("supabase", {}).get("key", "")).strip()
-if not (_supabase_url and _supabase_key) and os.environ.get("STREAMLIT_SHARING_MODE"):
+# Streamlit Community Cloud uruchamia repozytorium pod /mount/src. Zmienna
+# STREAMLIT_SHARING_MODE nie jest obecna we wszystkich obrazach, więc sama nie
+# może być jedyną blokadą przed uruchomieniem lokalnego fallbacku w chmurze.
+_is_streamlit_cloud = bool(os.environ.get("STREAMLIT_SHARING_MODE")) or os.path.normpath(APP_DIR).startswith(os.path.normpath("/mount/src"))
+if not (_supabase_url and _supabase_key) and _is_streamlit_cloud:
     st.error(
         "Brak konfiguracji Supabase w Settings → Secrets. Dodaj sekcję [supabase] z url i key, "
         "a następnie zrestartuj aplikację. Dane nie zostaną zapisane lokalnie."

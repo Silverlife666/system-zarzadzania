@@ -92,16 +92,23 @@ def render_work_settlement_archive_screen(st, deps):
     entries = archive.setdefault("entries", [])
     changeovers = archive.setdefault("changeovers", [])
     if not archive.get("legacy_context_migrated"):
+        migrated_records = 0
         for legacy_order_id, context in deps["load_order_contexts"]().items():
             decoded = {key: deps["deserialize_context"](value) for key, value in (context.get("data", {}) if isinstance(context, dict) else {}).items()}
             for item in decoded.get("work_settlement_entries", []) or []:
                 if isinstance(item, dict):
                     entries.append({**item, "order_id": item.get("order_id") or legacy_order_id})
+                    migrated_records += 1
             for item in decoded.get("machine_changeover_entries", []) or []:
                 if isinstance(item, dict):
                     changeovers.append({**item, "order_id": item.get("order_id") or legacy_order_id})
-        archive["legacy_context_migrated"] = True
-        _save(deps, archive)
+                    migrated_records += 1
+        # Samo otwarcie pustego modułu nie może tworzyć ani nadpisywać
+        # rekordu w chmurze. Zapis wykonujemy wyłącznie, gdy rzeczywiście
+        # znaleziono dane do migracji.
+        if migrated_records:
+            archive["legacy_context_migrated"] = True
+            _save(deps, archive)
     known_papers = sorted({str(item.get("paper_name", "")).strip() for item in entries if str(item.get("paper_name", "")).strip()})
 
     st.header("Archiwum rozliczenia pracy")

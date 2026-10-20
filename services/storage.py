@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 import sqlite3
+import tempfile
 from typing import Any
 
 
@@ -32,12 +33,20 @@ class SharedStateStore:
     def atomic_write_json(self, path: str, data: Any) -> None:
         directory = os.path.dirname(path) or self.default_directory
         os.makedirs(directory, exist_ok=True)
-        temporary_path = os.path.join(directory, f".{os.path.basename(path)}.{os.getpid()}.tmp")
-        with open(temporary_path, "w", encoding="utf-8") as stream:
-            json.dump(data, stream, ensure_ascii=False, indent=2, default=_json_safe)
-            stream.flush()
-            os.fsync(stream.fileno())
-        os.replace(temporary_path, path)
+        descriptor, temporary_path = tempfile.mkstemp(
+            prefix=f".{os.path.basename(path)}.{os.getpid()}.", suffix=".tmp", dir=directory,
+        )
+        try:
+            with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
+                json.dump(data, stream, ensure_ascii=False, indent=2, default=_json_safe)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(temporary_path, path)
+        finally:
+            # Po udanej podmianie pliku ścieżka tymczasowa już nie istnieje.
+            # Przy błędzie usuwamy wyłącznie własny, unikalny plik tymczasowy.
+            if os.path.exists(temporary_path):
+                os.unlink(temporary_path)
 
     def load(self, state_key: str, mirror_path: str, default: Any) -> Any:
         connection = None
