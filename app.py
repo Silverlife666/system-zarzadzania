@@ -7,7 +7,6 @@ import os
 import time
 import json
 import base64
-import hashlib
 import smtplib
 import re
 import shutil
@@ -431,16 +430,17 @@ def load_persistent_json(path, default):
     Szablony, biblioteki i archiwa pozostają eksportowalnymi plikami JSON,
     lecz źródłem trwałego stanu jest wspólny magazyn aplikacji.
     """
-    normalized_path = os.path.normcase(os.path.abspath(path))
-    state_key = "json_store:" + hashlib.sha256(normalized_path.encode("utf-8")).hexdigest()
+    # Klucz nie może zawierać pełnej ścieżki ani jej hash'a: ścieżka różni się
+    # między komputerami i Streamlit Cloud. Nazwa pliku jest wspólnym,
+    # jednoznacznym identyfikatorem danych pomocniczych aplikacji.
+    state_key = "persistent_json:" + os.path.basename(os.fspath(path))
     value = load_shared_state(state_key, path, default)
     return value if isinstance(value, type(default)) else default
 
 
 def save_persistent_json(path, data):
     """Zapisuje dane pomocnicze atomowo i centralnie."""
-    normalized_path = os.path.normcase(os.path.abspath(path))
-    state_key = "json_store:" + hashlib.sha256(normalized_path.encode("utf-8")).hexdigest()
+    state_key = "persistent_json:" + os.path.basename(os.fspath(path))
     save_shared_state(state_key, path, data)
 
 
