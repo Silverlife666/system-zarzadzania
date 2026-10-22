@@ -9,5 +9,11 @@ jobs:
   keep_alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Odwiedź aplikację
-        run: curl --fail --silent --show-error --location --max-time 60 https://system-beta-adrian.streamlit.app/
+      - name: Odwiedź aplikację (z ponowieniami)
+        run: |
+          # Streamlit bywa przez chwilę niedostępny podczas wdrożenia lub
+          # wybudzania. Krótki błąd nie powinien generować fałszywego alarmu.
+          curl --fail --silent --show-error --location \
+            --connect-timeout 20 --max-time 120 \
+            --retry 4 --retry-delay 15 --retry-all-errors --retry-connrefused \
+            https://system-beta-adrian.streamlit.app/
