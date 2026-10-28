@@ -2,18 +2,53 @@ name: Keep Streamlit Awake
 
 on:
   schedule:
-    - cron: '17 */2 * * *'
+    - cron: '17 */6 * * *'   # co 6 godzin wystarczy (limit uśpienia to ok. 12 h)
   workflow_dispatch:
 
 jobs:
   keep_alive:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Odwiedź aplikację (z ponowieniami)
+      - name: Zainstaluj Playwright
         run: |
-          # Streamlit bywa przez chwilę niedostępny podczas wdrożenia lub
-          # wybudzania. Krótki błąd nie powinien generować fałszywego alarmu.
-          curl --fail --silent --show-error --location \
-            --connect-timeout 20 --max-time 120 \
-            --retry 4 --retry-delay 15 --retry-all-errors --retry-connrefused \
-            https://system-beta-adrian.streamlit.app/
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Wybudź i odwiedź aplikację
+        env:
+          APP_URL: https://system-beta-adrian.streamlit.app/
+        run: |
+          cat > wake.py << 'EOF'
+          import os, sys
+          from playwright.sync_api import sync_playwright
+
+          URL = os.environ["APP_URL"]
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page()
+              page.goto(URL, wait_until="domcontentloaded", timeout=60000)
+
+              # Jeśli aplikacja śpi, kliknij przycisk wybudzenia
+              btn = page.get_by_role("button", name="Yes, get this app back up!")
+              try:
+                  btn.wait_for(timeout=15000)
+                  print("Aplikacja spała - klikam przycisk wybudzenia")
+                  btn.click()
+              except Exception:
+                  print("Brak przycisku wybudzenia - aplikacja już działa")
+
+              # Poczekaj aż załaduje się prawdziwa aplikacja Streamlit
+              try:
+                  page.wait_for_selector('[data-testid="stApp"]', timeout=90000)
+                  page.wait_for_timeout(10000)  # chwila na otwarte połączenie
+                  print("OK: aplikacja działa")
+              except Exception as e:
+                  print("BŁĄD: aplikacja nie wstała:", e)
+                  browser.close()
+                  sys.exit(1)
+
+              browser.close()
+          EOF
+          python wake.py
