@@ -243,7 +243,7 @@ def build_bobbin_inventory_pdf(records, summary, font_regular="Helvetica", font_
     header = ParagraphStyle("bobbin_header", parent=normal, fontName=font_bold, textColor=colors.white)
     story = [
         Paragraph("Raport inwentaryzacji bobin SWM", title),
-        Paragraph(f"Wygenerowano: {datetime.now().strftime('%Y-%m-%d %H:%M')} | Tuleja zewnętrzna: 130 mm", normal),
+        Paragraph(f"Wygenerowano: {datetime.now().strftime('%Y-%m-%d %H:%M')} | Tuleja wewnętrzna: 130 mm", normal),
         Spacer(1, 5 * mm),
     ]
     summary_rows = [[Paragraph(text, header) for text in ("Papier", "Suma sztuk", "Suma metrów", "Bobina wzorcowa [m]", "Ekwiwalent bobin wzorcowych")]]
@@ -325,7 +325,7 @@ def current_calibrations(store):
 
 def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Helvetica-Bold", user_role="", load_json=None, save_json=None):
     st.subheader("🧻 Kalkulator bobin SWM")
-    st.caption("Podaj tylko średnicę zewnętrzną bobiny. Tuleja zewnętrzna: 130 mm.")
+    st.caption("Podaj tylko średnicę zewnętrzną bobiny. Tuleja wewnętrzna: 130 mm.")
     store = load_calibration_store(load_json)
     inventory = load_bobbin_inventory(load_json)
     sheet_inventory = load_sheet_paper_inventory(load_json)
