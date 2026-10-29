@@ -211,17 +211,20 @@ def sheet_paper_stock(movements):
     ]
 
 
-def bobbin_inventory_summary(records):
+def bobbin_inventory_summary(records, reference_lengths=None):
+    """Podsumowanie wg papieru; ekwiwalent liczony względem długości bobiny wzorcowej aktywnej kalibracji."""
+    reference_lengths = reference_lengths or {}
     summary = {}
     for record in records:
         paper = record.get("paper", "Nieznany papier")
         row = summary.setdefault(paper, {"paper": paper, "pieces": 0, "meters": 0.0})
         row["pieces"] += int(record.get("quantity", 0) or 0)
         row["meters"] += float(record.get("meters", 0) or 0)
-    return [
-        {**row, "equivalent_5000": row["meters"] / 5000}
-        for row in sorted(summary.values(), key=lambda item: item["paper"])
-    ]
+    result = []
+    for row in sorted(summary.values(), key=lambda item: item["paper"]):
+        reference_length = float(reference_lengths.get(row["paper"]) or DEFAULT_REFERENCE_LENGTH_M)
+        result.append({**row, "reference_length": reference_length, "equivalent": row["meters"] / reference_length})
+    return result
 
 
 def build_bobbin_inventory_pdf(records, summary, font_regular="Helvetica", font_bold="Helvetica-Bold"):
@@ -243,12 +246,15 @@ def build_bobbin_inventory_pdf(records, summary, font_regular="Helvetica", font_
         Paragraph(f"Wygenerowano: {datetime.now().strftime('%Y-%m-%d %H:%M')} | Tuleja zewnętrzna: 130 mm", normal),
         Spacer(1, 5 * mm),
     ]
-    summary_rows = [[Paragraph(text, header) for text in ("Papier", "Suma sztuk", "Suma metrów", "Ekwiwalent bobin 5000 m")]]
+    summary_rows = [[Paragraph(text, header) for text in ("Papier", "Suma sztuk", "Suma metrów", "Bobina wzorcowa [m]", "Ekwiwalent bobin wzorcowych")]]
     summary_rows.extend([
-        [Paragraph(row["paper"], normal), str(row["pieces"]), f"{row['meters']:,.0f}".replace(",", " "), f"{row['equivalent_5000']:.2f}"]
+        [
+            Paragraph(row["paper"], normal), str(row["pieces"]), f"{row['meters']:,.0f}".replace(",", " "),
+            f"{row['reference_length']:,.0f}".replace(",", " "), f"{row['equivalent']:.2f}",
+        ]
         for row in summary
     ])
-    summary_table = Table(summary_rows, colWidths=[75 * mm, 35 * mm, 45 * mm, 55 * mm], repeatRows=1)
+    summary_table = Table(summary_rows, colWidths=[65 * mm, 30 * mm, 40 * mm, 40 * mm, 50 * mm], repeatRows=1)
     summary_table.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#123B69")), ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#CBD5E1")),
         ("FONTNAME", (0, 1), (-1, -1), font_regular), ("ALIGN", (1, 1), (-1, -1), "RIGHT"),
@@ -274,10 +280,27 @@ def build_bobbin_inventory_pdf(records, summary, font_regular="Helvetica", font_
     return output.getvalue()
 
 
+DEFAULT_REFERENCE_LENGTH_M = 5000.0
+
+
+def _record_reference_length(record, fallback=None):
+    """Długość bobiny wzorcowej z rekordu kalibracji (length_m); w razie braku - wartość zapasowa."""
+    try:
+        length = float(record.get("length_m"))
+        if length > 0:
+            return length
+    except (TypeError, ValueError):
+        pass
+    if fallback and fallback.get("reference_length_m"):
+        return float(fallback["reference_length_m"])
+    return DEFAULT_REFERENCE_LENGTH_M
+
+
 def current_calibrations(store):
     calibrations = {
         variant["name"]: {
             "thickness_mm": thickness_from_calibration(variant["diameter"], variant["length"]),
+            "reference_length_m": float(variant["length"]),
             "reference": f"kalibracja: Ø{variant['diameter']:.0f} mm = {variant['length']:.0f} m",
         }
         for variant in PAPER_VARIANTS
@@ -294,6 +317,7 @@ def current_calibrations(store):
         if thickness_mm > 0:
             calibrations[paper] = {
                 "thickness_mm": thickness_mm,
+                "reference_length_m": _record_reference_length(record, calibrations.get(paper)),
                 "reference": f"dostawa: {record.get('delivery', 'bez opisu')} · {record.get('created_at', '')[:10]}",
             }
     return calibrations
@@ -452,13 +476,15 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
 
     inventory_records = inventory["records"]
     if inventory_records:
-        inventory_summary = bobbin_inventory_summary(inventory_records)
+        reference_lengths = {name: item["reference_length_m"] for name, item in calibrations.items()}
+        inventory_summary = bobbin_inventory_summary(inventory_records, reference_lengths)
         st.markdown("#### Podsumowanie według typu papieru")
         st.dataframe([
             {
                 "Papier": row["paper"], "Suma sztuk": row["pieces"],
                 "Suma metrów": f"{row['meters']:,.0f} m".replace(",", " "),
-                "Ekwiwalent bobin 5000 m": f"{row['equivalent_5000']:.2f}",
+                "Bobina wzorcowa": f"{row['reference_length']:,.0f} m".replace(",", " "),
+                "Ekwiwalent bobin wzorcowych": f"{row['equivalent']:.2f}",
             }
             for row in inventory_summary
         ], width="stretch", hide_index=True)
