@@ -227,7 +227,7 @@ def bobbin_inventory_summary(records, reference_lengths=None):
     return result
 
 
-def build_bobbin_inventory_pdf(records, summary, font_regular="Helvetica", font_bold="Helvetica-Bold"):
+def build_bobbin_inventory_pdf(records, summary, font_regular="Helvetica", font_bold="Helvetica-Bold", calibrations=None):
     """Buduje raport trwałej inwentaryzacji bobin jako bajty PDF."""
     from reportlab.lib import colors
     from reportlab.lib.pagesizes import A4, landscape
@@ -262,14 +262,51 @@ def build_bobbin_inventory_pdf(records, summary, font_regular="Helvetica", font_
     ]))
     story.extend([summary_table, Spacer(1, 6 * mm)])
 
-    detail_rows = [[Paragraph(text, header) for text in ("Data", "Papier", "Średnica [mm]", "Sztuki", "Metry / szt.", "Metry razem")]]
+    # Dane techniczne kalibracji użytej dla papierów z inwentaryzacji
+    calibrations = calibrations or {}
+    story.append(Paragraph("Dane techniczne kalibracji (aktywne w chwili generowania raportu)", ParagraphStyle(
+        "bobbin_section", parent=normal, fontName=font_bold, fontSize=10, leading=13, textColor=colors.HexColor("#123B69"),
+    )))
+    story.append(Spacer(1, 2 * mm))
+    calibration_rows = [[Paragraph(text, header) for text in (
+        "Papier", "Źródło kalibracji", "Data", "Ø wzorcowa [mm]", "Długość wzorcowa [m]", "Grubość efektywna [µm]", "Tuleja Ø [mm]",
+    )]]
+    for row in summary:
+        calibration = calibrations.get(row["paper"])
+        if calibration:
+            calibration_rows.append([
+                Paragraph(row["paper"], normal), Paragraph(str(calibration.get("source", "-")), normal), str(calibration.get("date", "-")),
+                f"{float(calibration.get('diameter_mm', 0)):.1f}",
+                f"{float(calibration.get('reference_length_m', 0)):,.0f}".replace(",", " "),
+                f"{float(calibration['thickness_mm']) * 1000:.3f}", f"{CORE_OUTER_DIAMETER_MM:.0f}",
+            ])
+        else:
+            calibration_rows.append([Paragraph(row["paper"], normal), Paragraph("brak danych kalibracji", normal), "-", "-", "-", "-", f"{CORE_OUTER_DIAMETER_MM:.0f}"])
+    calibration_table = Table(calibration_rows, colWidths=[50 * mm, 62 * mm, 24 * mm, 30 * mm, 33 * mm, 38 * mm, 25 * mm], repeatRows=1)
+    calibration_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#123B69")), ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#CBD5E1")),
+        ("FONTNAME", (0, 1), (-1, -1), font_regular), ("FONTSIZE", (0, 1), (-1, -1), 8), ("ALIGN", (2, 1), (-1, -1), "RIGHT"),
+        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F5F9FC")]), ("PADDING", (0, 0), (-1, -1), 5),
+    ]))
+    story.extend([
+        calibration_table, Spacer(1, 2 * mm),
+        Paragraph(
+            "Metoda: grubość efektywna = π · (D² − d²) / 4 / (L · 1000), gdzie D - średnica bobiny wzorcowej, d - średnica tulei, "
+            "L - potwierdzona długość bobiny wzorcowej. Długość bobiny = π · (D² − d²) / 4 / grubość · 0,001. "
+            "Ekwiwalent = suma metrów / długość bobiny wzorcowej danego papieru.", normal,
+        ),
+        Spacer(1, 6 * mm),
+    ])
+
+    detail_rows = [[Paragraph(text, header) for text in ("Data", "Papier", "Średnica [mm]", "Sztuki", "Metry / szt.", "Metry razem", "Użyta kalibracja")]]
     for record in records:
         detail_rows.append([
             Paragraph(str(record.get("created_at", ""))[:16].replace("T", " "), normal), Paragraph(str(record.get("paper", "")), normal),
             f"{float(record.get('outer_diameter_mm', 0)):.1f}", str(record.get("quantity", 0)),
             f"{float(record.get('meters_per_piece', 0)):,.0f}".replace(",", " "), f"{float(record.get('meters', 0)):,.0f}".replace(",", " "),
+            Paragraph(str(record.get("calibration", "-")), normal),
         ])
-    detail_table = Table(detail_rows, colWidths=[37 * mm, 65 * mm, 32 * mm, 24 * mm, 37 * mm, 38 * mm], repeatRows=1)
+    detail_table = Table(detail_rows, colWidths=[32 * mm, 50 * mm, 25 * mm, 18 * mm, 28 * mm, 28 * mm, 96 * mm], repeatRows=1)
     detail_table.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1F4E78")), ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#CBD5E1")),
         ("FONTNAME", (0, 1), (-1, -1), font_regular), ("ALIGN", (2, 1), (-1, -1), "RIGHT"),
@@ -301,6 +338,9 @@ def current_calibrations(store):
         variant["name"]: {
             "thickness_mm": thickness_from_calibration(variant["diameter"], variant["length"]),
             "reference_length_m": float(variant["length"]),
+            "diameter_mm": float(variant["diameter"]),
+            "source": "wartość domyślna",
+            "date": "-",
             "reference": f"kalibracja: Ø{variant['diameter']:.0f} mm = {variant['length']:.0f} m",
         }
         for variant in PAPER_VARIANTS
@@ -318,6 +358,9 @@ def current_calibrations(store):
             calibrations[paper] = {
                 "thickness_mm": thickness_mm,
                 "reference_length_m": _record_reference_length(record, calibrations.get(paper)),
+                "diameter_mm": float(record.get("outer_diameter_mm") or calibrations.get(paper, {}).get("diameter_mm", 0) or 0),
+                "source": f"dostawa: {record.get('delivery', 'bez opisu')}",
+                "date": str(record.get("created_at", ""))[:10] or "-",
                 "reference": f"dostawa: {record.get('delivery', 'bez opisu')} · {record.get('created_at', '')[:10]}",
             }
     return calibrations
@@ -523,7 +566,7 @@ def render_bobbin_calculator_screen(st, font_regular="Helvetica", font_bold="Hel
                         st.rerun()
             else:
                 st.caption("Usuwanie pozycji jest dostępne tylko dla administratora.")
-        report_pdf = build_bobbin_inventory_pdf(inventory_records, inventory_summary, font_regular, font_bold)
+        report_pdf = build_bobbin_inventory_pdf(inventory_records, inventory_summary, font_regular, font_bold, calibrations)
         st.download_button(
             "📄 Pobierz raport PDF", report_pdf, "raport_inwentaryzacji_bobin.pdf", "application/pdf", width="stretch",
         )
